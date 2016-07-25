@@ -9,6 +9,6 @@
 
 * [`ktv`](https://jeffery-young.github.io/histroy/ktv/) 给学校做的ktv预约系统
 
-* [`vitualKeyboard`](https://jeffery-young.github.io/histroy/vitualKeyboard/) 虚拟键盘，烂尾了
+* [`virtualKeyboard`](https://jeffery-young.github.io/histroy/virtualKeyboard/) 虚拟键盘，烂尾了
 
 * [`weiboAdmin`](https://jeffery-young.github.io/histroy/weiboAdmin/) 微博监控后台系统，设计&静态页，项目整体保密
