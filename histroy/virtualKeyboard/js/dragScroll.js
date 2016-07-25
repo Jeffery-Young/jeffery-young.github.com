@@ -1,39 +1,39 @@
-function dragScroll(autoScrollSpeed){			//autoScrollSpeedÎª¹ö¶¯ËÙ¶È£¬µ¥Î»ms
+ï»¿function dragScroll(autoScrollSpeed){			//autoScrollSpeedä¸ºæ»šåŠ¨é€Ÿåº¦ï¼Œå•ä½ms
 	var timer;
-	var mouseMove = false;						//±ê¼ÇÊó±êÊÇ·ñ½øÈëÍÏ×§×´Ì¬
-	var scrollY;								//¹ö¶¯ÌõÎ»ÖÃ
-	var mouseY;									//Êó±ê´¹Ö±Î»ÖÃ
+	var mouseMove = false;						//æ ‡è®°é¼ æ ‡æ˜¯å¦è¿›å…¥æ‹–æ‹½çŠ¶æ€
+	var scrollY;								//æ»šåŠ¨æ¡ä½ç½®
+	var mouseY;									//é¼ æ ‡å‚ç›´ä½ç½®
 	var scrollObj = document.getElementById("scroll");
-	var contentHeight = scrollObj.scrollHeight;				//»ñÈ¡divËùÓĞÄÚÈİµÄ¸ß¶È
-	var displayHeight = scrollObj.offsetHeight;				//»ñÈ¡divÏÔÊ¾ÄÚÈİµÄ¸ß¶È
-	var scrollSpeed = contentHeight / displayHeight / 2;	//ÉèÖÃ¹ö¶¯ËÙ¶È»ùÊı£¬Êµ¼Ê¸ß¶È/ÏÔÊ¾¸ß¶È
+	var contentHeight = scrollObj.scrollHeight;				//è·å–divæ‰€æœ‰å†…å®¹çš„é«˜åº¦
+	var displayHeight = scrollObj.offsetHeight;				//è·å–divæ˜¾ç¤ºå†…å®¹çš„é«˜åº¦
+	var scrollSpeed = contentHeight / displayHeight / 2;	//è®¾ç½®æ»šåŠ¨é€Ÿåº¦åŸºæ•°ï¼Œå®é™…é«˜åº¦/æ˜¾ç¤ºé«˜åº¦
 
 	if(contentHeight > displayHeight){
-		scrollObj.style.cssText = "cursor:row-resize";		//ÈôËùÓĞÄÚÈİµÄ¸ß¶È´óÓÚÏÔÊ¾µÄÄÚÈİ£¬ÔòÊó±ê±äÎªrow-resize£¨¼´¿ÉÒÔ¹ö¶¯£©
+		scrollObj.style.cssText = "cursor:row-resize";		//è‹¥æ‰€æœ‰å†…å®¹çš„é«˜åº¦å¤§äºæ˜¾ç¤ºçš„å†…å®¹ï¼Œåˆ™é¼ æ ‡å˜ä¸ºrow-resizeï¼ˆå³å¯ä»¥æ»šåŠ¨ï¼‰
 	}
 	
 	scrollObj.ondblclick = function(){
 		if(autoScrollSpeed == null){ autoScrollSpeed = 50; }
-		timer = setInterval(autoScroll,autoScrollSpeed);	//ÒÔautoScrollSpeedÉèÖÃµÄËÙ¶È×Ô¶¯¹ö¶¯
+		timer = setInterval(autoScroll,autoScrollSpeed);	//ä»¥autoScrollSpeedè®¾ç½®çš„é€Ÿåº¦è‡ªåŠ¨æ»šåŠ¨
 	}
 	function autoScroll(){
-		scrollObj.scrollTop = scrollObj.scrollTop + 1;		//×Ô¶¯¹ö¶¯¹¦ÄÜ
+		scrollObj.scrollTop = scrollObj.scrollTop + 1;		//è‡ªåŠ¨æ»šåŠ¨åŠŸèƒ½
 	}
 	
 	scrollObj.onmousedown = function(e){
-		clearInterval(timer);					//Í£Ö¹×Ô¶¯¹ö¶¯
-		var event = e||window.event;			//ie¡¢ff¼æÈİÊÂ¼ş°ó¶¨
-		mouseMove = true;						//½«Êó±ê±ê¼ÇÎªÍÏ×§×´Ì¬
-		mouseY = event.clientY;					//»ñÈ¡Êó±ê°´ÏÂÊ±ºòµÄYÖáÎ»ÖÃ
-		scrollY = scrollObj.scrollTop;			//»ñÈ¡µ±Ç°¹ö¶¯ÌõÎ»ÖÃ
-		this.setCapture();						//ÉèÖÃµ±Ç°´°¿Ú°ó¶¨Êó±ê
+		clearInterval(timer);					//åœæ­¢è‡ªåŠ¨æ»šåŠ¨
+		var event = e||window.event;			//ieã€ffå…¼å®¹äº‹ä»¶ç»‘å®š
+		mouseMove = true;						//å°†é¼ æ ‡æ ‡è®°ä¸ºæ‹–æ‹½çŠ¶æ€
+		mouseY = event.clientY;					//è·å–é¼ æ ‡æŒ‰ä¸‹æ—¶å€™çš„Yè½´ä½ç½®
+		scrollY = scrollObj.scrollTop;			//è·å–å½“å‰æ»šåŠ¨æ¡ä½ç½®
+		this.setCapture();						//è®¾ç½®å½“å‰çª—å£ç»‘å®šé¼ æ ‡
 	}
 	
 	scrollObj.onmousemove = function(e){
-		var event = e||window.event;			//ie¡¢ff¼æÈİÊÂ¼ş°ó¶¨
+		var event = e||window.event;			//ieã€ffå…¼å®¹äº‹ä»¶ç»‘å®š
 		if(mouseMove == true){
 			scrollObj.style.cssText = "cursor:n-resize";
-			var scrollMove = mouseY - event.clientY;	//ÍÏ¶¯µÄ´¹Ö±¾àÀë
+			var scrollMove = mouseY - event.clientY;	//æ‹–åŠ¨çš„å‚ç›´è·ç¦»
 			this.scrollTop = scrollY + scrollMove * scrollSpeed;
 			return false;
 		}
@@ -41,12 +41,12 @@ function dragScroll(autoScrollSpeed){			//autoScrollSpeedÎª¹ö¶¯ËÙ¶È£¬µ¥Î»ms
 	
 	scrollObj.onmouseup = function(){
 		mouseMove = false;
-		scrollY = $("#scroll").scrollTop();		//Êó±êÌ§ÆğÊ±¼ÇÂ¼¹ö¶¯ÌõµÄÎ»ÖÃ
-		this.releaseCapture(); 					//È¡Ïûµ±Ç°´°¿ÚµÄÊó±ê°ó¶¨
+		scrollY = $("#scroll").scrollTop();		//é¼ æ ‡æŠ¬èµ·æ—¶è®°å½•æ»šåŠ¨æ¡çš„ä½ç½®
+		this.releaseCapture(); 					//å–æ¶ˆå½“å‰çª—å£çš„é¼ æ ‡ç»‘å®š
 		if(contentHeight > displayHeight){
-			scrollObj.style.cssText = "cursor:row-resize";		//ÈôËùÓĞÄÚÈİµÄ¸ß¶È´óÓÚÏÔÊ¾µÄÄÚÈİ£¬ÔòÊó±ê±äÎªrow-resize£¨¼´¿ÉÒÔ¹ö¶¯£©
+			scrollObj.style.cssText = "cursor:row-resize";		//è‹¥æ‰€æœ‰å†…å®¹çš„é«˜åº¦å¤§äºæ˜¾ç¤ºçš„å†…å®¹ï¼Œåˆ™é¼ æ ‡å˜ä¸ºrow-resizeï¼ˆå³å¯ä»¥æ»šåŠ¨ï¼‰
 		} else {
-			scrollObj.style.cssText = "cursor:default";			//·ñÔòÎª²»¿É¹ö¶¯×´Ì¬£¬Êó±ê±äÎªdefault
+			scrollObj.style.cssText = "cursor:default";			//å¦åˆ™ä¸ºä¸å¯æ»šåŠ¨çŠ¶æ€ï¼Œé¼ æ ‡å˜ä¸ºdefault
 		}
 	}
 }

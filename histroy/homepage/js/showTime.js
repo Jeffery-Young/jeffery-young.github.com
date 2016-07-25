@@ -1,4 +1,4 @@
-function date(){
+ï»¿function date(){
 	var nowDate = new Date();
 	var myYear = nowDate.getFullYear();
 	var myMonth = nowDate.getMonth() + 1;
@@ -11,13 +11,13 @@ function date(){
 	}
 	var myDay = nowDate.getDay();
 	switch(myDay){
-		case 0: myDay = "Ìì";break;
-		case 1: myDay = "Ò»";break;
-		case 2: myDay = "¶þ";break;
-		case 3: myDay = "Èý";break;
-		case 4: myDay = "ËÄ";break;
-		case 5: myDay = "Îå";break;
-		case 6: myDay = "Áù";break;
+		case 0: myDay = "å¤©";break;
+		case 1: myDay = "ä¸€";break;
+		case 2: myDay = "äºŒ";break;
+		case 3: myDay = "ä¸‰";break;
+		case 4: myDay = "å››";break;
+		case 5: myDay = "äº”";break;
+		case 6: myDay = "å…­";break;
 	}
 	var myHours = nowDate.getHours();
 	if( myHours <= 12){

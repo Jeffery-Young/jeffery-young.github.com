@@ -1,4 +1,4 @@
-/** @license
+﻿/** @license
  * DHTML Snowstorm! JavaScript-based Snow for web pages
  * --------------------------------------------------------
  * Version 1.43.20111201 (Previous rev: 1.42.20111120)

@@ -1,9 +1,9 @@
-function mouseFollow(){
+ï»¿function mouseFollow(){
 	var mouseX = 100;
 	var mouseY = 200;
 	//$("*").mousemove(function(e){
-	//	mouseX = e.pageX;						//»ñÈ¡Êó±êµ±Ç°XÖáÎ»ÖÃ
-	//	mouseY = e.pageY;						//»ñÈ¡Êó±êµ±Ç°YÖáÎ»ÖÃ
+	//	mouseX = e.pageX;						//è·å–é¼ æ ‡å½“å‰Xè½´ä½ç½®
+	//	mouseY = e.pageY;						//è·å–é¼ æ ‡å½“å‰Yè½´ä½ç½®
 	//	singleAction(mouseX,mouseY);
 		
 		//$(".name").empty().append(mouseX + " " + mouseY);

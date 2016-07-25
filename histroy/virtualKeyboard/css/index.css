@@ -1,5 +1,5 @@
-/* È«¾ÖÑùÊ½ */
-body,div{ margin:0px; padding:0px; color:#FFF; font-family:"Î¢ÈíÑÅºÚ","ËÎÌå"; font-size:12px; font-weight:normal;}
+ï»¿/* å…¨å±€æ ·å¼ */
+body,div{ margin:0px; padding:0px; color:#FFF; font-family:"å¾®è½¯é›…é»‘","å®‹ä½“"; font-size:12px; font-weight:normal;}
 div{ overflow:hidden;}
 ul{ list-style:none; margin:0px; padding:0px;}
 img{ border:none 0px;}
@@ -9,13 +9,13 @@ a:hover{ text-decoration:none;}
 body{ background:#000 url(../images/mainBg.jpg) no-repeat; cursor:default; /*overflow:hidden;*/}
 #index{ background:#000 url(../images/indexBg.jpg) no-repeat;}
 
-/* Í·²¿ÑùÊ½ */
+/* å¤´éƒ¨æ ·å¼ */
 #top{ width:1280px; height:188px;}
 #top #date{ width:1230px; text-align:right; font-size:17px; margin-top:77px;}
 #top #time{ width:1230px; text-align:right; font-weight:bold; font-size:16px; vertical-align:top; line-height:35px;}
 #top #time span{ font-family:DigifaceWide; font-size:35px; margin:0px 2px 0px 8px; vertical-align:top; line-height:42px;}
 
-/* ×ó²àÑùÊ½ */
+/* å·¦ä¾§æ ·å¼ */
 #left{ width:260px; height:282px; margin-left:45px; float:left;}
 #left #nav li{ width:260px; height:94px;}
 #left #nav li a{ height:94px; display:block;}
@@ -29,9 +29,9 @@ body{ background:#000 url(../images/mainBg.jpg) no-repeat; cursor:default; /*ove
 #left #nav #nav2_now{ background:url(../images/leftNav2_now.png) no-repeat;}
 #left #nav #nav3_now{ background:url(../images/leftNav3_now.png) no-repeat;}
 
-/* ÓÒ²àÑùÊ½ */
+/* å³ä¾§æ ·å¼ */
 #right{ width:905px; height:727px; margin:5px 0px 0px 20px; float:left;}
-/* ÓÒ²àÑùÊ½ *//* ÓÒ²àÍ·²¿±êÌâ */
+/* å³ä¾§æ ·å¼ *//* å³ä¾§å¤´éƒ¨æ ‡é¢˜ */
 #right #title{ width:905px; height:61px; background:url(../images/rightTitle.png) no-repeat;}
 #right #title_left{ width:673px; float:left;}
 #right #title_left h1{ color:#000; font-size:25px; font-weight:normal; margin:3px 0px 0px 15px; line-height:35px;}
@@ -40,32 +40,32 @@ body{ background:#000 url(../images/mainBg.jpg) no-repeat; cursor:default; /*ove
 #right #title_right span{ color:#FFF; font-size:30px; line-height:60px; margin-right:20px;}
 #right #title_right span a{ color:#FFF;}
 #right #title_right span a:hover{ background:#2b90a1;}
-/* ÓÒ²àÑùÊ½ *//* ÓÒ²àÖ÷ÄÚÈİ */
+/* å³ä¾§æ ·å¼ *//* å³ä¾§ä¸»å†…å®¹ */
 #right #main{ width:896px; height:666px; margin-left:9px;}
-/* ÓÒ²àÑùÊ½ *//* Ê×Ò³Ö÷ÄÚÈİ */
+/* å³ä¾§æ ·å¼ *//* é¦–é¡µä¸»å†…å®¹ */
 #right #indexMain{ width:896px; height:707px; margin-left:9px;}
 #right #indexPPT{ width:600px; height:360px; margin:73px auto 0px auto;}
 #right #indexWelcome{ width:530px; margin:55px auto 0px auto;}
 #right #indexWelcome span{ font-size:18px; line-height:30px; text-align:left;}
-/* ÓÒ²àÑùÊ½ *//* ·ÖÀàÒ³Ö÷ÄÚÈİ */
+/* å³ä¾§æ ·å¼ *//* åˆ†ç±»é¡µä¸»å†…å®¹ */
 #right .classify{ margin-top:50px; max-height:530px; background:url(../images/classifyLine.png) center top repeat-y;}
 #right .classify ul{ width:810px; margin:-15px auto;}
 #right .classify li{ color:#FFF; width:270px; height:83px; line-height:80px; font-size:35px; font-weight:bold; text-align:center; float:left;}
 #right .classify li a{ color:#FFF;}
 #right .classify li a:hover{ background:#35434f;}
-/* ÓÒ²àÑùÊ½ *//* µçÓ°ÁĞ±íÒ³Ö÷ÄÚÈİ */
+/* å³ä¾§æ ·å¼ *//* ç”µå½±åˆ—è¡¨é¡µä¸»å†…å®¹ */
 #right .list{ height:580px; margin:20px 0px 6px 16px;}
 #right .list .movie{ width:278px; height:283px; margin:0px 5px 7px 5px; float:left;}
 #right .list .movie:hover{ background:#35434f;}
 #right .list .movie .pic{ width:258px; height:181px; background:#FFF; margin:10px auto 7px auto;}
 #right .list .movie .pic img{ border:#485a69 1px solid; margin:3px;}
 #right .list .movie .pic .name{ width:207px; height:24px; color:#000; font-size:16px; font-weight:bold; line-height:21px; white-space:nowrap; overflow:hidden; margin-left:3px; display:block; float:left;}
-#right .list .movie .pic .length{ width:48px; height:24px; color:#c10000; line-height:23px; font-family:Tahoma,"ËÎÌå"; font-size:13px; text-align:right; overflow:hidden; display:block; float:right;}
-#right .list .movie .note{ width:252px; height:80px; font-family:Tahoma,"ËÎÌå"; font-size:12px; line-height:20px; margin:auto;}
-#right .show_page{ color:#FFF; font-family:"Î¢ÈíÑÅºÚ"; font-size:29px; text-align:center; line-height:60px; background:url(../images/listLine.png) repeat-x left top; margin:0px 25px;}
+#right .list .movie .pic .length{ width:48px; height:24px; color:#c10000; line-height:23px; font-family:Tahoma,"å®‹ä½“"; font-size:13px; text-align:right; overflow:hidden; display:block; float:right;}
+#right .list .movie .note{ width:252px; height:80px; font-family:Tahoma,"å®‹ä½“"; font-size:12px; line-height:20px; margin:auto;}
+#right .show_page{ color:#FFF; font-family:"å¾®è½¯é›…é»‘"; font-size:29px; text-align:center; line-height:60px; background:url(../images/listLine.png) repeat-x left top; margin:0px 25px;}
 #right .show_page a{ text-decoration:underline;}
 #right .show_page a:hover{ text-decoration:underline; background:#35434f;}
-/* ÓÒ²àÑùÊ½ *//* µçÓ°ÏêÏ¸ĞÅÏ¢Ò³Ö÷ÄÚÈİ */
+/* å³ä¾§æ ·å¼ *//* ç”µå½±è¯¦ç»†ä¿¡æ¯é¡µä¸»å†…å®¹ */
 #right .info{ width:252px; margin:30px 30px 0px 35px; float:left;}
 #right .info img{ border:#707f8b 1px solid;}
 #right .info table{ margin:10px 2px; text-align:left;}
@@ -77,15 +77,15 @@ body{ background:#000 url(../images/mainBg.jpg) no-repeat; cursor:default; /*ove
 #right .content{ height:590px; margin:30px 0px; padding:0px 30px; background:url(../images/classifyLine.png) -270px top repeat-y;}
 #right .content .title{ height:28px; font-size:16px; font-weight:bold; margin-top:-3px;}
 #right .content .text{ font-size:14px; text-align:justify; line-height:24px;}
-/* ÓÒ²àÑùÊ½ *//* µçÓ°´òÓ¡ĞÅÏ¢Ò³Ö÷ÄÚÈİ */
+/* å³ä¾§æ ·å¼ *//* ç”µå½±æ‰“å°ä¿¡æ¯é¡µä¸»å†…å®¹ */
 #right .printTitle{ display:none;}
 #right .printMessage{ font-size:30px; font-weight:normal; line-height:60px; margin:70px 0px 40px 250px;}
 #right .printButton{ width:244px; height:70px; display:block; background:url(../images/printButton.png) no-repeat; margin:auto;}
 #right .printButton:hover{ background:url(../images/printButton_hover.png) no-repeat;}
-/* ÓÒ²àÑùÊ½ *//* ²éÑ¯Ò³¼üÅÌ */
+/* å³ä¾§æ ·å¼ *//* æŸ¥è¯¢é¡µé”®ç›˜ */
 #right #floatLayer{ width:896px; height:666px; margin-left:10px; position:absolute; z-index:10; background:url(../images/searchFloatLayoutBg.png) no-repeat;}
 
 
-/* µ×²¿ÑùÊ½ */
+/* åº•éƒ¨æ ·å¼ */
 #bottom{ width:1280px; text-align:center; padding-top:90px;}
 #bottom span{ font-size:12px;}

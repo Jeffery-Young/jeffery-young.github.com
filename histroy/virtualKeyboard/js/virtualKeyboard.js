@@ -1,87 +1,87 @@
-var target;				//ĞéÄâ¼üÅÌ²Ù×÷µÄÄ¿±êDOM
-var holdOperationTime;		//setTimeout°´×¡°´¼ü
-var continuOperationTime;	//setIntervalÁ¬Ğø²Ù×÷
+ï»¿var target;				//è™šæ‹Ÿé”®ç›˜æ“ä½œçš„ç›®æ ‡DOM
+var holdOperationTime;		//setTimeoutæŒ‰ä½æŒ‰é”®
+var continuOperationTime;	//setIntervalè¿ç»­æ“ä½œ
 
 function virtualKeyboard(targetID){
 	$("#virtualKeyboard").bind("selectstart", function(){
-		return false;			//×èÖ¹ĞéÄâ¼üÅÌÖĞÊó±êÍÏ¶¯Ê±µÄÑ¡ÖĞ²Ù×÷
+		return false;			//é˜»æ­¢è™šæ‹Ÿé”®ç›˜ä¸­é¼ æ ‡æ‹–åŠ¨æ—¶çš„é€‰ä¸­æ“ä½œ
 	});
 	
-	target = document.getElementById(targetID);		//target¼´ÎªÍ¨¹ıtargetID²ÎÊı´«µİ½øÈëµÄÄ¿±êDOM
-	$("#" + targetID).focus();						//×Ô¶¯½«Ä¿±ê»ñÈ¡½¹µã
+	target = document.getElementById(targetID);		//targetå³ä¸ºé€šè¿‡targetIDå‚æ•°ä¼ é€’è¿›å…¥çš„ç›®æ ‡DOM
+	$("#" + targetID).focus();						//è‡ªåŠ¨å°†ç›®æ ‡è·å–ç„¦ç‚¹
 	$("#" + targetID).bind("mouseup keyup", function(){
-		if (document.all){		//IEä¯ÀÀÆ÷¼æÈİ
+		if (document.all){		//IEæµè§ˆå™¨å…¼å®¹
 			selectRange = document.selection.createRange();	
-		}						//Ä¿±êÉÏmouseup,keyupÊ±ĞèÒª»ñÈ¡µ±Ç°µÄÑ¡¶¨ÇøÓò£¨·ñÔòµ±Ñ¡È¡·¶Î§Ö®ºóÁ¢¼´Ê§È¥½¹µãÊ±£¬±¾´ÎµÄÑ¡È¡·¶Î§²»»á±»¼ÇÂ¼£©
+		}						//ç›®æ ‡ä¸Šmouseup,keyupæ—¶éœ€è¦è·å–å½“å‰çš„é€‰å®šåŒºåŸŸï¼ˆå¦åˆ™å½“é€‰å–èŒƒå›´ä¹‹åç«‹å³å¤±å»ç„¦ç‚¹æ—¶ï¼Œæœ¬æ¬¡çš„é€‰å–èŒƒå›´ä¸ä¼šè¢«è®°å½•ï¼‰
 		return false;
 	});
 		
-	/*****************************************´óĞ¡Ğ´Ëø¶¨¼üÍâ¹Û¡¢¹¦ÄÜ********************************************/
-	var capsLock = "off";												//³õÊ¼»¯´óĞ¡Ğ´Ëø¶¨¼ü×´Ì¬£¬on´óĞ´£¬offĞ¡Ğ´
-	$("#virtualKeyboard #capsLockButton").click(function(){			//´óĞ¡Ğ´Ëø¶¨¼ü¹¦ÄÜ
+	/*****************************************å¤§å°å†™é”å®šé”®å¤–è§‚ã€åŠŸèƒ½********************************************/
+	var capsLock = "off";												//åˆå§‹åŒ–å¤§å°å†™é”å®šé”®çŠ¶æ€ï¼Œonå¤§å†™ï¼Œoffå°å†™
+	$("#virtualKeyboard #capsLockButton").click(function(){			//å¤§å°å†™é”å®šé”®åŠŸèƒ½
 		if(capsLock == "on"){
 			$(this).removeClass("capsLockButton_on").addClass("capsLockButton_off");
 			$("#virtualKeyboard #inputButton").each(function(){
-				$(this).html($(this).html().toLowerCase());  			//×ª»»ÎªĞ¡Ğ´¼üÅÌ
+				$(this).html($(this).html().toLowerCase());  			//è½¬æ¢ä¸ºå°å†™é”®ç›˜
 				capsLock = "off";
 			});
 		} else if(capsLock == "off"){
 			$(this).removeClass("capsLockButton_off").addClass("capsLockButton_on");
 			$("#virtualKeyboard #inputButton").each(function(){
-				$(this).html($(this).html().toUpperCase());			//×ª»»Îª´óĞ´¼üÅÌ
+				$(this).html($(this).html().toUpperCase());			//è½¬æ¢ä¸ºå¤§å†™é”®ç›˜
 				capsLock = "on";
 			});
 		}
 	});
 	
-	/*****************************************ÆÕÍ¨°´¼ü²Ù×÷_×ÖÄ¸&Êı×Ö&·ûºÅ********************************************/
+	/*****************************************æ™®é€šæŒ‰é”®æ“ä½œ_å­—æ¯&æ•°å­—&ç¬¦å·********************************************/
 	$("#virtualKeyboard #inputButton").bind("mousedown", function(){
-		var inputContent = $(this).html().toString();										//»ñÈ¡µ±Ç°ÊäÈëµÄ°´¼üÖµ
-		singleClickInputButton(inputContent);												//´¥·¢µ¥»÷²Ù×÷£¬´«µİµ±Ç°ÊäÈëÖµ
-		holdOperationTime = setTimeout(function(){holdInputButton(inputContent)}, 700);	//³¤°´700msºó´¥·¢Á¬ĞøÊäÈë²Ù×÷£¬´«µİµ±Ç°ÊäÈëÖµ
-	}).bind("mouseup", function(){			//mouseupÊ±½â³ıÁ¬ĞøÊäÈë×´Ì¬
+		var inputContent = $(this).html().toString();										//è·å–å½“å‰è¾“å…¥çš„æŒ‰é”®å€¼
+		singleClickInputButton(inputContent);												//è§¦å‘å•å‡»æ“ä½œï¼Œä¼ é€’å½“å‰è¾“å…¥å€¼
+		holdOperationTime = setTimeout(function(){holdInputButton(inputContent)}, 700);	//é•¿æŒ‰700msåè§¦å‘è¿ç»­è¾“å…¥æ“ä½œï¼Œä¼ é€’å½“å‰è¾“å…¥å€¼
+	}).bind("mouseup", function(){			//mouseupæ—¶è§£é™¤è¿ç»­è¾“å…¥çŠ¶æ€
 		clearTimeout(holdOperationTime);
 		clearInterval(continuOperationTime);
-		if (document.all){					//IEä¯ÀÀÆ÷¼æÈİ
-			selectRange.select();			//ÉèÖÃ¹â±êÎ»ÖÃ
-		} else {												//·ÇIEä¯ÀÀÆ÷¼æÈİ
-			target.setSelectionRange(selectRange, selectRange);	//ÉèÖÃ²¢ÏÔÊ¾¹â±êÎ»ÖÃ
+		if (document.all){					//IEæµè§ˆå™¨å…¼å®¹
+			selectRange.select();			//è®¾ç½®å…‰æ ‡ä½ç½®
+		} else {												//éIEæµè§ˆå™¨å…¼å®¹
+			target.setSelectionRange(selectRange, selectRange);	//è®¾ç½®å¹¶æ˜¾ç¤ºå…‰æ ‡ä½ç½®
 		}
-	}).bind("mouseout", function(){			//mouseoutÊ±½â³ıÁ¬ĞøÊäÈë×´Ì¬
+	}).bind("mouseout", function(){			//mouseoutæ—¶è§£é™¤è¿ç»­è¾“å…¥çŠ¶æ€
 		clearTimeout(holdOperationTime);
 		clearInterval(continuOperationTime);
 	});
 
-	/*****************************************ÍË¸ñ°´¼ü²Ù×÷********************************************/
+	/*****************************************é€€æ ¼æŒ‰é”®æ“ä½œ********************************************/
 	$("#virtualKeyboard #backButton").mousedown(function(){
-		holdOperationTime = setTimeout(holdBackButton, 700);		//³¤°´700msºó´¥·¢Á¬ĞøÉ¾³ı²Ù×÷
-		singleClickBackButton();									//´¥·¢µ¥»÷²Ù×÷
-	}).bind("mouseup", function(){			//mouseupÊ±½â³ıÁ¬ĞøÊäÈë×´Ì¬
+		holdOperationTime = setTimeout(holdBackButton, 700);		//é•¿æŒ‰700msåè§¦å‘è¿ç»­åˆ é™¤æ“ä½œ
+		singleClickBackButton();									//è§¦å‘å•å‡»æ“ä½œ
+	}).bind("mouseup", function(){			//mouseupæ—¶è§£é™¤è¿ç»­è¾“å…¥çŠ¶æ€
 		clearTimeout(holdOperationTime);
 		clearInterval(continuOperationTime);
-		if (document.all){					//IEä¯ÀÀÆ÷¼æÈİ
-			selectRange.select();			//ÉèÖÃ¹â±êÎ»ÖÃ
-		} else {												//·ÇIEä¯ÀÀÆ÷¼æÈİ
-			target.setSelectionRange(selectRange, selectRange);	//ÉèÖÃ²¢ÏÔÊ¾¹â±êÎ»ÖÃ
+		if (document.all){					//IEæµè§ˆå™¨å…¼å®¹
+			selectRange.select();			//è®¾ç½®å…‰æ ‡ä½ç½®
+		} else {												//éIEæµè§ˆå™¨å…¼å®¹
+			target.setSelectionRange(selectRange, selectRange);	//è®¾ç½®å¹¶æ˜¾ç¤ºå…‰æ ‡ä½ç½®
 		}
-	}).bind("mouseout", function(){			//mouseoutÊ±½â³ıÁ¬ĞøÊäÈë×´Ì¬
+	}).bind("mouseout", function(){			//mouseoutæ—¶è§£é™¤è¿ç»­è¾“å…¥çŠ¶æ€
 		clearTimeout(holdOperationTime);
 		clearInterval(continuOperationTime);
 	});
 	
-	/*****************************************¿Õ¸ñ¼ü²Ù×÷********************************************/
+	/*****************************************ç©ºæ ¼é”®æ“ä½œ********************************************/
 	$("#virtualKeyboard #spaceButton").mousedown(function(){
-		holdOperationTime = setTimeout(holdSpaceButton, 700);		//³¤°´700msºó´¥·¢Á¬ĞøÉ¾³ı²Ù×÷
-		singleClickSpaceButton();									//´¥·¢µ¥»÷²Ù×÷
-	}).bind("mouseup", function(){			//mouseupÊ±½â³ıÁ¬ĞøÊäÈë×´Ì¬
+		holdOperationTime = setTimeout(holdSpaceButton, 700);		//é•¿æŒ‰700msåè§¦å‘è¿ç»­åˆ é™¤æ“ä½œ
+		singleClickSpaceButton();									//è§¦å‘å•å‡»æ“ä½œ
+	}).bind("mouseup", function(){			//mouseupæ—¶è§£é™¤è¿ç»­è¾“å…¥çŠ¶æ€
 		clearTimeout(holdOperationTime);
 		clearInterval(continuOperationTime);
-		if (document.all){					//IEä¯ÀÀÆ÷¼æÈİ
-			selectRange.select();			//ÉèÖÃ¹â±êÎ»ÖÃ
-		} else {												//·ÇIEä¯ÀÀÆ÷¼æÈİ
-			target.setSelectionRange(selectRange, selectRange);	//ÉèÖÃ²¢ÏÔÊ¾¹â±êÎ»ÖÃ
+		if (document.all){					//IEæµè§ˆå™¨å…¼å®¹
+			selectRange.select();			//è®¾ç½®å…‰æ ‡ä½ç½®
+		} else {												//éIEæµè§ˆå™¨å…¼å®¹
+			target.setSelectionRange(selectRange, selectRange);	//è®¾ç½®å¹¶æ˜¾ç¤ºå…‰æ ‡ä½ç½®
 		}
-	}).bind("mouseout", function(){			//mouseoutÊ±½â³ıÁ¬ĞøÊäÈë×´Ì¬
+	}).bind("mouseout", function(){			//mouseoutæ—¶è§£é™¤è¿ç»­è¾“å…¥çŠ¶æ€
 		clearTimeout(holdOperationTime);
 		clearInterval(continuOperationTime);
 	});
@@ -89,82 +89,82 @@ function virtualKeyboard(targetID){
 
 
 
-/*****************************************ÆÕÍ¨°´¼üµ¥»÷²Ù×÷_×ÖÄ¸&Êı×Ö&·ûºÅ********************************************/
-var selectRange;		//IE£ºµ±Ç°Ñ¡È¡·¶Î§or¹â±êÎ»ÖÃ£»·ÇIE£ºĞÂµÄ¹â±êÎ»ÖÃ
+/*****************************************æ™®é€šæŒ‰é”®å•å‡»æ“ä½œ_å­—æ¯&æ•°å­—&ç¬¦å·********************************************/
+var selectRange;		//IEï¼šå½“å‰é€‰å–èŒƒå›´orå…‰æ ‡ä½ç½®ï¼›éIEï¼šæ–°çš„å…‰æ ‡ä½ç½®
 function singleClickInputButton(inputContent){
 	target.focus();
-	if (document.all){					//IEä¯ÀÀÆ÷¼æÈİ
+	if (document.all){					//IEæµè§ˆå™¨å…¼å®¹
 		try{
-			selectRange.select();		//ÉèÖÃ¹â±êÎ»ÖÃ(»ñÈ¡½¹µãºó¹â±ê»á¶¨Î»µ½¿ªÍ·£¬ĞèÒªÖØĞÂÑ¡ÖĞ)
+			selectRange.select();		//è®¾ç½®å…‰æ ‡ä½ç½®(è·å–ç„¦ç‚¹åå…‰æ ‡ä¼šå®šä½åˆ°å¼€å¤´ï¼Œéœ€è¦é‡æ–°é€‰ä¸­)
 		} catch(e){
-			selectRange = document.selection.createRange();		//»ñÈ¡Ñ¡ÖĞÎÄ±¾
+			selectRange = document.selection.createRange();		//è·å–é€‰ä¸­æ–‡æœ¬
 		}
-		selectRange.text = inputContent;						//ÉèÖÃÎÄ±¾ÄÚÈİ
-    } else {							//·ÇIEä¯ÀÀÆ÷¼æÈİ
-		selectRange = target.selectionStart + inputContent.length;	//¼ÆËãĞÂµÄ¹â±êÎ»ÖÃ£¨µ±Ç°Ñ¡ÔñÇøÆğµã+ÊäÈë×Ö·û³¤¶È£©
+		selectRange.text = inputContent;						//è®¾ç½®æ–‡æœ¬å†…å®¹
+    } else {							//éIEæµè§ˆå™¨å…¼å®¹
+		selectRange = target.selectionStart + inputContent.length;	//è®¡ç®—æ–°çš„å…‰æ ‡ä½ç½®ï¼ˆå½“å‰é€‰æ‹©åŒºèµ·ç‚¹+è¾“å…¥å­—ç¬¦é•¿åº¦ï¼‰
         target.value = target.value.substr(0, target.selectionStart) + inputContent + target.value.substring(target.selectionEnd);
-		target.setSelectionRange(selectRange, selectRange);			//ÉèÖÃ²¢ÏÔÊ¾¹â±êÎ»ÖÃ£¨Á¬ĞøÊäÈëÊ±²»´¥·¢mouseupÊÂ¼ş£¬Òò´ËÔÚÕâÀïÏÔÊ¾¹â±ê£©
+		target.setSelectionRange(selectRange, selectRange);			//è®¾ç½®å¹¶æ˜¾ç¤ºå…‰æ ‡ä½ç½®ï¼ˆè¿ç»­è¾“å…¥æ—¶ä¸è§¦å‘mouseupäº‹ä»¶ï¼Œå› æ­¤åœ¨è¿™é‡Œæ˜¾ç¤ºå…‰æ ‡ï¼‰
     }
 }
-/*****************************************ÆÕÍ¨°´¼ü°´×¡²»·Å²Ù×÷_×ÖÄ¸&Êı×Ö&·ûºÅ********************************************/
+/*****************************************æ™®é€šæŒ‰é”®æŒ‰ä½ä¸æ”¾æ“ä½œ_å­—æ¯&æ•°å­—&ç¬¦å·********************************************/
 function holdInputButton(inputContent){
-	continuOperationTime = setInterval(function(){singleClickInputButton(inputContent)}, 30);			//ÒÔ30ms¼ä¸ôÁ¬ĞøÊäÈë
+	continuOperationTime = setInterval(function(){singleClickInputButton(inputContent)}, 30);			//ä»¥30msé—´éš”è¿ç»­è¾“å…¥
 }
 
-/*****************************************ÍË¸ñ°´¼üµ¥»÷²Ù×÷********************************************/
+/*****************************************é€€æ ¼æŒ‰é”®å•å‡»æ“ä½œ********************************************/
 function singleClickBackButton(){
 	target.focus();
-	if (document.all){					//IEä¯ÀÀÆ÷¼æÈİ
+	if (document.all){					//IEæµè§ˆå™¨å…¼å®¹
 		try{
-			selectRange.select();								//ÉèÖÃ¹â±êÎ»ÖÃ
+			selectRange.select();								//è®¾ç½®å…‰æ ‡ä½ç½®
 		} catch(e){
-			selectRange = document.selection.createRange();		//»ñÈ¡Ñ¡ÖĞÎÄ±¾
+			selectRange = document.selection.createRange();		//è·å–é€‰ä¸­æ–‡æœ¬
 		}
-		if(selectRange.compareEndPoints("StartToStart", target.createTextRange()) == 0 && selectRange.text == ""){		//Èô¹â±êÔÚ¿ªÍ·Î»ÖÃÇÒÃ»ÓĞÑ¡ÖĞÄÚÈİ
-			return false;																								//ÔòÊ²Ã´Ò²²»×ö
+		if(selectRange.compareEndPoints("StartToStart", target.createTextRange()) == 0 && selectRange.text == ""){		//è‹¥å…‰æ ‡åœ¨å¼€å¤´ä½ç½®ä¸”æ²¡æœ‰é€‰ä¸­å†…å®¹
+			return false;																								//åˆ™ä»€ä¹ˆä¹Ÿä¸åš
 		} else {
-			if(selectRange.text == ""){						//ÈôÃ»ÓĞÑ¡ÖĞÄÚÈİ
-				selectRange.moveStart("character",-1);		//Ñ¡ÇøÆğµãÏòÇ°ÒÆ¶¯Ò»¸ö×Ö·û
-				selectRange.select();						//Ñ¡ÖĞ
+			if(selectRange.text == ""){						//è‹¥æ²¡æœ‰é€‰ä¸­å†…å®¹
+				selectRange.moveStart("character",-1);		//é€‰åŒºèµ·ç‚¹å‘å‰ç§»åŠ¨ä¸€ä¸ªå­—ç¬¦
+				selectRange.select();						//é€‰ä¸­
 			}
-			document.selection.clear();						//É¾³ıÑ¡ÖĞµÄÄÚÈİ
+			document.selection.clear();						//åˆ é™¤é€‰ä¸­çš„å†…å®¹
 		}
-    } else {							//·ÇIEä¯ÀÀÆ÷¼æÈİ
-		if(target.selectionStart != target.selectionEnd){	//Ñ¡ÖĞÄÚÈİÊ±£¨´ËÊ±Ö»ĞèÉ¾³ıÑ¡ÇøÄÚµÄÄÚÈİ£©
-			selectRange = target.selectionStart				//¼ÆËãĞÂµÄ¹â±êÎ»ÖÃ£¨µ±Ç°Ñ¡ÔñÇøÆğµã£©
+    } else {							//éIEæµè§ˆå™¨å…¼å®¹
+		if(target.selectionStart != target.selectionEnd){	//é€‰ä¸­å†…å®¹æ—¶ï¼ˆæ­¤æ—¶åªéœ€åˆ é™¤é€‰åŒºå†…çš„å†…å®¹ï¼‰
+			selectRange = target.selectionStart				//è®¡ç®—æ–°çš„å…‰æ ‡ä½ç½®ï¼ˆå½“å‰é€‰æ‹©åŒºèµ·ç‚¹ï¼‰
 			target.value = target.value.substr(0, target.selectionStart) + target.value.substring(target.selectionEnd);
-		} else {											//Î´Ñ¡ÖĞÄÚÈİÊ±£¨´ËÊ±ĞèÒªÉ¾³ı¹â±êÖ®Ç°µÄÒ»¸ö×Ö·û£©
-			selectRange = target.selectionStart - 1;		//¼ÆËãĞÂµÄ¹â±êÎ»ÖÃ£¨µ±Ç°Ñ¡ÔñÇøÆğµã - 1¸ö×Ö·û£©
+		} else {											//æœªé€‰ä¸­å†…å®¹æ—¶ï¼ˆæ­¤æ—¶éœ€è¦åˆ é™¤å…‰æ ‡ä¹‹å‰çš„ä¸€ä¸ªå­—ç¬¦ï¼‰
+			selectRange = target.selectionStart - 1;		//è®¡ç®—æ–°çš„å…‰æ ‡ä½ç½®ï¼ˆå½“å‰é€‰æ‹©åŒºèµ·ç‚¹ - 1ä¸ªå­—ç¬¦ï¼‰
 			target.value = target.value.substr(0, target.selectionStart-1) + target.value.substring(target.selectionEnd);
 		}
-		target.setSelectionRange(selectRange, selectRange);		//ÉèÖÃ²¢ÏÔÊ¾¹â±êÎ»ÖÃ£¨Á¬ĞøÊäÈëÊ±²»´¥·¢mouseupÊÂ¼ş£¬Òò´ËÔÚÕâÀïÏÔÊ¾¹â±ê£©
+		target.setSelectionRange(selectRange, selectRange);		//è®¾ç½®å¹¶æ˜¾ç¤ºå…‰æ ‡ä½ç½®ï¼ˆè¿ç»­è¾“å…¥æ—¶ä¸è§¦å‘mouseupäº‹ä»¶ï¼Œå› æ­¤åœ¨è¿™é‡Œæ˜¾ç¤ºå…‰æ ‡ï¼‰
 	}
 }
-/*****************************************ÍË¸ñ°´¼ü°´×¡²»·Å²Ù×÷********************************************/
+/*****************************************é€€æ ¼æŒ‰é”®æŒ‰ä½ä¸æ”¾æ“ä½œ********************************************/
 function holdBackButton(){
-	continuOperationTime = setInterval(singleClickBackButton, 30);			//ÒÔ30ms¼ä¸ôÁ¬ĞøÉ¾³ı
+	continuOperationTime = setInterval(singleClickBackButton, 30);			//ä»¥30msé—´éš”è¿ç»­åˆ é™¤
 }
 
-/*****************************************¿Õ¸ñ¼üµ¥»÷²Ù×÷********************************************/
-var selectRange;		//IE£ºµ±Ç°Ñ¡È¡·¶Î§or¹â±êÎ»ÖÃ£»·ÇIE£ºĞÂµÄ¹â±êÎ»ÖÃ
+/*****************************************ç©ºæ ¼é”®å•å‡»æ“ä½œ********************************************/
+var selectRange;		//IEï¼šå½“å‰é€‰å–èŒƒå›´orå…‰æ ‡ä½ç½®ï¼›éIEï¼šæ–°çš„å…‰æ ‡ä½ç½®
 function singleClickSpaceButton(){
 	target.focus();
-	if (document.all){					//IEä¯ÀÀÆ÷¼æÈİ
+	if (document.all){					//IEæµè§ˆå™¨å…¼å®¹
 		try{
-			selectRange.select();		//ÉèÖÃ¹â±êÎ»ÖÃ(»ñÈ¡½¹µãºó¹â±ê»á¶¨Î»µ½¿ªÍ·£¬ĞèÒªÖØĞÂÑ¡ÖĞ)
+			selectRange.select();		//è®¾ç½®å…‰æ ‡ä½ç½®(è·å–ç„¦ç‚¹åå…‰æ ‡ä¼šå®šä½åˆ°å¼€å¤´ï¼Œéœ€è¦é‡æ–°é€‰ä¸­)
 		} catch(e){
-			selectRange = document.selection.createRange();		//»ñÈ¡Ñ¡ÖĞÎÄ±¾
+			selectRange = document.selection.createRange();		//è·å–é€‰ä¸­æ–‡æœ¬
 		}
-		selectRange.text = " ";						//ÉèÖÃÎÄ±¾ÄÚÈİ
-    } else {							//·ÇIEä¯ÀÀÆ÷¼æÈİ
-		selectRange = target.selectionStart + 1;					//¼ÆËãĞÂµÄ¹â±êÎ»ÖÃ£¨µ±Ç°Ñ¡ÔñÇøÆğµã+1£©
+		selectRange.text = " ";						//è®¾ç½®æ–‡æœ¬å†…å®¹
+    } else {							//éIEæµè§ˆå™¨å…¼å®¹
+		selectRange = target.selectionStart + 1;					//è®¡ç®—æ–°çš„å…‰æ ‡ä½ç½®ï¼ˆå½“å‰é€‰æ‹©åŒºèµ·ç‚¹+1ï¼‰
         target.value = target.value.substr(0, target.selectionStart) + " " + target.value.substring(target.selectionEnd);
-		target.setSelectionRange(selectRange, selectRange);			//ÉèÖÃ²¢ÏÔÊ¾¹â±êÎ»ÖÃ£¨Á¬ĞøÊäÈëÊ±²»´¥·¢mouseupÊÂ¼ş£¬Òò´ËÔÚÕâÀïÏÔÊ¾¹â±ê£©
+		target.setSelectionRange(selectRange, selectRange);			//è®¾ç½®å¹¶æ˜¾ç¤ºå…‰æ ‡ä½ç½®ï¼ˆè¿ç»­è¾“å…¥æ—¶ä¸è§¦å‘mouseupäº‹ä»¶ï¼Œå› æ­¤åœ¨è¿™é‡Œæ˜¾ç¤ºå…‰æ ‡ï¼‰
     }
 }
-/*****************************************¿Õ¸ñ¼ü°´×¡²»·Å²Ù×÷********************************************/
+/*****************************************ç©ºæ ¼é”®æŒ‰ä½ä¸æ”¾æ“ä½œ********************************************/
 function holdSpaceButton(inputContent){
-	continuOperationTime = setInterval(singleClickSpaceButton, 30);			//ÒÔ30ms¼ä¸ôÁ¬ĞøÊäÈë
+	continuOperationTime = setInterval(singleClickSpaceButton, 30);			//ä»¥30msé—´éš”è¿ç»­è¾“å…¥
 }
 
 

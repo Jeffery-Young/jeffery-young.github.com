@@ -1,26 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ï»¿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Jeffery Young</title>
 <link href="css/main.css" rel="stylesheet" type="text/css" />
 <script src="lib/jquery.js" type="text/javascript"></script>
 <script src="js/showTime.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$().ready(function(){
-		showTime();		//µ÷ÓÃshowTimeº¯ÊýÏÔÊ¾µ±Ç°Ê±¼ä
+		showTime();		//è°ƒç”¨showTimeå‡½æ•°æ˜¾ç¤ºå½“å‰æ—¶é—´
 		
-		$("#dateNav #nav2012").addClass("dateNavLiPoint");	//Îªµ¼º½2012Ìí¼ÓÑùÊ½
+		$("#dateNav #nav2012").addClass("dateNavLiPoint");	//ä¸ºå¯¼èˆª2012æ·»åŠ æ ·å¼
 		
 		$("#dateNav a").click(function(){
 			var rel = $(this).attr("rel");
-			var pos = $(rel).offset().top - 150;		//»ñÈ¡¸Ãµãµ½Í·²¿µÄ¾àÀë
-			$("body").animate({scrollTop:pos}, 500);	//ÒÔ500ºÁÃë¹ö¶¯µ½ÏàÓ¦Î»ÖÃ
+			var pos = $(rel).offset().top - 150;		//èŽ·å–è¯¥ç‚¹åˆ°å¤´éƒ¨çš„è·ç¦»
+			$("body").animate({scrollTop:pos}, 500);	//ä»¥500æ¯«ç§’æ»šåŠ¨åˆ°ç›¸åº”ä½ç½®
 		});
 		
-		$(window).scroll(function(){				//Ò³Ãæ¹ö¶¯Ê±£¬ÉèÖÃ×ó²àÈÕÆÚµ¼º½¶ÔÓ¦µÄÑùÊ½
+		$(window).scroll(function(){				//é¡µé¢æ»šåŠ¨æ—¶ï¼Œè®¾ç½®å·¦ä¾§æ—¥æœŸå¯¼èˆªå¯¹åº”çš„æ ·å¼
 			$(".project").each(function(i){
-				var winYPosition = $(this).offset().top - $("body").scrollTop();	//ÔªËØ¶ÔÓ¦µ±Ç°¿ÉÊÓ´°¿ÚµÄ¸ß¶È
+				var winYPosition = $(this).offset().top - $("body").scrollTop();	//å…ƒç´ å¯¹åº”å½“å‰å¯è§†çª—å£çš„é«˜åº¦
 				if(winYPosition >= 0){
 					var toppestID = $(this).attr("id");
 					$("#dateNav li").removeClass("dateNavLiPoint");
@@ -32,11 +32,11 @@
 		
 		$("#mainContent .pic").click(function(){
 			var htmlStr = '<div id="popupPic"><img src="' + $(this).attr("src") + '" /></div>';
-			$("body").append(htmlStr);				//²åÈëhtml´úÂë
-			$("body").css("overflow","hidden");		//ÉèÖÃbodyÎÞ¹ö¶¯Ìõ
+			$("body").append(htmlStr);				//æ’å…¥htmlä»£ç 
+			$("body").css("overflow","hidden");		//è®¾ç½®bodyæ— æ»šåŠ¨æ¡
 			$("#popupPic").click(function(){
-				$("#popupPic").remove();			//É¾³ýµ¯³öµÄhtmlÄÚÈÝ
-				$("body").css("overflow","auto");	//»¹Ô­body¹ö¶¯Ìõ
+				$("#popupPic").remove();			//åˆ é™¤å¼¹å‡ºçš„htmlå†…å®¹
+				$("body").css("overflow","auto");	//è¿˜åŽŸbodyæ»šåŠ¨æ¡
 			});
 		});
 
@@ -80,63 +80,63 @@
         	<div class="date"><span>June</span></div>
             <div class="box">
             	<div class="pic" src="images/001.jpg"><img src="images/testPic.jpg" /></div>
-                <div class="title"><h2>¹þ¶û±õ¹¤³Ì´óÑ§»áÒéÖÐÐÄ¶ÔÄÚ¶ÔÍâÃÅ»§</h2><font color="#d00000">+29</font></div>
-                <div class="tag"><p>±êÇ©£ºÇ§Ôª/ÍâÊÂ´¦¡¡Íê³É£º2011-6-19</p><span><a href="#" target="_blank">È¥¿´¿´</a> / <a href="#">¶¥</a> / <a href="#">²È</a></span></div>
-                <div class="text">¡¡¡¡ËµºÃµÄ¼ÌÐøÍêÉÆÐéÄâ¼üÅÌ£¬ËäÈ»½øÕ¹»ºÂý£¬µ«ÖÕÓÚ¿ÉÒÔÉý¼¶µ½µÚ¶þ°æ±¾ÁË£¬ÒÀÈ»ÊÇ¼æÈÝIE8+/FFµÈ±ê×¼DOMä¯ÀÀÆ÷£¨¸ÃËÀµÄ¼æÈÝÐÔÎÊÌâ±ØÐëÍÂ²ÛÒ»ÏÂ£©¡­¡­ÕâÒ»°æ×öÁË½Ï´ó¸Ä¶¯£¬½ØÍ¼ÈçÏÂ£º</div>
+                <div class="title"><h2>å“ˆå°”æ»¨å·¥ç¨‹å¤§å­¦ä¼šè®®ä¸­å¿ƒå¯¹å†…å¯¹å¤–é—¨æˆ·</h2><font color="#d00000">+29</font></div>
+                <div class="tag"><p>æ ‡ç­¾ï¼šåƒå…ƒ/å¤–äº‹å¤„ã€€å®Œæˆï¼š2011-6-19</p><span><a href="#" target="_blank">åŽ»çœ‹çœ‹</a> / <a href="#">é¡¶</a> / <a href="#">è¸©</a></span></div>
+                <div class="text">ã€€ã€€è¯´å¥½çš„ç»§ç»­å®Œå–„è™šæ‹Ÿé”®ç›˜ï¼Œè™½ç„¶è¿›å±•ç¼“æ…¢ï¼Œä½†ç»ˆäºŽå¯ä»¥å‡çº§åˆ°ç¬¬äºŒç‰ˆæœ¬äº†ï¼Œä¾ç„¶æ˜¯å…¼å®¹IE8+/FFç­‰æ ‡å‡†DOMæµè§ˆå™¨ï¼ˆè¯¥æ­»çš„å…¼å®¹æ€§é—®é¢˜å¿…é¡»åæ§½ä¸€ä¸‹ï¼‰â€¦â€¦è¿™ä¸€ç‰ˆåšäº†è¾ƒå¤§æ”¹åŠ¨ï¼Œæˆªå›¾å¦‚ä¸‹ï¼š</div>
             </div>
         </div>
         <div class="project">
         	<div class="date"><span>Oct</span></div>
             <div class="box">
             	<div class="pic" src="images/001.jpg"><img src="images/testPic.jpg" /></div>
-                <div class="title"><h2>¹þ¶û±õ¹¤³Ì´óÑ§»áÒéÖÐÐÄ¶ÔÄÚ¶ÔÍâÃÅ»§</h2><font color="#0a8900">-10</font></div>
-                <div class="tag"><p>±êÇ©£ºÇ§Ôª/ÍâÊÂ´¦¡¡Íê³É£º2011-6-19</p><span><a href="#" target="_blank">È¥¿´¿´</a> / <a href="#">¶¥</a> / <a href="#">²È</a></span></div>
-                <div class="text">¡¡¡¡ËµºÃµÄ¼ÌÐøÍêÉÆÐéÄâ¼üÅÌ£¬ËäÈ»½øÕ¹»ºÂý£¬µ«ÖÕÓÚ¿ÉÒÔÉý¼¶µ½µÚ¶þ°æ±¾ÁË£¬ÒÀÈ»ÊÇ¼æÈÝIE8+/FFµÈ±ê×¼DOMä¯ÀÀÆ÷£¨¸ÃËÀµÄ¼æÈÝÐÔÎÊÌâ±ØÐëÍÂ²ÛÒ»ÏÂ£©¡­¡­ÕâÒ»°æ×öÁË½Ï´ó¸Ä¶¯£¬½ØÍ¼ÈçÏÂ£º</div>
+                <div class="title"><h2>å“ˆå°”æ»¨å·¥ç¨‹å¤§å­¦ä¼šè®®ä¸­å¿ƒå¯¹å†…å¯¹å¤–é—¨æˆ·</h2><font color="#0a8900">-10</font></div>
+                <div class="tag"><p>æ ‡ç­¾ï¼šåƒå…ƒ/å¤–äº‹å¤„ã€€å®Œæˆï¼š2011-6-19</p><span><a href="#" target="_blank">åŽ»çœ‹çœ‹</a> / <a href="#">é¡¶</a> / <a href="#">è¸©</a></span></div>
+                <div class="text">ã€€ã€€è¯´å¥½çš„ç»§ç»­å®Œå–„è™šæ‹Ÿé”®ç›˜ï¼Œè™½ç„¶è¿›å±•ç¼“æ…¢ï¼Œä½†ç»ˆäºŽå¯ä»¥å‡çº§åˆ°ç¬¬äºŒç‰ˆæœ¬äº†ï¼Œä¾ç„¶æ˜¯å…¼å®¹IE8+/FFç­‰æ ‡å‡†DOMæµè§ˆå™¨ï¼ˆè¯¥æ­»çš„å…¼å®¹æ€§é—®é¢˜å¿…é¡»åæ§½ä¸€ä¸‹ï¼‰â€¦â€¦è¿™ä¸€ç‰ˆåšäº†è¾ƒå¤§æ”¹åŠ¨ï¼Œæˆªå›¾å¦‚ä¸‹ï¼š</div>
             </div>
         </div>
         <div class="project">
         	<div class="date"><span>June</span></div>
             <div class="box">
             	<div class="pic" src="images/001.jpg"><img src="images/testPic.jpg" /></div>
-                <div class="title"><h2>¹þ¶û±õ¹¤³Ì´óÑ§»áÒéÖÐÐÄ¶ÔÄÚ¶ÔÍâÃÅ»§</h2><font color="#d00000">+29</font></div>
-                <div class="tag"><p>±êÇ©£ºÇ§Ôª/ÍâÊÂ´¦¡¡Íê³É£º2011-6-19</p><span><a href="#" target="_blank">È¥¿´¿´</a> / <a href="#">¶¥</a> / <a href="#">²È</a></span></div>
-                <div class="text">¡¡¡¡ËµºÃµÄ¼ÌÐøÍêÉÆÐéÄâ¼üÅÌ£¬ËäÈ»½øÕ¹»ºÂý£¬µ«ÖÕÓÚ¿ÉÒÔÉý¼¶µ½µÚ¶þ°æ±¾ÁË£¬ÒÀÈ»ÊÇ¼æÈÝIE8+/FFµÈ±ê×¼DOMä¯ÀÀÆ÷£¨¸ÃËÀµÄ¼æÈÝÐÔÎÊÌâ±ØÐëÍÂ²ÛÒ»ÏÂ£©¡­¡­ÕâÒ»°æ×öÁË½Ï´ó¸Ä¶¯£¬½ØÍ¼ÈçÏÂ£º</div>
+                <div class="title"><h2>å“ˆå°”æ»¨å·¥ç¨‹å¤§å­¦ä¼šè®®ä¸­å¿ƒå¯¹å†…å¯¹å¤–é—¨æˆ·</h2><font color="#d00000">+29</font></div>
+                <div class="tag"><p>æ ‡ç­¾ï¼šåƒå…ƒ/å¤–äº‹å¤„ã€€å®Œæˆï¼š2011-6-19</p><span><a href="#" target="_blank">åŽ»çœ‹çœ‹</a> / <a href="#">é¡¶</a> / <a href="#">è¸©</a></span></div>
+                <div class="text">ã€€ã€€è¯´å¥½çš„ç»§ç»­å®Œå–„è™šæ‹Ÿé”®ç›˜ï¼Œè™½ç„¶è¿›å±•ç¼“æ…¢ï¼Œä½†ç»ˆäºŽå¯ä»¥å‡çº§åˆ°ç¬¬äºŒç‰ˆæœ¬äº†ï¼Œä¾ç„¶æ˜¯å…¼å®¹IE8+/FFç­‰æ ‡å‡†DOMæµè§ˆå™¨ï¼ˆè¯¥æ­»çš„å…¼å®¹æ€§é—®é¢˜å¿…é¡»åæ§½ä¸€ä¸‹ï¼‰â€¦â€¦è¿™ä¸€ç‰ˆåšäº†è¾ƒå¤§æ”¹åŠ¨ï¼Œæˆªå›¾å¦‚ä¸‹ï¼š</div>
             </div>
         </div>
         <div class="project">
         	<div class="date"><span>Oct</span></div>
             <div class="box">
             	<div class="pic" src="images/001.jpg"><img src="images/testPic.jpg" /></div>
-                <div class="title"><h2>¹þ¶û±õ¹¤³Ì´óÑ§»áÒéÖÐÐÄ¶ÔÄÚ¶ÔÍâÃÅ»§</h2><font color="#0a8900">-10</font></div>
-                <div class="tag"><p>±êÇ©£ºÇ§Ôª/ÍâÊÂ´¦¡¡Íê³É£º2011-6-19</p><span><a href="#" target="_blank">È¥¿´¿´</a> / <a href="#">¶¥</a> / <a href="#">²È</a></span></div>
-                <div class="text">¡¡¡¡ËµºÃµÄ¼ÌÐøÍêÉÆÐéÄâ¼üÅÌ£¬ËäÈ»½øÕ¹»ºÂý£¬µ«ÖÕÓÚ¿ÉÒÔÉý¼¶µ½µÚ¶þ°æ±¾ÁË£¬ÒÀÈ»ÊÇ¼æÈÝIE8+/FFµÈ±ê×¼DOMä¯ÀÀÆ÷£¨¸ÃËÀµÄ¼æÈÝÐÔÎÊÌâ±ØÐëÍÂ²ÛÒ»ÏÂ£©¡­¡­ÕâÒ»°æ×öÁË½Ï´ó¸Ä¶¯£¬½ØÍ¼ÈçÏÂ£º</div>
+                <div class="title"><h2>å“ˆå°”æ»¨å·¥ç¨‹å¤§å­¦ä¼šè®®ä¸­å¿ƒå¯¹å†…å¯¹å¤–é—¨æˆ·</h2><font color="#0a8900">-10</font></div>
+                <div class="tag"><p>æ ‡ç­¾ï¼šåƒå…ƒ/å¤–äº‹å¤„ã€€å®Œæˆï¼š2011-6-19</p><span><a href="#" target="_blank">åŽ»çœ‹çœ‹</a> / <a href="#">é¡¶</a> / <a href="#">è¸©</a></span></div>
+                <div class="text">ã€€ã€€è¯´å¥½çš„ç»§ç»­å®Œå–„è™šæ‹Ÿé”®ç›˜ï¼Œè™½ç„¶è¿›å±•ç¼“æ…¢ï¼Œä½†ç»ˆäºŽå¯ä»¥å‡çº§åˆ°ç¬¬äºŒç‰ˆæœ¬äº†ï¼Œä¾ç„¶æ˜¯å…¼å®¹IE8+/FFç­‰æ ‡å‡†DOMæµè§ˆå™¨ï¼ˆè¯¥æ­»çš„å…¼å®¹æ€§é—®é¢˜å¿…é¡»åæ§½ä¸€ä¸‹ï¼‰â€¦â€¦è¿™ä¸€ç‰ˆåšäº†è¾ƒå¤§æ”¹åŠ¨ï¼Œæˆªå›¾å¦‚ä¸‹ï¼š</div>
             </div>
         </div>
         <div class="project">
         	<div class="date"><span>June</span></div>
             <div class="box">
             	<div class="pic" src="images/001.jpg"><img src="images/testPic.jpg" /></div>
-                <div class="title"><h2>¹þ¶û±õ¹¤³Ì´óÑ§»áÒéÖÐÐÄ¶ÔÄÚ¶ÔÍâÃÅ»§</h2><font color="#d00000">+29</font></div>
-                <div class="tag"><p>±êÇ©£ºÇ§Ôª/ÍâÊÂ´¦¡¡Íê³É£º2011-6-19</p><span><a href="#" target="_blank">È¥¿´¿´</a> / <a href="#">¶¥</a> / <a href="#">²È</a></span></div>
-                <div class="text">¡¡¡¡ËµºÃµÄ¼ÌÐøÍêÉÆÐéÄâ¼üÅÌ£¬ËäÈ»½øÕ¹»ºÂý£¬µ«ÖÕÓÚ¿ÉÒÔÉý¼¶µ½µÚ¶þ°æ±¾ÁË£¬ÒÀÈ»ÊÇ¼æÈÝIE8+/FFµÈ±ê×¼DOMä¯ÀÀÆ÷£¨¸ÃËÀµÄ¼æÈÝÐÔÎÊÌâ±ØÐëÍÂ²ÛÒ»ÏÂ£©¡­¡­ÕâÒ»°æ×öÁË½Ï´ó¸Ä¶¯£¬½ØÍ¼ÈçÏÂ£º</div>
+                <div class="title"><h2>å“ˆå°”æ»¨å·¥ç¨‹å¤§å­¦ä¼šè®®ä¸­å¿ƒå¯¹å†…å¯¹å¤–é—¨æˆ·</h2><font color="#d00000">+29</font></div>
+                <div class="tag"><p>æ ‡ç­¾ï¼šåƒå…ƒ/å¤–äº‹å¤„ã€€å®Œæˆï¼š2011-6-19</p><span><a href="#" target="_blank">åŽ»çœ‹çœ‹</a> / <a href="#">é¡¶</a> / <a href="#">è¸©</a></span></div>
+                <div class="text">ã€€ã€€è¯´å¥½çš„ç»§ç»­å®Œå–„è™šæ‹Ÿé”®ç›˜ï¼Œè™½ç„¶è¿›å±•ç¼“æ…¢ï¼Œä½†ç»ˆäºŽå¯ä»¥å‡çº§åˆ°ç¬¬äºŒç‰ˆæœ¬äº†ï¼Œä¾ç„¶æ˜¯å…¼å®¹IE8+/FFç­‰æ ‡å‡†DOMæµè§ˆå™¨ï¼ˆè¯¥æ­»çš„å…¼å®¹æ€§é—®é¢˜å¿…é¡»åæ§½ä¸€ä¸‹ï¼‰â€¦â€¦è¿™ä¸€ç‰ˆåšäº†è¾ƒå¤§æ”¹åŠ¨ï¼Œæˆªå›¾å¦‚ä¸‹ï¼š</div>
             </div>
         </div>
         <div class="project">
         	<div class="date"><span>Oct</span></div>
             <div class="box">
             	<div class="pic" src="images/001.jpg"><img src="images/testPic.jpg" /></div>
-                <div class="title"><h2>¹þ¶û±õ¹¤³Ì´óÑ§»áÒéÖÐÐÄ¶ÔÄÚ¶ÔÍâÃÅ»§</h2><font color="#0a8900">-10</font></div>
-                <div class="tag"><p>±êÇ©£ºÇ§Ôª/ÍâÊÂ´¦¡¡Íê³É£º2011-6-19</p><span><a href="#" target="_blank">È¥¿´¿´</a> / <a href="#">¶¥</a> / <a href="#">²È</a></span></div>
-                <div class="text">¡¡¡¡ËµºÃµÄ¼ÌÐøÍêÉÆÐéÄâ¼üÅÌ£¬ËäÈ»½øÕ¹»ºÂý£¬µ«ÖÕÓÚ¿ÉÒÔÉý¼¶µ½µÚ¶þ°æ±¾ÁË£¬ÒÀÈ»ÊÇ¼æÈÝIE8+/FFµÈ±ê×¼DOMä¯ÀÀÆ÷£¨¸ÃËÀµÄ¼æÈÝÐÔÎÊÌâ±ØÐëÍÂ²ÛÒ»ÏÂ£©¡­¡­ÕâÒ»°æ×öÁË½Ï´ó¸Ä¶¯£¬½ØÍ¼ÈçÏÂ£º</div>
+                <div class="title"><h2>å“ˆå°”æ»¨å·¥ç¨‹å¤§å­¦ä¼šè®®ä¸­å¿ƒå¯¹å†…å¯¹å¤–é—¨æˆ·</h2><font color="#0a8900">-10</font></div>
+                <div class="tag"><p>æ ‡ç­¾ï¼šåƒå…ƒ/å¤–äº‹å¤„ã€€å®Œæˆï¼š2011-6-19</p><span><a href="#" target="_blank">åŽ»çœ‹çœ‹</a> / <a href="#">é¡¶</a> / <a href="#">è¸©</a></span></div>
+                <div class="text">ã€€ã€€è¯´å¥½çš„ç»§ç»­å®Œå–„è™šæ‹Ÿé”®ç›˜ï¼Œè™½ç„¶è¿›å±•ç¼“æ…¢ï¼Œä½†ç»ˆäºŽå¯ä»¥å‡çº§åˆ°ç¬¬äºŒç‰ˆæœ¬äº†ï¼Œä¾ç„¶æ˜¯å…¼å®¹IE8+/FFç­‰æ ‡å‡†DOMæµè§ˆå™¨ï¼ˆè¯¥æ­»çš„å…¼å®¹æ€§é—®é¢˜å¿…é¡»åæ§½ä¸€ä¸‹ï¼‰â€¦â€¦è¿™ä¸€ç‰ˆåšäº†è¾ƒå¤§æ”¹åŠ¨ï¼Œæˆªå›¾å¦‚ä¸‹ï¼š</div>
             </div>
         </div>
 	</div>
 	<div id="mainBottom">
-    	<p>Jeffery's project homepage v0.1.¡¡Copyright &copy; 2011-2012 Jeffery Young.¡¡ALL Rights Reserved.<br/>Email:yf871020@163.com.¡¡QQ:149696965.¡¡ÇëÊ¹ÓÃIE9,FF,Chrome,OperaµÈÖ§³ÖCSS3µÄä¯ÀÀÆ÷</p>
+    	<p>Jeffery's project homepage v0.1.ã€€Copyright &copy; 2011-2012 Jeffery Young.ã€€ALL Rights Reserved.<br/>Email:yf871020@163.com.ã€€QQ:149696965.ã€€è¯·ä½¿ç”¨IE9,FF,Chrome,Operaç­‰æ”¯æŒCSS3çš„æµè§ˆå™¨</p>
     </div>
 </div>
 
-<!--µ¯³öÍ¼Æ¬´úÂëÊ¾Àý
+<!--å¼¹å‡ºå›¾ç‰‡ä»£ç ç¤ºä¾‹
 <div id="popupPic"><img src="images/001.jpg" /></div>
 -->
 </body>
