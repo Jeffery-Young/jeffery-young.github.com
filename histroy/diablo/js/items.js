@@ -1,27 +1,27 @@
-	var gChooseClasses;			//¶¨ÒåÑ¡ÔñµÄÈËÎïÖ°Òµ´úÂë(bar,dh,monk,wd,wzd)
-	var gChooseItemsPlace;		//¶¨ÒåÑ¡ÔñµÄ×°±¸²¿Î»(head,shoulders,torso,wrists,hands,waist,legs,feet,leftRing,rightRing,amulets,weapons,offHand)
+ï»¿	var gChooseClasses;			//å®šä¹‰é€‰æ‹©çš„äººç‰©èŒä¸šä»£ç (bar,dh,monk,wd,wzd)
+	var gChooseItemsPlace;		//å®šä¹‰é€‰æ‹©çš„è£…å¤‡éƒ¨ä½(head,shoulders,torso,wrists,hands,waist,legs,feet,leftRing,rightRing,amulets,weapons,offHand)
 	
-	var gClassesObj = {			//¶¨ÒåÈËÎïÖ°Òµ¶ÔÏó£¬ÓÃÓÚÒÀ´Î´æ·Åbar dh monk wd wzdÈËÎïÊôĞÔ
-		"bar": new D3Hero_bar(),	//³õÊ¼»¯bar¶ÔÏó
-		"dh": new D3Hero_dh(),		//³õÊ¼»¯dh¶ÔÏó
-		"monk": new D3Hero_monk(),	//³õÊ¼»¯monk¶ÔÏó
-		"wd": new D3Hero_wd(),		//³õÊ¼»¯wd¶ÔÏó
-		"wzd": new D3Hero_wzd()		//³õÊ¼»¯wzd¶ÔÏó
+	var gClassesObj = {			//å®šä¹‰äººç‰©èŒä¸šå¯¹è±¡ï¼Œç”¨äºä¾æ¬¡å­˜æ”¾bar dh monk wd wzdäººç‰©å±æ€§
+		"bar": new D3Hero_bar(),	//åˆå§‹åŒ–barå¯¹è±¡
+		"dh": new D3Hero_dh(),		//åˆå§‹åŒ–dhå¯¹è±¡
+		"monk": new D3Hero_monk(),	//åˆå§‹åŒ–monkå¯¹è±¡
+		"wd": new D3Hero_wd(),		//åˆå§‹åŒ–wdå¯¹è±¡
+		"wzd": new D3Hero_wzd()		//åˆå§‹åŒ–wzdå¯¹è±¡
 	};
 	
-	var gItemsObj = {					//¶¨ÒåÈËÎï×°±¸¶şÎ¬Êı×é£¬ÒÀ´Î´æ·Å5Ö°Òµ13²¿Î»×°±¸ÊôĞÔ¡£itemsArr[i][j] i(bar,dh,monk,wd,wzd)ÎªÖ°Òµ j[0-12]Îª×°±¸²¿Î»
+	var gItemsObj = {					//å®šä¹‰äººç‰©è£…å¤‡äºŒç»´æ•°ç»„ï¼Œä¾æ¬¡å­˜æ”¾5èŒä¸š13éƒ¨ä½è£…å¤‡å±æ€§ã€‚itemsArr[i][j] i(bar,dh,monk,wd,wzd)ä¸ºèŒä¸š j[0-12]ä¸ºè£…å¤‡éƒ¨ä½
 		"bar": new Array(13),
 		"dh": new Array(13),
 		"monk": new Array(13),
 		"wd": new Array(13),
 		"wzd": new Array(13)
 	};
-	for(var prop in gItemsObj){					//Ö°ÒµË³Ğò bar dh monk wd wzd
-		for(i=0; i<=12; i++){						//²¿Î»Ë³Ğò head shoulders torso wrists hands waist legs feet leftRing rightRing amulets weapons offHand
+	for(var prop in gItemsObj){					//èŒä¸šé¡ºåº bar dh monk wd wzd
+		for(i=0; i<=12; i++){						//éƒ¨ä½é¡ºåº head shoulders torso wrists hands waist legs feet leftRing rightRing amulets weapons offHand
 			if(i == 11){
-				gItemsObj[prop][i] = new D3Items_Weapons();	//¶Ôweapons²¿Î»½øĞĞ³õÊ¼»¯¶ÔÏó
+				gItemsObj[prop][i] = new D3Items_Weapons();	//å¯¹weaponséƒ¨ä½è¿›è¡Œåˆå§‹åŒ–å¯¹è±¡
 			} else {
-				gItemsObj[prop][i] = new D3Items();			//¶ÔÆäËü²¿Î»³õÊ¼»¯¶ÔÏó
+				gItemsObj[prop][i] = new D3Items();			//å¯¹å…¶å®ƒéƒ¨ä½åˆå§‹åŒ–å¯¹è±¡
 			};
 		};
 	};
@@ -29,100 +29,100 @@
 
 	
 /***********************************************************************************
-** º¯ÊıÃû£ºfInit()
-** Input argv£º
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£º³õÊ¼»¯
+** å‡½æ•°åï¼šfInit()
+** Input argvï¼š
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šåˆå§‹åŒ–
 ***********************************************************************************/
 function fInit(){
-	$("#items #right #form").hide();			//Òş²ØÎïÆ·±íµ¥ÇøÓò
-	$("#items #left .itemsPlace").hide();		//Òş²ØÎïÆ·×°±¸Ñ¡ÔñÇøÓò
+	$("#items #right #form").hide();			//éšè—ç‰©å“è¡¨å•åŒºåŸŸ
+	$("#items #left .itemsPlace").hide();		//éšè—ç‰©å“è£…å¤‡é€‰æ‹©åŒºåŸŸ
 	
-	fCheckBattleTagCookie("BattleTag");			//¼ì²éBattleTag cookieĞÅÏ¢ÊÇ·ñ´æÔÚ
+	fCheckBattleTagCookie("BattleTag");			//æ£€æŸ¥BattleTag cookieä¿¡æ¯æ˜¯å¦å­˜åœ¨
 	
-	$("#chooseClasses").change(function(){		//Ñ¡ÔñÈËÎïÖ°ÒµÖ®ºóÖ´ĞĞ
-		gChooseClasses = $(this).val();			//Ñ¡ÔñµÄÈËÎï´úÂë£¬0-bar 1-dh 2-monk 3-wd 4-wzd
-		$("#items #right #form").hide();			//Òş²ØÎïÆ·±íµ¥ÇøÓò
-		$("#items #right #intro").show();			//ÏÔÊ¾Ê¹ÓÃËµÃ÷ÇøÓò
+	$("#chooseClasses").change(function(){		//é€‰æ‹©äººç‰©èŒä¸šä¹‹åæ‰§è¡Œ
+		gChooseClasses = $(this).val();			//é€‰æ‹©çš„äººç‰©ä»£ç ï¼Œ0-bar 1-dh 2-monk 3-wd 4-wzd
+		$("#items #right #form").hide();			//éšè—ç‰©å“è¡¨å•åŒºåŸŸ
+		$("#items #right #intro").show();			//æ˜¾ç¤ºä½¿ç”¨è¯´æ˜åŒºåŸŸ
 		if(gChooseClasses == ""){
-			$("#items #left .itemsPlace").hide();		//Òş²ØÎïÆ·×°±¸Ñ¡ÔñÇøÓò
-			$(".level").attr('disabled','disabled');	//µÈ¼¶±íµ¥½ûÓÃ
+			$("#items #left .itemsPlace").hide();		//éšè—ç‰©å“è£…å¤‡é€‰æ‹©åŒºåŸŸ
+			$(".level").attr('disabled','disabled');	//ç­‰çº§è¡¨å•ç¦ç”¨
 		} else {
-			$("#items #left .itemsPlace").show();	//ÏÔÊ¾ÎïÆ·×°±¸ÇøÓò
-			$(".level").removeAttr('disabled');		//µÈ¼¶±íµ¥±äÎª¿ÉÓÃ
-			fInitStyle(gChooseClasses);				//µ÷ÓÃ³õÊ¼»¯Ò³ÃæÑùÊ½º¯Êı£¬¶ÔÒ³ÃæÍ¼µÈÄÚÈİ½øĞĞ¸ü¸Ä
+			$("#items #left .itemsPlace").show();	//æ˜¾ç¤ºç‰©å“è£…å¤‡åŒºåŸŸ
+			$(".level").removeAttr('disabled');		//ç­‰çº§è¡¨å•å˜ä¸ºå¯ç”¨
+			fInitStyle(gChooseClasses);				//è°ƒç”¨åˆå§‹åŒ–é¡µé¢æ ·å¼å‡½æ•°ï¼Œå¯¹é¡µé¢å›¾ç­‰å†…å®¹è¿›è¡Œæ›´æ”¹
 		};
 	});
 	
-	$(".level").change(function(){				//µÈ¼¶±ä»¯Ö®ºóÖ´ĞĞ
-		var levelValue = $(this).val();			//»ñÈ¡µ±Ç°µÈ¼¶Öµ
-		if(levelValue <= 0 || levelValue > 60){		//ÅĞ¶ÏµÈ¼¶ÊıÖµÊÇ·ñÔÚ1-60Ö®¼ä	£¡£¡£¡£¡£¡£¡»¹ĞèÒªÅĞ¶Ï·Ç·¨×Ö·û£¡£¡£¡£¡£¡£¡£¡£¡Î´ÊµÏÖ£¡£¡£¡£¡£¡£¡£¡£¡£¡
-			alert("ÇëÊäÈëÕıÈ·µÄµÈ¼¶£¨1-60£©");
+	$(".level").change(function(){				//ç­‰çº§å˜åŒ–ä¹‹åæ‰§è¡Œ
+		var levelValue = $(this).val();			//è·å–å½“å‰ç­‰çº§å€¼
+		if(levelValue <= 0 || levelValue > 60){		//åˆ¤æ–­ç­‰çº§æ•°å€¼æ˜¯å¦åœ¨1-60ä¹‹é—´	ï¼ï¼ï¼ï¼ï¼ï¼è¿˜éœ€è¦åˆ¤æ–­éæ³•å­—ç¬¦ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼æœªå®ç°ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼
+			alert("è¯·è¾“å…¥æ­£ç¡®çš„ç­‰çº§ï¼ˆ1-60ï¼‰");
 			$(this).val("60");
 		} else {
-			gClassesObj[gChooseClasses].level = levelValue;	//¸ù¾İÑ¡ÖĞµÄÖ°Òµ£¬¸ø¶ÔÓ¦µÄÈËÎïÄ£ĞÍ¶ÔÏó¸³Öµ
+			gClassesObj[gChooseClasses].level = levelValue;	//æ ¹æ®é€‰ä¸­çš„èŒä¸šï¼Œç»™å¯¹åº”çš„äººç‰©æ¨¡å‹å¯¹è±¡èµ‹å€¼
 		};
 	});
 	
-	$(".itemsPlace").bind("click", function(){		//µã»÷×°±¸ÇøÓòÖ®ºóÖ´ĞĞ
+	$(".itemsPlace").bind("click", function(){		//ç‚¹å‡»è£…å¤‡åŒºåŸŸä¹‹åæ‰§è¡Œ
 		gChooseItemsPlace = $(this).attr("id");
-		$(".itemsTitle #title b").html(fItemsPlaceNameTransfer(gChooseItemsPlace,"ZH"));		//¸ù¾İµã»÷²»Í¬µÄ×°±¸ÇøÓò£¬ÉèÖÃÎïÆ·±íÍ·²»Í¬µÄÖµ
-		$("#items #right #intro").hide();					//Òş²ØÊ¹ÓÃËµÃ÷ÇøÓò
-		$("#items #right #form").show();					//ÏÔÊ¾ÎïÆ·±íµ¥ÇøÓò
-		if(gChooseItemsPlace == "weapons"){					//ÈôÑ¡ÖĞµÄÊÇÎäÆ÷À¸
-			$(".itemsForm #weaponsForm").css("display","block");	//ÏÔÊ¾ÎäÆ÷Ñ¡Ïî
+		$(".itemsTitle #title b").html(fItemsPlaceNameTransfer(gChooseItemsPlace,"ZH"));		//æ ¹æ®ç‚¹å‡»ä¸åŒçš„è£…å¤‡åŒºåŸŸï¼Œè®¾ç½®ç‰©å“è¡¨å¤´ä¸åŒçš„å€¼
+		$("#items #right #intro").hide();					//éšè—ä½¿ç”¨è¯´æ˜åŒºåŸŸ
+		$("#items #right #form").show();					//æ˜¾ç¤ºç‰©å“è¡¨å•åŒºåŸŸ
+		if(gChooseItemsPlace == "weapons"){					//è‹¥é€‰ä¸­çš„æ˜¯æ­¦å™¨æ 
+			$(".itemsForm #weaponsForm").css("display","block");	//æ˜¾ç¤ºæ­¦å™¨é€‰é¡¹
 		} else {
-			$(".itemsForm #weaponsForm").css("display","none");		//Òş²ØÎäÆ÷Ñ¡Ïî
+			$(".itemsForm #weaponsForm").css("display","none");		//éšè—æ­¦å™¨é€‰é¡¹
 		};
-		fGetItemsValue(gChooseClasses, gChooseItemsPlace);	//»ñÈ¡×°±¸ÊıÖµ²¢ÏÔÊ¾
+		fGetItemsValue(gChooseClasses, gChooseItemsPlace);	//è·å–è£…å¤‡æ•°å€¼å¹¶æ˜¾ç¤º
 	});
 	
-	$(".itemsPlace").bind({				//Îª×°±¸ÇøÓò°ó¶¨Êó±êÊÂ¼ş
-		click:function(){				//µã»÷
+	$(".itemsPlace").bind({				//ä¸ºè£…å¤‡åŒºåŸŸç»‘å®šé¼ æ ‡äº‹ä»¶
+		click:function(){				//ç‚¹å‡»
 			gChooseItemsPlace = $(this).attr("id");
-			$(".itemsTitle #title b").html(fItemsPlaceNameTransfer(gChooseItemsPlace,"ZH"));		//¸ù¾İµã»÷²»Í¬µÄ×°±¸ÇøÓò£¬ÉèÖÃÎïÆ·±íÍ·²»Í¬µÄÖµ
-			$("#items #right #intro").hide();					//Òş²ØÊ¹ÓÃËµÃ÷ÇøÓò
-			$("#items #right #form").show();					//ÏÔÊ¾ÎïÆ·±íµ¥ÇøÓò
-			fGetItemsValue(gChooseClasses, gChooseItemsPlace);	//»ñÈ¡×°±¸ÊıÖµ²¢ÏÔÊ¾
+			$(".itemsTitle #title b").html(fItemsPlaceNameTransfer(gChooseItemsPlace,"ZH"));		//æ ¹æ®ç‚¹å‡»ä¸åŒçš„è£…å¤‡åŒºåŸŸï¼Œè®¾ç½®ç‰©å“è¡¨å¤´ä¸åŒçš„å€¼
+			$("#items #right #intro").hide();					//éšè—ä½¿ç”¨è¯´æ˜åŒºåŸŸ
+			$("#items #right #form").show();					//æ˜¾ç¤ºç‰©å“è¡¨å•åŒºåŸŸ
+			fGetItemsValue(gChooseClasses, gChooseItemsPlace);	//è·å–è£…å¤‡æ•°å€¼å¹¶æ˜¾ç¤º
 		},
-		mouseover:function(){			//ÒÆÈë
+		mouseover:function(){			//ç§»å…¥
 			var mouseoverItemsPlace = $(this).attr("id");
-			var itemObj = gItemsObj[gChooseClasses][fItemsPlaceNameTransfer(mouseoverItemsPlace,"NUM")];	//»ñÈ¡¸Ã²¿Î»×°±¸¶ÔÏó
-			var xP = $(this).offset().left + $(this).width() + 2 + "px";	//¼ÆËãµ¯³ödivµÄÆ¯ÒÆÎ»ÖÃ
-			var yP = $(this).offset().top + "px";							//¼ÆËãµ¯³ödivµÄÆ¯ÒÆÎ»ÖÃ
-			fPopupItemInfo(itemObj,mouseoverItemsPlace,xP,yP);				//µ÷ÓÃµ¯³ö×°±¸ĞÅÏ¢º¯Êı	
+			var itemObj = gItemsObj[gChooseClasses][fItemsPlaceNameTransfer(mouseoverItemsPlace,"NUM")];	//è·å–è¯¥éƒ¨ä½è£…å¤‡å¯¹è±¡
+			var xP = $(this).offset().left + $(this).width() + 2 + "px";	//è®¡ç®—å¼¹å‡ºdivçš„æ¼‚ç§»ä½ç½®
+			var yP = $(this).offset().top + "px";							//è®¡ç®—å¼¹å‡ºdivçš„æ¼‚ç§»ä½ç½®
+			fPopupItemInfo(itemObj,mouseoverItemsPlace,xP,yP);				//è°ƒç”¨å¼¹å‡ºè£…å¤‡ä¿¡æ¯å‡½æ•°	
 		},
-		mouseout:function(){			//ÒÆ³ö
-			$("body .popupItemAttributesBox").remove();						//É¾³ıµ¯³öµÄdiv
+		mouseout:function(){			//ç§»å‡º
+			$("body .popupItemAttributesBox").remove();						//åˆ é™¤å¼¹å‡ºçš„div
 		}
 	});
 	
 	
 	
-	$(".formBtn #submit").bind("click", function(){		//µã»÷È·ÈÏÖ®ºóÖ´ĞĞ
-		gSetItemsValue(gChooseClasses, gChooseItemsPlace);	//´æ´¢±íµ¥Êı¾İ
-		gCountHeroAttributes(gChooseClasses);				//¼ÆËãÈËÎïÊôĞÔÖµ²¢ÏÔÊ¾
+	$(".formBtn #submit").bind("click", function(){		//ç‚¹å‡»ç¡®è®¤ä¹‹åæ‰§è¡Œ
+		gSetItemsValue(gChooseClasses, gChooseItemsPlace);	//å­˜å‚¨è¡¨å•æ•°æ®
+		gCountHeroAttributes(gChooseClasses);				//è®¡ç®—äººç‰©å±æ€§å€¼å¹¶æ˜¾ç¤º
 	});
 	
-	$(".formBtn #reset").bind("click", function(){		//µã»÷ÖØÖÃÖ®ºóÖ´ĞĞ
-		fGetItemsValue(gChooseClasses, gChooseItemsPlace);	//ÖØÖÃ±íµ¥Êı¾İ
+	$(".formBtn #reset").bind("click", function(){		//ç‚¹å‡»é‡ç½®ä¹‹åæ‰§è¡Œ
+		fGetItemsValue(gChooseClasses, gChooseItemsPlace);	//é‡ç½®è¡¨å•æ•°æ®
 	});
 	
-	$("#saveData").click(function(){			//µã»÷±£´æÊı¾İÖ®ºóÖ´ĞĞ
+	$("#saveData").click(function(){			//ç‚¹å‡»ä¿å­˜æ•°æ®ä¹‹åæ‰§è¡Œ
 		cookieName = fGetCookie("BattleTag");
-		fSetCookie(cookieName, fSerializeItemsData(), 365);		//½«ĞòÁĞ»¯Ö®ºóµÄ×°±¸¶ÔÏóÊı¾İ±£´æÔÚcookieÖĞ
-		alert("Êı¾İÒÑ¾­´æ´¢ÔÚcookiesÖĞ");
+		fSetCookie(cookieName, fSerializeItemsData(), 365);		//å°†åºåˆ—åŒ–ä¹‹åçš„è£…å¤‡å¯¹è±¡æ•°æ®ä¿å­˜åœ¨cookieä¸­
+		alert("æ•°æ®å·²ç»å­˜å‚¨åœ¨cookiesä¸­");
 	});
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfInitStyle()
-** Input argv£ºclasses		//Ñ¡ÔñµÄÖ°Òµ
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£º³õÊ¼»¯Ò³ÃæÑùÊ½
+** å‡½æ•°åï¼šfInitStyle()
+** Input argvï¼šclasses		//é€‰æ‹©çš„èŒä¸š
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šåˆå§‹åŒ–é¡µé¢æ ·å¼
 ***********************************************************************************/
 function fInitStyle(classes){
 	switch(classes){
@@ -151,279 +151,279 @@ function fInitStyle(classes){
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfPopupItemInfo()
-** Input argv£ºitemObj,itemsPlace,xP,yP		//ĞèÒªµ¯³öµÄ×°±¸¶ÔÏó£¬µ¯³öµÄ×°±¸²¿Î»£¬µ¯³öxÎ»ÖÃ£¬µ¯³öyÎ»ÖÃ
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£ºµ¯³ödivÏÔÊ¾×°±¸ÏêÏ¸ĞÅÏ¢
+** å‡½æ•°åï¼šfPopupItemInfo()
+** Input argvï¼šitemObj,itemsPlace,xP,yP		//éœ€è¦å¼¹å‡ºçš„è£…å¤‡å¯¹è±¡ï¼Œå¼¹å‡ºçš„è£…å¤‡éƒ¨ä½ï¼Œå¼¹å‡ºxä½ç½®ï¼Œå¼¹å‡ºyä½ç½®
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šå¼¹å‡ºdivæ˜¾ç¤ºè£…å¤‡è¯¦ç»†ä¿¡æ¯
 ***********************************************************************************/
 function fPopupItemInfo(itemObj,itemsPlace,xP,yP){
 	var htmlStr = '<div class="popupItemAttributesBox"><h3>' + fItemsPlaceNameTransfer(itemsPlace,"ZH") + '</h3>';
 	for(var pi in itemObj){
 		if(itemObj[pi] != 0){
 			htmlStr = htmlStr + '<p>' + pi + ':' + itemObj[pi] + '</p>';
-			var bShow = true;											//µ±ÓĞ×°±¸ÓĞÏêÏ¸ĞÅÏ¢Ê±£¬½«bShowÖÃÎªtrue
+			var bShow = true;											//å½“æœ‰è£…å¤‡æœ‰è¯¦ç»†ä¿¡æ¯æ—¶ï¼Œå°†bShowç½®ä¸ºtrue
 		};
 	};
-	if(bShow){								//bShowÎªtrueÊ±µ¯³öĞÅÏ¢
-		$("body").append(htmlStr);										//ÔÚÒ³ÃæÉÏÏÔÊ¾div
-		$("body .popupItemAttributesBox").css({top:yP, left:xP});		//ÉèÖÃµ¯³ödivµÄÎ»ÖÃ
+	if(bShow){								//bShowä¸ºtrueæ—¶å¼¹å‡ºä¿¡æ¯
+		$("body").append(htmlStr);										//åœ¨é¡µé¢ä¸Šæ˜¾ç¤ºdiv
+		$("body .popupItemAttributesBox").css({top:yP, left:xP});		//è®¾ç½®å¼¹å‡ºdivçš„ä½ç½®
 	};
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfGetItemsValue()
-** Input argv£º
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£º»ñÈ¡×°±¸µ±Ç°Öµ²¢ÔÚ±íµ¥ÖĞÏÔÊ¾
+** å‡½æ•°åï¼šfGetItemsValue()
+** Input argvï¼š
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šè·å–è£…å¤‡å½“å‰å€¼å¹¶åœ¨è¡¨å•ä¸­æ˜¾ç¤º
 ***********************************************************************************/
 function fGetItemsValue(classes, itemsPlace){
-	var itemsPlaceNum = fItemsPlaceNameTransfer(itemsPlace,"NUM");		//È¡µÃ¸Ã²¿Î»×°±¸¶ÔÓ¦µÄĞòºÅ
+	var itemsPlaceNum = fItemsPlaceNameTransfer(itemsPlace,"NUM");		//å–å¾—è¯¥éƒ¨ä½è£…å¤‡å¯¹åº”çš„åºå·
 
 		
-	var strength = gItemsObj[classes][itemsPlaceNum].strength;						//Á¦Á¿
-	var dexterity = gItemsObj[classes][itemsPlaceNum].dexterity;					//Ãô½İ
-	var intelligence = gItemsObj[classes][itemsPlaceNum].intelligence;				//ÖÇÁ¦
-	var vitality = gItemsObj[classes][itemsPlaceNum].vitality;						//ÌåÄÜ
+	var strength = gItemsObj[classes][itemsPlaceNum].strength;						//åŠ›é‡
+	var dexterity = gItemsObj[classes][itemsPlaceNum].dexterity;					//æ•æ·
+	var intelligence = gItemsObj[classes][itemsPlaceNum].intelligence;				//æ™ºåŠ›
+	var vitality = gItemsObj[classes][itemsPlaceNum].vitality;						//ä½“èƒ½
 	
-	var minDamage = gItemsObj[classes][itemsPlaceNum].minDamage;						//×îĞ¡ÉËº¦
-	var maxDamage = gItemsObj[classes][itemsPlaceNum].maxDamage;						//×î´óÉËº¦
-	var criticalHitChance = gItemsObj[classes][itemsPlaceNum].criticalHitChance;		//±©»÷¸ÅÂÊ
-	var criticalHitDamage = gItemsObj[classes][itemsPlaceNum].criticalHitDamage;		//±©»÷ÉËº¦
-	var attackSpeed = gItemsObj[classes][itemsPlaceNum].attackSpeed;					//¹¥»÷ËÙ¶È
+	var minDamage = gItemsObj[classes][itemsPlaceNum].minDamage;						//æœ€å°ä¼¤å®³
+	var maxDamage = gItemsObj[classes][itemsPlaceNum].maxDamage;						//æœ€å¤§ä¼¤å®³
+	var criticalHitChance = gItemsObj[classes][itemsPlaceNum].criticalHitChance;		//æš´å‡»æ¦‚ç‡
+	var criticalHitDamage = gItemsObj[classes][itemsPlaceNum].criticalHitDamage;		//æš´å‡»ä¼¤å®³
+	var attackSpeed = gItemsObj[classes][itemsPlaceNum].attackSpeed;					//æ”»å‡»é€Ÿåº¦
 	
-	var armor = gItemsObj[classes][itemsPlaceNum].armor;									//×Ü»¤¼×
-	var allResistance = gItemsObj[classes][itemsPlaceNum].allResistance;					//È«¿¹ĞÔ
-	var physicalResistance = gItemsObj[classes][itemsPlaceNum].physicalResistance;			//ÎïÀí¿¹ĞÔ
-	var coldResistance = gItemsObj[classes][itemsPlaceNum].coldResistance;					//±ùº®¿¹ĞÔ
-	var fireResistance = gItemsObj[classes][itemsPlaceNum].fireResistance;					//»ğÑæ¿¹ĞÔ
-	var lightningResistance = gItemsObj[classes][itemsPlaceNum].lightningResistance;		//µç»÷¿¹ĞÔ
-	var poisonResistance = gItemsObj[classes][itemsPlaceNum].poisonResistance;				//¶¾ËØ¿¹ĞÔ
-	var arcaneResistance = gItemsObj[classes][itemsPlaceNum].arcaneResistance;				//ÃØ·¨/ÉñÊ¥¿¹ĞÔ
-	var blockChance = gItemsObj[classes][itemsPlaceNum].blockChance;						//¸ñµ²¸ÅÂÊ
-	var blockAmountMin = gItemsObj[classes][itemsPlaceNum].blockAmountMin;					//¸ñµ²ÖµÏÂÏŞ
-	var blockAmountMax = gItemsObj[classes][itemsPlaceNum].blockAmountMax;					//¸ñµ²ÖµÉÏÏŞ
-	var crowdControlReduction = gItemsObj[classes][itemsPlaceNum].crowdControlReduction;	//¿Ø³¡¼õÃâ
-	var missileDamageReducion = gItemsObj[classes][itemsPlaceNum].missileDamageReducion;	//Ô¶³ÌÉËº¦¼õÃâ
-	var meleeDamageReduction = gItemsObj[classes][itemsPlaceNum].meleeDamageReduction;		//½üÕ½ÉËº¦¼õÃâ
-	var thorns = gItemsObj[classes][itemsPlaceNum].thorns;									//¾£¼¬ÉËº¦
+	var armor = gItemsObj[classes][itemsPlaceNum].armor;									//æ€»æŠ¤ç”²
+	var allResistance = gItemsObj[classes][itemsPlaceNum].allResistance;					//å…¨æŠ—æ€§
+	var physicalResistance = gItemsObj[classes][itemsPlaceNum].physicalResistance;			//ç‰©ç†æŠ—æ€§
+	var coldResistance = gItemsObj[classes][itemsPlaceNum].coldResistance;					//å†°å¯’æŠ—æ€§
+	var fireResistance = gItemsObj[classes][itemsPlaceNum].fireResistance;					//ç«ç„°æŠ—æ€§
+	var lightningResistance = gItemsObj[classes][itemsPlaceNum].lightningResistance;		//ç”µå‡»æŠ—æ€§
+	var poisonResistance = gItemsObj[classes][itemsPlaceNum].poisonResistance;				//æ¯’ç´ æŠ—æ€§
+	var arcaneResistance = gItemsObj[classes][itemsPlaceNum].arcaneResistance;				//ç§˜æ³•/ç¥åœ£æŠ—æ€§
+	var blockChance = gItemsObj[classes][itemsPlaceNum].blockChance;						//æ ¼æŒ¡æ¦‚ç‡
+	var blockAmountMin = gItemsObj[classes][itemsPlaceNum].blockAmountMin;					//æ ¼æŒ¡å€¼ä¸‹é™
+	var blockAmountMax = gItemsObj[classes][itemsPlaceNum].blockAmountMax;					//æ ¼æŒ¡å€¼ä¸Šé™
+	var crowdControlReduction = gItemsObj[classes][itemsPlaceNum].crowdControlReduction;	//æ§åœºå‡å…
+	var missileDamageReducion = gItemsObj[classes][itemsPlaceNum].missileDamageReducion;	//è¿œç¨‹ä¼¤å®³å‡å…
+	var meleeDamageReduction = gItemsObj[classes][itemsPlaceNum].meleeDamageReduction;		//è¿‘æˆ˜ä¼¤å®³å‡å…
+	var thorns = gItemsObj[classes][itemsPlaceNum].thorns;									//è†æ£˜ä¼¤å®³
 	
-	var lifeBonus = gItemsObj[classes][itemsPlaceNum].lifeBonus;								//ÉúÃüÖµ¼Ó³É
-	var lifePerSecond = gItemsObj[classes][itemsPlaceNum].lifePerSecond;						//Ã¿ÃëÉúÃü»Ö¸´
-	var lifeSteal = gItemsObj[classes][itemsPlaceNum].lifeSteal;								//ÉúÃüÇÔÈ¡
-	var lifePerKill = gItemsObj[classes][itemsPlaceNum].lifePerKill;							//»÷É±ÉúÃü»Ö¸´
-	var lifePerHit = gItemsObj[classes][itemsPlaceNum].lifePerHit;								//»÷ÖĞÉúÃü»Ö¸´
-	var healthGlobeHealingBonus = gItemsObj[classes][itemsPlaceNum].healthGlobeHealingBonus;	//ÉúÃüÖ®ÇòĞ§¹û¼Ó³É
-	var bonusToGlobeRadius = gItemsObj[classes][itemsPlaceNum].bonusToGlobeRadius;				//Ê°È¡¾àÀë¼Ó³É
+	var lifeBonus = gItemsObj[classes][itemsPlaceNum].lifeBonus;								//ç”Ÿå‘½å€¼åŠ æˆ
+	var lifePerSecond = gItemsObj[classes][itemsPlaceNum].lifePerSecond;						//æ¯ç§’ç”Ÿå‘½æ¢å¤
+	var lifeSteal = gItemsObj[classes][itemsPlaceNum].lifeSteal;								//ç”Ÿå‘½çªƒå–
+	var lifePerKill = gItemsObj[classes][itemsPlaceNum].lifePerKill;							//å‡»æ€ç”Ÿå‘½æ¢å¤
+	var lifePerHit = gItemsObj[classes][itemsPlaceNum].lifePerHit;								//å‡»ä¸­ç”Ÿå‘½æ¢å¤
+	var healthGlobeHealingBonus = gItemsObj[classes][itemsPlaceNum].healthGlobeHealingBonus;	//ç”Ÿå‘½ä¹‹çƒæ•ˆæœåŠ æˆ
+	var bonusToGlobeRadius = gItemsObj[classes][itemsPlaceNum].bonusToGlobeRadius;				//æ‹¾å–è·ç¦»åŠ æˆ
 	
-	var movementSpeed = gItemsObj[classes][itemsPlaceNum].movementSpeed;					//ÒÆ¶¯ËÙ¶È
-	var goldFind = gItemsObj[classes][itemsPlaceNum].goldFind;								//½ğ±ÒÑ°»ñÁ¿
-	var magicFind = gItemsObj[classes][itemsPlaceNum].magicFind;							//Ä§±¦Ñ°»ñÁ¿
-	var bonusExperience = gItemsObj[classes][itemsPlaceNum].bonusExperience;				//¾­Ñé¼Ó³É
-	var bonusExperiencePerKill = gItemsObj[classes][itemsPlaceNum].bonusExperiencePerKill;	//»÷É±¾­Ñé¼Ó³É
+	var movementSpeed = gItemsObj[classes][itemsPlaceNum].movementSpeed;					//ç§»åŠ¨é€Ÿåº¦
+	var goldFind = gItemsObj[classes][itemsPlaceNum].goldFind;								//é‡‘å¸å¯»è·é‡
+	var magicFind = gItemsObj[classes][itemsPlaceNum].magicFind;							//é­”å®å¯»è·é‡
+	var bonusExperience = gItemsObj[classes][itemsPlaceNum].bonusExperience;				//ç»éªŒåŠ æˆ
+	var bonusExperiencePerKill = gItemsObj[classes][itemsPlaceNum].bonusExperiencePerKill;	//å‡»æ€ç»éªŒåŠ æˆ
 	
 	var itemsValueArr = new Array(strength,dexterity,intelligence,vitality,
 									minDamage,maxDamage,criticalHitChance,criticalHitDamage,attackSpeed,
 									armor,allResistance,physicalResistance,coldResistance,fireResistance,lightningResistance,poisonResistance,arcaneResistance,blockChance,blockAmountMin,blockAmountMax,crowdControlReduction,missileDamageReducion,meleeDamageReduction,thorns,
 									lifeBonus,lifePerSecond,lifeSteal,lifePerKill,lifePerHit,healthGlobeHealingBonus,bonusToGlobeRadius,
-									movementSpeed,goldFind,magicFind,bonusExperience,bonusExperiencePerKill);		//½«ÒÔÉÏ»ñÈ¡µÄÖµ´æÔÚÊı×éÖĞÒÔ±ã²Ù×÷
+									movementSpeed,goldFind,magicFind,bonusExperience,bonusExperiencePerKill);		//å°†ä»¥ä¸Šè·å–çš„å€¼å­˜åœ¨æ•°ç»„ä¸­ä»¥ä¾¿æ“ä½œ
 	$(".itemsForm").find("input").each(function(i){
 		$(this).val(itemsValueArr[i]);
 	});
 }
 
 /***********************************************************************************
-** º¯ÊıÃû£ºgSetItemsValue()
-** Input argv£º
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£º½«±íµ¥ÄÚ×°±¸ÊôĞÔÊı¾İ´æ´¢½ø×°±¸¶ÔÏóÖĞ
+** å‡½æ•°åï¼šgSetItemsValue()
+** Input argvï¼š
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šå°†è¡¨å•å†…è£…å¤‡å±æ€§æ•°æ®å­˜å‚¨è¿›è£…å¤‡å¯¹è±¡ä¸­
 ***********************************************************************************/
 function gSetItemsValue(classes, itemsPlace){
-	var itemsPlaceNum = fItemsPlaceNameTransfer(itemsPlace,"NUM");	//È¡µÃ¸Ã²¿Î»×°±¸¶ÔÓ¦µÄĞòºÅ
-	var itemsValueArr = new Array;						//¶¨Òå×°±¸ÊôĞÔÖµÊı×é£¬ÓÃÓÚÁÙÊ±´æ·Å±íµ¥ÖĞµÄÊı¾İ
+	var itemsPlaceNum = fItemsPlaceNameTransfer(itemsPlace,"NUM");	//å–å¾—è¯¥éƒ¨ä½è£…å¤‡å¯¹åº”çš„åºå·
+	var itemsValueArr = new Array;						//å®šä¹‰è£…å¤‡å±æ€§å€¼æ•°ç»„ï¼Œç”¨äºä¸´æ—¶å­˜æ”¾è¡¨å•ä¸­çš„æ•°æ®
 	$(".itemsForm").find("input").each(function(i){
-		itemsValueArr[i] = $(this).val();				//½«±íµ¥ÖµÒÀ´Î´æÈëÊı×éÖĞ
+		itemsValueArr[i] = $(this).val();				//å°†è¡¨å•å€¼ä¾æ¬¡å­˜å…¥æ•°ç»„ä¸­
 	});	
 	
-	gItemsObj[classes][itemsPlaceNum].strength = itemsValueArr[0];			//Á¦Á¿
-	gItemsObj[classes][itemsPlaceNum].dexterity = itemsValueArr[1];			//Ãô½İ
-	gItemsObj[classes][itemsPlaceNum].intelligence = itemsValueArr[2];		//ÖÇÁ¦
-	gItemsObj[classes][itemsPlaceNum].vitality = itemsValueArr[3];			//ÌåÁ¦
+	gItemsObj[classes][itemsPlaceNum].strength = itemsValueArr[0];			//åŠ›é‡
+	gItemsObj[classes][itemsPlaceNum].dexterity = itemsValueArr[1];			//æ•æ·
+	gItemsObj[classes][itemsPlaceNum].intelligence = itemsValueArr[2];		//æ™ºåŠ›
+	gItemsObj[classes][itemsPlaceNum].vitality = itemsValueArr[3];			//ä½“åŠ›
 	
-	gItemsObj[classes][itemsPlaceNum].minDamage = itemsValueArr[4];				//×îĞ¡ÉËº¦
-	gItemsObj[classes][itemsPlaceNum].maxDamage = itemsValueArr[5];				//×î´óÉËº¦
-	gItemsObj[classes][itemsPlaceNum].criticalHitChance = itemsValueArr[6];		//±©»÷¸ÅÂÊ
-	gItemsObj[classes][itemsPlaceNum].criticalHitDamage = itemsValueArr[7];		//±©»÷ÉËº¦
-	gItemsObj[classes][itemsPlaceNum].attackSpeed = itemsValueArr[8];			//¹¥»÷ËÙ¶È
+	gItemsObj[classes][itemsPlaceNum].minDamage = itemsValueArr[4];				//æœ€å°ä¼¤å®³
+	gItemsObj[classes][itemsPlaceNum].maxDamage = itemsValueArr[5];				//æœ€å¤§ä¼¤å®³
+	gItemsObj[classes][itemsPlaceNum].criticalHitChance = itemsValueArr[6];		//æš´å‡»æ¦‚ç‡
+	gItemsObj[classes][itemsPlaceNum].criticalHitDamage = itemsValueArr[7];		//æš´å‡»ä¼¤å®³
+	gItemsObj[classes][itemsPlaceNum].attackSpeed = itemsValueArr[8];			//æ”»å‡»é€Ÿåº¦
 	
-	gItemsObj[classes][itemsPlaceNum].armor = itemsValueArr[9];								//×Ü»¤¼×
-	gItemsObj[classes][itemsPlaceNum].allResistance = itemsValueArr[10];					//È«¿¹ĞÔ
-	gItemsObj[classes][itemsPlaceNum].physicalResistance = itemsValueArr[11];				//ÎïÀí¿¹ĞÔ
-	gItemsObj[classes][itemsPlaceNum].coldResistance = itemsValueArr[12];					//±ùº®¿¹ĞÔ
-	gItemsObj[classes][itemsPlaceNum].fireResistance = itemsValueArr[13];					//»ğÑæ¿¹ĞÔ
-	gItemsObj[classes][itemsPlaceNum].lightningResistance = itemsValueArr[14];				//µç»÷¿¹ĞÔ
-	gItemsObj[classes][itemsPlaceNum].poisonResistance = itemsValueArr[15];					//¶¾ËØ¿¹ĞÔ
-	gItemsObj[classes][itemsPlaceNum].arcaneResistance = itemsValueArr[16];					//ÃØ·¨/ÉñÊ¥¿¹ĞÔ
-	gItemsObj[classes][itemsPlaceNum].blockChance = itemsValueArr[17];						//¸ñµ²¸ÅÂÊ
-	gItemsObj[classes][itemsPlaceNum].blockAmountMin = itemsValueArr[18];					//¸ñµ²ÖµÏÂÏŞ
-	gItemsObj[classes][itemsPlaceNum].blockAmountMax = itemsValueArr[19];					//¸ñµ²ÖµÉÏÏŞ
-	gItemsObj[classes][itemsPlaceNum].crowdControlReduction = itemsValueArr[20];			//¿Ø³¡¼õÃâ
-	gItemsObj[classes][itemsPlaceNum].missileDamageReducion = itemsValueArr[21];			//Ô¶³ÌÉËº¦¼õÃâ
-	gItemsObj[classes][itemsPlaceNum].meleeDamageReduction = itemsValueArr[22];				//½üÕ½ÉËº¦¼õÃâ
-	gItemsObj[classes][itemsPlaceNum].thorns = itemsValueArr[23];							//¾£¼¬ÉËº¦
+	gItemsObj[classes][itemsPlaceNum].armor = itemsValueArr[9];								//æ€»æŠ¤ç”²
+	gItemsObj[classes][itemsPlaceNum].allResistance = itemsValueArr[10];					//å…¨æŠ—æ€§
+	gItemsObj[classes][itemsPlaceNum].physicalResistance = itemsValueArr[11];				//ç‰©ç†æŠ—æ€§
+	gItemsObj[classes][itemsPlaceNum].coldResistance = itemsValueArr[12];					//å†°å¯’æŠ—æ€§
+	gItemsObj[classes][itemsPlaceNum].fireResistance = itemsValueArr[13];					//ç«ç„°æŠ—æ€§
+	gItemsObj[classes][itemsPlaceNum].lightningResistance = itemsValueArr[14];				//ç”µå‡»æŠ—æ€§
+	gItemsObj[classes][itemsPlaceNum].poisonResistance = itemsValueArr[15];					//æ¯’ç´ æŠ—æ€§
+	gItemsObj[classes][itemsPlaceNum].arcaneResistance = itemsValueArr[16];					//ç§˜æ³•/ç¥åœ£æŠ—æ€§
+	gItemsObj[classes][itemsPlaceNum].blockChance = itemsValueArr[17];						//æ ¼æŒ¡æ¦‚ç‡
+	gItemsObj[classes][itemsPlaceNum].blockAmountMin = itemsValueArr[18];					//æ ¼æŒ¡å€¼ä¸‹é™
+	gItemsObj[classes][itemsPlaceNum].blockAmountMax = itemsValueArr[19];					//æ ¼æŒ¡å€¼ä¸Šé™
+	gItemsObj[classes][itemsPlaceNum].crowdControlReduction = itemsValueArr[20];			//æ§åœºå‡å…
+	gItemsObj[classes][itemsPlaceNum].missileDamageReducion = itemsValueArr[21];			//è¿œç¨‹ä¼¤å®³å‡å…
+	gItemsObj[classes][itemsPlaceNum].meleeDamageReduction = itemsValueArr[22];				//è¿‘æˆ˜ä¼¤å®³å‡å…
+	gItemsObj[classes][itemsPlaceNum].thorns = itemsValueArr[23];							//è†æ£˜ä¼¤å®³
 	
-	gItemsObj[classes][itemsPlaceNum].lifeBonus = itemsValueArr[24];				//ÉúÃüÖµ¼Ó³É
-	gItemsObj[classes][itemsPlaceNum].lifePerSecond = itemsValueArr[25];			//Ã¿ÃëÉúÃü»Ö¸´
-	gItemsObj[classes][itemsPlaceNum].lifeSteal = itemsValueArr[26];				//ÉúÃüÇÔÈ¡
-	gItemsObj[classes][itemsPlaceNum].lifePerKill = itemsValueArr[27];				//»÷É±ÉúÃü»Ö¸´
-	gItemsObj[classes][itemsPlaceNum].lifePerHit = itemsValueArr[28];				//»÷ÖĞÉúÃü»Ö¸´
-	gItemsObj[classes][itemsPlaceNum].healthGlobeHealingBonus = itemsValueArr[29];	//ÉúÃüÖ®ÇòĞ§¹û¼Ó³É
-	gItemsObj[classes][itemsPlaceNum].bonusToGlobeRadius = itemsValueArr[30];		//Ê°È¡¾àÀë¼Ó³É
+	gItemsObj[classes][itemsPlaceNum].lifeBonus = itemsValueArr[24];				//ç”Ÿå‘½å€¼åŠ æˆ
+	gItemsObj[classes][itemsPlaceNum].lifePerSecond = itemsValueArr[25];			//æ¯ç§’ç”Ÿå‘½æ¢å¤
+	gItemsObj[classes][itemsPlaceNum].lifeSteal = itemsValueArr[26];				//ç”Ÿå‘½çªƒå–
+	gItemsObj[classes][itemsPlaceNum].lifePerKill = itemsValueArr[27];				//å‡»æ€ç”Ÿå‘½æ¢å¤
+	gItemsObj[classes][itemsPlaceNum].lifePerHit = itemsValueArr[28];				//å‡»ä¸­ç”Ÿå‘½æ¢å¤
+	gItemsObj[classes][itemsPlaceNum].healthGlobeHealingBonus = itemsValueArr[29];	//ç”Ÿå‘½ä¹‹çƒæ•ˆæœåŠ æˆ
+	gItemsObj[classes][itemsPlaceNum].bonusToGlobeRadius = itemsValueArr[30];		//æ‹¾å–è·ç¦»åŠ æˆ
 	
-	gItemsObj[classes][itemsPlaceNum].movementSpeed = itemsValueArr[31];			//ÒÆ¶¯ËÙ¶È
-	gItemsObj[classes][itemsPlaceNum].goldFind = itemsValueArr[32];					//½ğ±ÒÑ°»ñÁ¿
-	gItemsObj[classes][itemsPlaceNum].magicFind = itemsValueArr[33];				//Ä§±¦Ñ°»ñÁ¿
-	gItemsObj[classes][itemsPlaceNum].bonusExperience = itemsValueArr[34];			//¾­Ñé¼Ó³É
-	gItemsObj[classes][itemsPlaceNum].bonusExperiencePerKill = itemsValueArr[35];	//»÷É±¾­Ñé¼Ó³É
+	gItemsObj[classes][itemsPlaceNum].movementSpeed = itemsValueArr[31];			//ç§»åŠ¨é€Ÿåº¦
+	gItemsObj[classes][itemsPlaceNum].goldFind = itemsValueArr[32];					//é‡‘å¸å¯»è·é‡
+	gItemsObj[classes][itemsPlaceNum].magicFind = itemsValueArr[33];				//é­”å®å¯»è·é‡
+	gItemsObj[classes][itemsPlaceNum].bonusExperience = itemsValueArr[34];			//ç»éªŒåŠ æˆ
+	gItemsObj[classes][itemsPlaceNum].bonusExperiencePerKill = itemsValueArr[35];	//å‡»æ€ç»éªŒåŠ æˆ
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºgCountHeroAttributes()
-** Input argv£ºclasses				//ÈËÎïÖ°Òµ
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£º¼ÆËãÈËÎïÊôĞÔ²¢´æ´¢
+** å‡½æ•°åï¼šgCountHeroAttributes()
+** Input argvï¼šclasses				//äººç‰©èŒä¸š
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šè®¡ç®—äººç‰©å±æ€§å¹¶å­˜å‚¨
 ***********************************************************************************/
 function gCountHeroAttributes(classes){
-	gClassesObj[classes].countLevelAttributes();	//¼ÆËãµÈ¼¶¶ÔÈËÎï»ù´¡ÊôĞÔµÄÓ°Ïì£¨³õÊ¼»¯Á¦ÃôÖÇÌåÖµ£©
-	var allResistance = 0;							//¶¨Òå²¢³õÊ¼»¯È«¿¹ĞÔ
+	gClassesObj[classes].countLevelAttributes();	//è®¡ç®—ç­‰çº§å¯¹äººç‰©åŸºç¡€å±æ€§çš„å½±å“ï¼ˆåˆå§‹åŒ–åŠ›æ•æ™ºä½“å€¼ï¼‰
+	var allResistance = 0;							//å®šä¹‰å¹¶åˆå§‹åŒ–å…¨æŠ—æ€§
 	for(i=0; i<gItemsObj[classes].length; i++){
-		gClassesObj[classes].strength = gClassesObj[classes].strength + Number(gItemsObj[classes][i].strength);				//¼ÆËãÁ¦Á¿
-		gClassesObj[classes].dexterity = gClassesObj[classes].dexterity + Number(gItemsObj[classes][i].dexterity);				//¼ÆËãÃô½İ
-		gClassesObj[classes].intelligence = gClassesObj[classes].intelligence + Number(gItemsObj[classes][i].intelligence);	//¼ÆËãÖÇÁ¦
-		gClassesObj[classes].vitality = gClassesObj[classes].vitality + Number(gItemsObj[classes][i].vitality);				//¼ÆËãÌåÄÜ
+		gClassesObj[classes].strength = gClassesObj[classes].strength + Number(gItemsObj[classes][i].strength);				//è®¡ç®—åŠ›é‡
+		gClassesObj[classes].dexterity = gClassesObj[classes].dexterity + Number(gItemsObj[classes][i].dexterity);				//è®¡ç®—æ•æ·
+		gClassesObj[classes].intelligence = gClassesObj[classes].intelligence + Number(gItemsObj[classes][i].intelligence);	//è®¡ç®—æ™ºåŠ›
+		gClassesObj[classes].vitality = gClassesObj[classes].vitality + Number(gItemsObj[classes][i].vitality);				//è®¡ç®—ä½“èƒ½
 		
-		gClassesObj[classes].criticalHitChance = gClassesObj[classes].criticalHitChance + Number(gItemsObj[classes][i].criticalHitChance);	//¼ÆËã±©»÷¸ÅÂÊ
-		gClassesObj[classes].criticalHitDamage = gClassesObj[classes].criticalHitDamage + Number(gItemsObj[classes][i].criticalHitDamage);	//¼ÆËã±©»÷ÉËº¦
+		gClassesObj[classes].criticalHitChance = gClassesObj[classes].criticalHitChance + Number(gItemsObj[classes][i].criticalHitChance);	//è®¡ç®—æš´å‡»æ¦‚ç‡
+		gClassesObj[classes].criticalHitDamage = gClassesObj[classes].criticalHitDamage + Number(gItemsObj[classes][i].criticalHitDamage);	//è®¡ç®—æš´å‡»ä¼¤å®³
 		
-		gClassesObj[classes].blockAmount[0] = gClassesObj[classes].blockAmount[0] + Number(gItemsObj[classes][i].blockAmountMin);						//¼ÆËã¸ñµ²ÖµÏÂÏŞ
-		gClassesObj[classes].blockAmount[1] = gClassesObj[classes].blockAmount[1] + Number(gItemsObj[classes][i].blockAmountMax);						//¼ÆËã¸ñµ²ÖµÉÏÏŞ
-		gClassesObj[classes].blockChance = gClassesObj[classes].blockChance + Number(gItemsObj[classes][i].blockChance);								//¼ÆËã¸ñµ²¸ÅÂÊ
-		allResistance = allResistance + Number(gItemsObj[classes][i].allResistance);																	//¼ÆËãÈ«¿¹ĞÔ
-		gClassesObj[classes].crowdControlReduction = gClassesObj[classes].crowdControlReduction + Number(gItemsObj[classes][i].crowdControlReduction);	//¼ÆËã¿Ø³¡¼õÃâ
-		gClassesObj[classes].missileDamageReducion = gClassesObj[classes].missileDamageReducion + Number(gItemsObj[classes][i].missileDamageReducion);	//¼ÆËãÔ¶³ÌÉËº¦¼õÃâ
-		gClassesObj[classes].meleeDamageReduction = gClassesObj[classes].meleeDamageReduction + Number(gItemsObj[classes][i].meleeDamageReduction);	//¼ÆËã½üÕ½ÉËº¦¼õÃâ
-		gClassesObj[classes].thorns = gClassesObj[classes].thorns + Number(gItemsObj[classes][i].thorns);												//¼ÆËã¾£¼¬ÉËº¦
+		gClassesObj[classes].blockAmount[0] = gClassesObj[classes].blockAmount[0] + Number(gItemsObj[classes][i].blockAmountMin);						//è®¡ç®—æ ¼æŒ¡å€¼ä¸‹é™
+		gClassesObj[classes].blockAmount[1] = gClassesObj[classes].blockAmount[1] + Number(gItemsObj[classes][i].blockAmountMax);						//è®¡ç®—æ ¼æŒ¡å€¼ä¸Šé™
+		gClassesObj[classes].blockChance = gClassesObj[classes].blockChance + Number(gItemsObj[classes][i].blockChance);								//è®¡ç®—æ ¼æŒ¡æ¦‚ç‡
+		allResistance = allResistance + Number(gItemsObj[classes][i].allResistance);																	//è®¡ç®—å…¨æŠ—æ€§
+		gClassesObj[classes].crowdControlReduction = gClassesObj[classes].crowdControlReduction + Number(gItemsObj[classes][i].crowdControlReduction);	//è®¡ç®—æ§åœºå‡å…
+		gClassesObj[classes].missileDamageReducion = gClassesObj[classes].missileDamageReducion + Number(gItemsObj[classes][i].missileDamageReducion);	//è®¡ç®—è¿œç¨‹ä¼¤å®³å‡å…
+		gClassesObj[classes].meleeDamageReduction = gClassesObj[classes].meleeDamageReduction + Number(gItemsObj[classes][i].meleeDamageReduction);	//è®¡ç®—è¿‘æˆ˜ä¼¤å®³å‡å…
+		gClassesObj[classes].thorns = gClassesObj[classes].thorns + Number(gItemsObj[classes][i].thorns);												//è®¡ç®—è†æ£˜ä¼¤å®³
 		
-		gClassesObj[classes].totalLifeBonus = gClassesObj[classes].totalLifeBonus + Number(gItemsObj[classes][i].lifeBonus);									//¼ÆËã×ÜÉúÃüÖµ¼Ó³É
-		gClassesObj[classes].lifePerSecond = gClassesObj[classes].lifePerSecond + Number(gItemsObj[classes][i].lifePerSecond);									//¼ÆËãÃ¿ÃëÉúÃü»Ö¸´
-		gClassesObj[classes].lifeSteal = gClassesObj[classes].lifeSteal + Number(gItemsObj[classes][i].lifeSteal);												//¼ÆËãÉúÃüÇÔÈ¡
-		gClassesObj[classes].lifePerKill = gClassesObj[classes].lifePerKill + Number(gItemsObj[classes][i].lifePerKill);										//¼ÆËã»÷É±ÉúÃü»Ö¸´
-		gClassesObj[classes].lifePerHit = gClassesObj[classes].lifePerHit + Number(gItemsObj[classes][i].lifePerHit);											//¼ÆËã»÷ÖĞÉúÃü»Ö¸´
-		gClassesObj[classes].healthGlobeHealingBonus = gClassesObj[classes].healthGlobeHealingBonus + Number(gItemsObj[classes][i].healthGlobeHealingBonus);	//¼ÆËãÉúÃüÖ®ÇòĞ§¹û¼Ó³É
-		gClassesObj[classes].bonusToGlobeRadius = gClassesObj[classes].bonusToGlobeRadius + Number(gItemsObj[classes][i].bonusToGlobeRadius);					//¼ÆËãÊ°È¡¾àÀë¼Ó³É
+		gClassesObj[classes].totalLifeBonus = gClassesObj[classes].totalLifeBonus + Number(gItemsObj[classes][i].lifeBonus);									//è®¡ç®—æ€»ç”Ÿå‘½å€¼åŠ æˆ
+		gClassesObj[classes].lifePerSecond = gClassesObj[classes].lifePerSecond + Number(gItemsObj[classes][i].lifePerSecond);									//è®¡ç®—æ¯ç§’ç”Ÿå‘½æ¢å¤
+		gClassesObj[classes].lifeSteal = gClassesObj[classes].lifeSteal + Number(gItemsObj[classes][i].lifeSteal);												//è®¡ç®—ç”Ÿå‘½çªƒå–
+		gClassesObj[classes].lifePerKill = gClassesObj[classes].lifePerKill + Number(gItemsObj[classes][i].lifePerKill);										//è®¡ç®—å‡»æ€ç”Ÿå‘½æ¢å¤
+		gClassesObj[classes].lifePerHit = gClassesObj[classes].lifePerHit + Number(gItemsObj[classes][i].lifePerHit);											//è®¡ç®—å‡»ä¸­ç”Ÿå‘½æ¢å¤
+		gClassesObj[classes].healthGlobeHealingBonus = gClassesObj[classes].healthGlobeHealingBonus + Number(gItemsObj[classes][i].healthGlobeHealingBonus);	//è®¡ç®—ç”Ÿå‘½ä¹‹çƒæ•ˆæœåŠ æˆ
+		gClassesObj[classes].bonusToGlobeRadius = gClassesObj[classes].bonusToGlobeRadius + Number(gItemsObj[classes][i].bonusToGlobeRadius);					//è®¡ç®—æ‹¾å–è·ç¦»åŠ æˆ
 		
-		gClassesObj[classes].movementSpeed = gClassesObj[classes].movementSpeed + Number(gItemsObj[classes][i].movementSpeed);								//ÒÆ¶¯ËÙ¶È
-		gClassesObj[classes].goldFind = gClassesObj[classes].goldFind + Number(gItemsObj[classes][i].goldFind);											//½ğ±ÒÑ°»ñÁ¿
-		gClassesObj[classes].magicFind = gClassesObj[classes].magicFind + Number(gItemsObj[classes][i].magicFind);											//Ä§±¦Ñ°»ñÁ¿
-		gClassesObj[classes].bonusExperience = gClassesObj[classes].bonusExperience + Number(gItemsObj[classes][i].bonusExperience);						//¾­Ñé¼Ó³É
-		gClassesObj[classes].bonusExperiencePerKill = gClassesObj[classes].bonusExperiencePerKill + Number(gItemsObj[classes][i].bonusExperiencePerKill);	//»÷É±¾­Ñé¼Ó³É
+		gClassesObj[classes].movementSpeed = gClassesObj[classes].movementSpeed + Number(gItemsObj[classes][i].movementSpeed);								//ç§»åŠ¨é€Ÿåº¦
+		gClassesObj[classes].goldFind = gClassesObj[classes].goldFind + Number(gItemsObj[classes][i].goldFind);											//é‡‘å¸å¯»è·é‡
+		gClassesObj[classes].magicFind = gClassesObj[classes].magicFind + Number(gItemsObj[classes][i].magicFind);											//é­”å®å¯»è·é‡
+		gClassesObj[classes].bonusExperience = gClassesObj[classes].bonusExperience + Number(gItemsObj[classes][i].bonusExperience);						//ç»éªŒåŠ æˆ
+		gClassesObj[classes].bonusExperiencePerKill = gClassesObj[classes].bonusExperiencePerKill + Number(gItemsObj[classes][i].bonusExperiencePerKill);	//å‡»æ€ç»éªŒåŠ æˆ
 	};
 	
-	gClassesObj[classes].armor = gClassesObj[classes].strength;		//ÉèÖÃ»ù´¡»¤¼×Öµ=Á¦Á¿
-	allResistance = allResistance + Math.round(gClassesObj[classes].intelligence * 0.1);	//ĞŞÕıÈ«¿¹ĞÔ=È«¿¹ĞÔ+ÖÇÁ¦/10 ËÄÉáÎåÈë
-	gClassesObj[classes].physicalResistance = allResistance;		//»ù´¡ÎïÀí¿¹ĞÔ=È«¿¹ĞÔ
-	gClassesObj[classes].coldResistance = allResistance;			//»ù´¡±ùº®¿¹ĞÔ=È«¿¹ĞÔ
-	gClassesObj[classes].fireResistance = allResistance;			//»ù´¡»ğÑæ¿¹ĞÔ=È«¿¹ĞÔ
-	gClassesObj[classes].lightningResistance = allResistance;		//»ù´¡µç»÷¿¹ĞÔ=È«¿¹ĞÔ
-	gClassesObj[classes].poisonResistance = allResistance;			//»ù´¡¶¾ËØ¿¹ĞÔ=È«¿¹ĞÔ
-	gClassesObj[classes].arcaneResistance = allResistance;			//»ù´¡ÃØ·¨/ÉñÊ¥¿¹ĞÔ=È«¿¹ĞÔ
+	gClassesObj[classes].armor = gClassesObj[classes].strength;		//è®¾ç½®åŸºç¡€æŠ¤ç”²å€¼=åŠ›é‡
+	allResistance = allResistance + Math.round(gClassesObj[classes].intelligence * 0.1);	//ä¿®æ­£å…¨æŠ—æ€§=å…¨æŠ—æ€§+æ™ºåŠ›/10 å››èˆäº”å…¥
+	gClassesObj[classes].physicalResistance = allResistance;		//åŸºç¡€ç‰©ç†æŠ—æ€§=å…¨æŠ—æ€§
+	gClassesObj[classes].coldResistance = allResistance;			//åŸºç¡€å†°å¯’æŠ—æ€§=å…¨æŠ—æ€§
+	gClassesObj[classes].fireResistance = allResistance;			//åŸºç¡€ç«ç„°æŠ—æ€§=å…¨æŠ—æ€§
+	gClassesObj[classes].lightningResistance = allResistance;		//åŸºç¡€ç”µå‡»æŠ—æ€§=å…¨æŠ—æ€§
+	gClassesObj[classes].poisonResistance = allResistance;			//åŸºç¡€æ¯’ç´ æŠ—æ€§=å…¨æŠ—æ€§
+	gClassesObj[classes].arcaneResistance = allResistance;			//åŸºç¡€ç§˜æ³•/ç¥åœ£æŠ—æ€§=å…¨æŠ—æ€§
 	for(i=0; i<gItemsObj[classes].length; i++){
-		gClassesObj[classes].armor = gClassesObj[classes].armor + Number(gItemsObj[classes][i].armor);												//¼ÆËã»¤¼×
-		gClassesObj[classes].physicalResistance = gClassesObj[classes].physicalResistance + Number(gItemsObj[classes][i].physicalResistance);		//¼ÆËãÎïÀí¿¹ĞÔ
-		gClassesObj[classes].coldResistance = gClassesObj[classes].coldResistance + Number(gItemsObj[classes][i].coldResistance);					//¼ÆËã±ùº®¿¹ĞÔ
-		gClassesObj[classes].fireResistance = gClassesObj[classes].fireResistance + Number(gItemsObj[classes][i].fireResistance);					//¼ÆËã»ğÑæ¿¹ĞÔ
-		gClassesObj[classes].lightningResistance = gClassesObj[classes].lightningResistance + Number(gItemsObj[classes][i].lightningResistance);	//¼ÆËãµç»÷¿¹ĞÔ
-		gClassesObj[classes].poisonResistance = gClassesObj[classes].poisonResistance + Number(gItemsObj[classes][i].poisonResistance);			//¼ÆËã¶¾ËØ¿¹ĞÔ
-		gClassesObj[classes].arcaneResistance = gClassesObj[classes].arcaneResistance + Number(gItemsObj[classes][i].arcaneResistance);			//¼ÆËãÃØ·¨/ÉñÊ¥¿¹ĞÔ
+		gClassesObj[classes].armor = gClassesObj[classes].armor + Number(gItemsObj[classes][i].armor);												//è®¡ç®—æŠ¤ç”²
+		gClassesObj[classes].physicalResistance = gClassesObj[classes].physicalResistance + Number(gItemsObj[classes][i].physicalResistance);		//è®¡ç®—ç‰©ç†æŠ—æ€§
+		gClassesObj[classes].coldResistance = gClassesObj[classes].coldResistance + Number(gItemsObj[classes][i].coldResistance);					//è®¡ç®—å†°å¯’æŠ—æ€§
+		gClassesObj[classes].fireResistance = gClassesObj[classes].fireResistance + Number(gItemsObj[classes][i].fireResistance);					//è®¡ç®—ç«ç„°æŠ—æ€§
+		gClassesObj[classes].lightningResistance = gClassesObj[classes].lightningResistance + Number(gItemsObj[classes][i].lightningResistance);	//è®¡ç®—ç”µå‡»æŠ—æ€§
+		gClassesObj[classes].poisonResistance = gClassesObj[classes].poisonResistance + Number(gItemsObj[classes][i].poisonResistance);			//è®¡ç®—æ¯’ç´ æŠ—æ€§
+		gClassesObj[classes].arcaneResistance = gClassesObj[classes].arcaneResistance + Number(gItemsObj[classes][i].arcaneResistance);			//è®¡ç®—ç§˜æ³•/ç¥åœ£æŠ—æ€§
 	};
 	
-	gClassesObj[classes].setMainAttribute();				//ÉèÖÃÖ÷ÊôĞÔ
-	gClassesObj[classes].countMainAttributesDamage();		//¼ÆËãÖ÷ÊôĞÔÉËº¦¼Ó³É
-	gClassesObj[classes].countMaximumLife();				//¼ÆËãÉúÃüÖµÉÏÏŞ
+	gClassesObj[classes].setMainAttribute();				//è®¾ç½®ä¸»å±æ€§
+	gClassesObj[classes].countMainAttributesDamage();		//è®¡ç®—ä¸»å±æ€§ä¼¤å®³åŠ æˆ
+	gClassesObj[classes].countMaximumLife();				//è®¡ç®—ç”Ÿå‘½å€¼ä¸Šé™
 	
 	
-	fShowHeroAttributes(classes);			//µ÷ÓÃº¯Êı£¬ÔÚÒ³ÃæÖĞÏÔÊ¾ÈËÎïÊôĞÔ
+	fShowHeroAttributes(classes);			//è°ƒç”¨å‡½æ•°ï¼Œåœ¨é¡µé¢ä¸­æ˜¾ç¤ºäººç‰©å±æ€§
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfShowHeroAttributes()
-** Input argv£ºclasses				//Ñ¡ÔñµÄÈËÎïÖ°Òµ
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£ºÔÚÒ³ÃæÖĞÏÔÊ¾ÈËÎïÊôĞÔ
+** å‡½æ•°åï¼šfShowHeroAttributes()
+** Input argvï¼šclasses				//é€‰æ‹©çš„äººç‰©èŒä¸š
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šåœ¨é¡µé¢ä¸­æ˜¾ç¤ºäººç‰©å±æ€§
 ***********************************************************************************/
 function fShowHeroAttributes(classes){
-	$("#heroAttributes #strength").html(gClassesObj[classes].strength);				//Á¦Á¿
-	$("#heroAttributes #dexterity").html(gClassesObj[classes].dexterity);			//Ãô½İ
-	$("#heroAttributes #intelligence").html(gClassesObj[classes].intelligence);		//ÖÇÁ¦
-	$("#heroAttributes #vitality").html(gClassesObj[classes].vitality);				//ÌåÄÜ
-	$("#heroAttributes #armor").html(gClassesObj[classes].armor);					//»¤¼×
-	$("#heroAttributes #DPS").html("È±ÉÙ¹«Ê½");										//DPS-2Î»Ğ¡Êı
+	$("#heroAttributes #strength").html(gClassesObj[classes].strength);				//åŠ›é‡
+	$("#heroAttributes #dexterity").html(gClassesObj[classes].dexterity);			//æ•æ·
+	$("#heroAttributes #intelligence").html(gClassesObj[classes].intelligence);		//æ™ºåŠ›
+	$("#heroAttributes #vitality").html(gClassesObj[classes].vitality);				//ä½“èƒ½
+	$("#heroAttributes #armor").html(gClassesObj[classes].armor);					//æŠ¤ç”²
+	$("#heroAttributes #DPS").html("ç¼ºå°‘å…¬å¼");										//DPS-2ä½å°æ•°
 	
-	$("#heroAttributes #mainAttributesDamage").html(gClassesObj[classes].mainAttributesDamage.toFixed(2));		//Ö÷ÊôĞÔÉËº¦¼Ó³É-2Î»Ğ¡Êı
-	$("#heroAttributes #skillsAttributesDamage").html(gClassesObj[classes].skillsAttributesDamage.toFixed(2));	//¼¼ÄÜÉËº¦¼Ó³É-2Î»Ğ¡Êı
-	$("#heroAttributes #attacksPerSecond").html("È±ÉÙ¹«Ê½");													//Ã¿Ãë¹¥»÷´ÎÊı-2Î»Ğ¡Êı
-	$("#heroAttributes #criticalHitChance").html(gClassesObj[classes].criticalHitChance.toFixed(2));			//±©»÷¸ÅÂÊ-2Î»Ğ¡Êı
-	$("#heroAttributes #criticalHitDamage").html(gClassesObj[classes].criticalHitDamage.toFixed(2));			//±©»÷ÉËº¦-2Î»Ğ¡Êı
+	$("#heroAttributes #mainAttributesDamage").html(gClassesObj[classes].mainAttributesDamage.toFixed(2));		//ä¸»å±æ€§ä¼¤å®³åŠ æˆ-2ä½å°æ•°
+	$("#heroAttributes #skillsAttributesDamage").html(gClassesObj[classes].skillsAttributesDamage.toFixed(2));	//æŠ€èƒ½ä¼¤å®³åŠ æˆ-2ä½å°æ•°
+	$("#heroAttributes #attacksPerSecond").html("ç¼ºå°‘å…¬å¼");													//æ¯ç§’æ”»å‡»æ¬¡æ•°-2ä½å°æ•°
+	$("#heroAttributes #criticalHitChance").html(gClassesObj[classes].criticalHitChance.toFixed(2));			//æš´å‡»æ¦‚ç‡-2ä½å°æ•°
+	$("#heroAttributes #criticalHitDamage").html(gClassesObj[classes].criticalHitDamage.toFixed(2));			//æš´å‡»ä¼¤å®³-2ä½å°æ•°
 	
-	$("#heroAttributes #blockAmount").html(gClassesObj[classes].blockAmount[0] + "-" + gClassesObj[classes].blockAmount[1]);	//¸ñµ²Öµ
-	$("#heroAttributes #blockChance").html(gClassesObj[classes].blockChance.toFixed(1));						//¸ñµ²¸ÅÂÊ-1Î»Ğ¡Êı
-	$("#heroAttributes #dodgeChance").html("È±ÉÙ¹«Ê½");															//ÉÁ¶ã¸ÅÂÊ-1Î»Ğ¡Êı
-	$("#heroAttributes #damageReduction").html("È±ÉÙ¹«Ê½");														//ÉËº¦¼õÃâ-2Î»Ğ¡Êı
-	$("#heroAttributes #physicalResistance").html(gClassesObj[classes].physicalResistance);						//ÎïÀí¿¹ĞÔ
-	$("#heroAttributes #coldResistance").html(gClassesObj[classes].coldResistance);								//±ùº®¿¹ĞÔ
-	$("#heroAttributes #fireResistance").html(gClassesObj[classes].fireResistance);								//»ğÑæ¿¹ĞÔ
-	$("#heroAttributes #lightningResistance").html(gClassesObj[classes].lightningResistance);					//µç»÷¿¹ĞÔ
-	$("#heroAttributes #poisonResistance").html(gClassesObj[classes].poisonResistance);							//¶¾ËØ¿¹ĞÔ
-	$("#heroAttributes #arcaneResistance").html(gClassesObj[classes].arcaneResistance);							//ÃØ·¨/ÉñÊ¥¿¹ĞÔ
-	$("#heroAttributes #crowdControlReduction").html(gClassesObj[classes].crowdControlReduction.toFixed(2));	//¿Ø³¡¼õÃâ-2Î»Ğ¡Êı
-	$("#heroAttributes #missileDamageReducion").html(gClassesObj[classes].missileDamageReducion.toFixed(2));	//Ô¶³ÌÉËº¦¼õÃâ-2Î»Ğ¡Êı
-	$("#heroAttributes #meleeDamageReduction").html(gClassesObj[classes].meleeDamageReduction.toFixed(2));		//½üÕ½ÉËº¦¼õÃâ-2Î»Ğ¡Êı
-	$("#heroAttributes #thorns").html(gClassesObj[classes].thorns.toFixed(2));									//¾£¼¬ÉËº¦-2Î»Ğ¡Êı
+	$("#heroAttributes #blockAmount").html(gClassesObj[classes].blockAmount[0] + "-" + gClassesObj[classes].blockAmount[1]);	//æ ¼æŒ¡å€¼
+	$("#heroAttributes #blockChance").html(gClassesObj[classes].blockChance.toFixed(1));						//æ ¼æŒ¡æ¦‚ç‡-1ä½å°æ•°
+	$("#heroAttributes #dodgeChance").html("ç¼ºå°‘å…¬å¼");															//é—ªèº²æ¦‚ç‡-1ä½å°æ•°
+	$("#heroAttributes #damageReduction").html("ç¼ºå°‘å…¬å¼");														//ä¼¤å®³å‡å…-2ä½å°æ•°
+	$("#heroAttributes #physicalResistance").html(gClassesObj[classes].physicalResistance);						//ç‰©ç†æŠ—æ€§
+	$("#heroAttributes #coldResistance").html(gClassesObj[classes].coldResistance);								//å†°å¯’æŠ—æ€§
+	$("#heroAttributes #fireResistance").html(gClassesObj[classes].fireResistance);								//ç«ç„°æŠ—æ€§
+	$("#heroAttributes #lightningResistance").html(gClassesObj[classes].lightningResistance);					//ç”µå‡»æŠ—æ€§
+	$("#heroAttributes #poisonResistance").html(gClassesObj[classes].poisonResistance);							//æ¯’ç´ æŠ—æ€§
+	$("#heroAttributes #arcaneResistance").html(gClassesObj[classes].arcaneResistance);							//ç§˜æ³•/ç¥åœ£æŠ—æ€§
+	$("#heroAttributes #crowdControlReduction").html(gClassesObj[classes].crowdControlReduction.toFixed(2));	//æ§åœºå‡å…-2ä½å°æ•°
+	$("#heroAttributes #missileDamageReducion").html(gClassesObj[classes].missileDamageReducion.toFixed(2));	//è¿œç¨‹ä¼¤å®³å‡å…-2ä½å°æ•°
+	$("#heroAttributes #meleeDamageReduction").html(gClassesObj[classes].meleeDamageReduction.toFixed(2));		//è¿‘æˆ˜ä¼¤å®³å‡å…-2ä½å°æ•°
+	$("#heroAttributes #thorns").html(gClassesObj[classes].thorns.toFixed(2));									//è†æ£˜ä¼¤å®³-2ä½å°æ•°
 	
-	$("#heroAttributes #maximumLife").html(gClassesObj[classes].maximumLife);										//ÉúÃüÖµÉÏÏŞ
-	$("#heroAttributes #totalLifeBonus").html(gClassesObj[classes].totalLifeBonus);									//×ÜÉúÃüÖµ¼Ó³É
-	$("#heroAttributes #lifePerSecond").html(gClassesObj[classes].lifePerSecond.toFixed(2));						//Ã¿ÃëÉúÃü»Ö¸´-2Î»Ğ¡Êı
-	$("#heroAttributes #lifeSteal").html(gClassesObj[classes].lifeSteal.toFixed(2));								//ÉúÃüÇÔÈ¡-2Î»Ğ¡Êı
-	$("#heroAttributes #lifePerKill").html(gClassesObj[classes].lifePerKill.toFixed(2));							//»÷É±ÉúÃü»Ö¸´-2Î»Ğ¡Êı
-	$("#heroAttributes #lifePerHit").html(gClassesObj[classes].lifePerHit.toFixed(2));								//»÷ÖĞÉúÃü»Ö¸´-2Î»Ğ¡Êı
-	$("#heroAttributes #healthGlobeHealingBonus").html(gClassesObj[classes].healthGlobeHealingBonus.toFixed(2));	//ÉúÃüÖ®ÇòĞ§¹û¼Ó³É-2Î»Ğ¡Êı
-	$("#heroAttributes #bonusToGlobeRadius").html(gClassesObj[classes].bonusToGlobeRadius.toFixed(2));				//Ê°È¡¾àÀë¼Ó³É-2Î»Ğ¡Êı
+	$("#heroAttributes #maximumLife").html(gClassesObj[classes].maximumLife);										//ç”Ÿå‘½å€¼ä¸Šé™
+	$("#heroAttributes #totalLifeBonus").html(gClassesObj[classes].totalLifeBonus);									//æ€»ç”Ÿå‘½å€¼åŠ æˆ
+	$("#heroAttributes #lifePerSecond").html(gClassesObj[classes].lifePerSecond.toFixed(2));						//æ¯ç§’ç”Ÿå‘½æ¢å¤-2ä½å°æ•°
+	$("#heroAttributes #lifeSteal").html(gClassesObj[classes].lifeSteal.toFixed(2));								//ç”Ÿå‘½çªƒå–-2ä½å°æ•°
+	$("#heroAttributes #lifePerKill").html(gClassesObj[classes].lifePerKill.toFixed(2));							//å‡»æ€ç”Ÿå‘½æ¢å¤-2ä½å°æ•°
+	$("#heroAttributes #lifePerHit").html(gClassesObj[classes].lifePerHit.toFixed(2));								//å‡»ä¸­ç”Ÿå‘½æ¢å¤-2ä½å°æ•°
+	$("#heroAttributes #healthGlobeHealingBonus").html(gClassesObj[classes].healthGlobeHealingBonus.toFixed(2));	//ç”Ÿå‘½ä¹‹çƒæ•ˆæœåŠ æˆ-2ä½å°æ•°
+	$("#heroAttributes #bonusToGlobeRadius").html(gClassesObj[classes].bonusToGlobeRadius.toFixed(2));				//æ‹¾å–è·ç¦»åŠ æˆ-2ä½å°æ•°
 	
-	$("#heroAttributes #movementSpeed").html(gClassesObj[classes].movementSpeed);								//ÒÆ¶¯ËÙ¶È
-	$("#heroAttributes #goldFind").html(gClassesObj[classes].goldFind);											//½ğ±ÒÑ°»ñÁ¿
-	$("#heroAttributes #magicFind").html(gClassesObj[classes].magicFind);										//Ä§±¦Ñ°»ñÁ¿
-	$("#heroAttributes #bonusExperience").html(gClassesObj[classes].bonusExperience.toFixed(1));				//¾­Ñé¼Ó³É-1Î»Ğ¡Êı
-	$("#heroAttributes #bonusExperiencePerKill").html(gClassesObj[classes].bonusExperiencePerKill.toFixed(2));	//»÷É±¾­Ñé¼Ó³É-2Î»Ğ¡Êı
+	$("#heroAttributes #movementSpeed").html(gClassesObj[classes].movementSpeed);								//ç§»åŠ¨é€Ÿåº¦
+	$("#heroAttributes #goldFind").html(gClassesObj[classes].goldFind);											//é‡‘å¸å¯»è·é‡
+	$("#heroAttributes #magicFind").html(gClassesObj[classes].magicFind);										//é­”å®å¯»è·é‡
+	$("#heroAttributes #bonusExperience").html(gClassesObj[classes].bonusExperience.toFixed(1));				//ç»éªŒåŠ æˆ-1ä½å°æ•°
+	$("#heroAttributes #bonusExperiencePerKill").html(gClassesObj[classes].bonusExperiencePerKill.toFixed(2));	//å‡»æ€ç»éªŒåŠ æˆ-2ä½å°æ•°
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfItemsPlaceEnTransfer()
-** Input argv£ºitemsPlaceEn, targetFormat	//Òª×ª»»µÄÓ¢ÎÄÃû£¬Ä¿±ê¸ñÊ½ZH/NUM
-** Output argv£º
-** Return£ºresult							//×ª»»Ö®ºóµÄÖĞÎÄÃû³ÆorĞòºÅ
-** º¯ÊıËµÃ÷£º½«×°±¸²¿Î»ÓÉÓ¢ÎÄ×ª»»ÎªĞòºÅ»òÕıÎÄ
+** å‡½æ•°åï¼šfItemsPlaceEnTransfer()
+** Input argvï¼šitemsPlaceEn, targetFormat	//è¦è½¬æ¢çš„è‹±æ–‡åï¼Œç›®æ ‡æ ¼å¼ZH/NUM
+** Output argvï¼š
+** Returnï¼šresult							//è½¬æ¢ä¹‹åçš„ä¸­æ–‡åç§°oråºå·
+** å‡½æ•°è¯´æ˜ï¼šå°†è£…å¤‡éƒ¨ä½ç”±è‹±æ–‡è½¬æ¢ä¸ºåºå·æˆ–æ­£æ–‡
 ***********************************************************************************/
 function fItemsPlaceNameTransfer(itemsPlaceEn, targetFormat){
 	var arrEn = ["head","shoulders","torso","wrists","hands","waist","legs","feet","leftRing","rightRing","amulets","weapons","offHand"];
-	var arrZh = ["Í·²¿","»¤¼ç","ÉíÇû","ÊÖÍó","ÊÖÕÆ","Ñü²¿","ÍÈ²¿","½Å²¿","×óÊÖ½äÖ¸","ÓÒÊÖ½äÖ¸","»¤Éí·û","ÎäÆ÷","¸±ÊÖ"];
+	var arrZh = ["å¤´éƒ¨","æŠ¤è‚©","èº«èº¯","æ‰‹è…•","æ‰‹æŒ","è…°éƒ¨","è…¿éƒ¨","è„šéƒ¨","å·¦æ‰‹æˆ’æŒ‡","å³æ‰‹æˆ’æŒ‡","æŠ¤èº«ç¬¦","æ­¦å™¨","å‰¯æ‰‹"];
 	var result = jQuery.inArray(itemsPlaceEn, arrEn);
 	switch(targetFormat){
 		case "NUM":
@@ -436,25 +436,25 @@ function fItemsPlaceNameTransfer(itemsPlaceEn, targetFormat){
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfSerializeItemsData()
-** Input argv£º
-** Output argv£º
-** Return£ºjsonTxt	//ĞòÁĞ»¯Ö®ºóµÄ×Ö·û´®Êı¾İ
-** º¯ÊıËµÃ÷£ºĞòÁĞ»¯´æ´¢ÈËÎïÊôĞÔ¼°×°±¸Êı¾İ£¬°´ÕÕjson¸ñÊ½ĞòÁĞ»¯
+** å‡½æ•°åï¼šfSerializeItemsData()
+** Input argvï¼š
+** Output argvï¼š
+** Returnï¼šjsonTxt	//åºåˆ—åŒ–ä¹‹åçš„å­—ç¬¦ä¸²æ•°æ®
+** å‡½æ•°è¯´æ˜ï¼šåºåˆ—åŒ–å­˜å‚¨äººç‰©å±æ€§åŠè£…å¤‡æ•°æ®ï¼ŒæŒ‰ç…§jsonæ ¼å¼åºåˆ—åŒ–
 ***********************************************************************************/
 function fSerializeItemsData(){
-	//jsonÊı¾İÑùÀı£º{"bar":[{"strength":1,"dexterity":1},{},{}],"dh":[{},{},{}],"monk":[{},{},{}],"wd":[{},{},{}],"wzd":[{},{},{}]]
+	//jsonæ•°æ®æ ·ä¾‹ï¼š{"bar":[{"strength":1,"dexterity":1},{},{}],"dh":[{},{},{}],"monk":[{},{},{}],"wd":[{},{},{}],"wzd":[{},{},{}]]
 	var jsonTxt = '{';
 	for(var pi in gItemsObj){
 		var cObjTxt = '"' + pi + '":[';
 		for(j=0; j<=12; j++){
 			cObjTxt = cObjTxt + '{';
 			for(var pk in gItemsObj[pi][j]){
-				if(gItemsObj[pi][j][pk] != 0)					//ÅĞ¶Ï¶ÔÏóÊôĞÔÖµÊÇ·ñÎª0
-					cObjTxt = cObjTxt + '"' + pk + '":' + gItemsObj[pi][j][pk] + ',';	//²»Îª0ÔòÊä³ö·ñÔò²»Êä³ö
+				if(gItemsObj[pi][j][pk] != 0)					//åˆ¤æ–­å¯¹è±¡å±æ€§å€¼æ˜¯å¦ä¸º0
+					cObjTxt = cObjTxt + '"' + pk + '":' + gItemsObj[pi][j][pk] + ',';	//ä¸ä¸º0åˆ™è¾“å‡ºå¦åˆ™ä¸è¾“å‡º
 			};
-			if(cObjTxt.charAt(cObjTxt.length - 1) == ','){		//ÅĞ¶Ï×Ö·û´®Ä©Î²ÊÇ·ñÎª','ºÅ
-				cObjTxt = cObjTxt.slice(0,-1);					//ÈôÎª','ºÅÔòÉ¾³ı
+			if(cObjTxt.charAt(cObjTxt.length - 1) == ','){		//åˆ¤æ–­å­—ç¬¦ä¸²æœ«å°¾æ˜¯å¦ä¸º','å·
+				cObjTxt = cObjTxt.slice(0,-1);					//è‹¥ä¸º','å·åˆ™åˆ é™¤
 			};
 			cObjTxt = cObjTxt + '},';
 		};
@@ -475,11 +475,11 @@ function fSerializeItemsData(){
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfUnserializeItemsData()
-** Input argv£ºjsonTxt		//json¸ñÊ½µÄ×°±¸¶ÔÏó×Ö·û´®Êı¾İ
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£º½«ĞòÁĞ»¯µÄ×°±¸¶ÔÏó×Ö·û´®Êı¾İ»Ö¸´Îª×°±¸¶ÔÏó
+** å‡½æ•°åï¼šfUnserializeItemsData()
+** Input argvï¼šjsonTxt		//jsonæ ¼å¼çš„è£…å¤‡å¯¹è±¡å­—ç¬¦ä¸²æ•°æ®
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šå°†åºåˆ—åŒ–çš„è£…å¤‡å¯¹è±¡å­—ç¬¦ä¸²æ•°æ®æ¢å¤ä¸ºè£…å¤‡å¯¹è±¡
 ***********************************************************************************/
 function fUnserializeItemsData(jsonTxt){
 	//testjson = '{"bar":[{"vitality":1},{},{},{},{},{},{},{},{},{},{},{},{}],"dh":[{},{},{},{},{},{},{},{},{},{},{},{},{}],"monk":[{},{},{},{},{},{},{},{},{},{},{},{},{}],"wd":[{},{},{},{},{},{},{},{},{},{},{},{},{}],"wzd":[{},{},{},{},{},{},{},{},{},{},{},{},{}]}';
@@ -487,15 +487,15 @@ function fUnserializeItemsData(jsonTxt){
 	try{
 		var obj = eval("(" + jsonTxt + ")");
 	} catch(err) {
-		alert("Êı¾İ²»ºÏ·¨");
+		alert("æ•°æ®ä¸åˆæ³•");
 		return false;
 	};
-	for(var pi in gItemsObj){				//Í¨¹ıjsonÎªgItemsObj¶ÔÏó¸³Öµ
-		if(obj[pi]){							//ÈôobjÖĞ´æÔÚ"pi"¶ÔÏóÃû
+	for(var pi in gItemsObj){				//é€šè¿‡jsonä¸ºgItemsObjå¯¹è±¡èµ‹å€¼
+		if(obj[pi]){							//è‹¥objä¸­å­˜åœ¨"pi"å¯¹è±¡å
 			for(j=0; j<=12; j++){
 				for(var pk in gItemsObj[pi][j]){
-					if(obj[pi][j][pk])								//ÈôobjÖĞ´æÔÚ"pk"¶ÔÏóÃû
-						gItemsObj[pi][j][pk] = obj[pi][j][pk];		//¸³Öµ
+					if(obj[pi][j][pk])								//è‹¥objä¸­å­˜åœ¨"pk"å¯¹è±¡å
+						gItemsObj[pi][j][pk] = obj[pi][j][pk];		//èµ‹å€¼
 				};
 			};
 		};
@@ -505,11 +505,11 @@ function fUnserializeItemsData(jsonTxt){
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfSetCookie()
-** Input argv£ºc_name,value,expiredays		//cookieÃû³Æ,cookieÄÚÈİ,cookie¹ıÆÚÊ±¼ä£¨Ìì£©
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£º±£´æcookieÄÚÈİ
+** å‡½æ•°åï¼šfSetCookie()
+** Input argvï¼šc_name,value,expiredays		//cookieåç§°,cookieå†…å®¹,cookieè¿‡æœŸæ—¶é—´ï¼ˆå¤©ï¼‰
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šä¿å­˜cookieå†…å®¹
 ***********************************************************************************/
 function fSetCookie(c_name,value,expiredays){
 	var exdate  = new Date();
@@ -519,64 +519,64 @@ function fSetCookie(c_name,value,expiredays){
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfGetCookie()
-** Input argv£ºc_name		//cookieÃû³Æ
-** Output argv£º
-** Return£ºcookie value		//cookieÃû¶ÔÓ¦µÄcookieÄÚÈİ »ò ¿Õ
-** º¯ÊıËµÃ÷£º¸ù¾İc_name»ñÈ¡cookieÖĞ¶ÔÓ¦µÄÄÚÈİ
+** å‡½æ•°åï¼šfGetCookie()
+** Input argvï¼šc_name		//cookieåç§°
+** Output argvï¼š
+** Returnï¼šcookie value		//cookieåå¯¹åº”çš„cookieå†…å®¹ æˆ– ç©º
+** å‡½æ•°è¯´æ˜ï¼šæ ¹æ®c_nameè·å–cookieä¸­å¯¹åº”çš„å†…å®¹
 ***********************************************************************************/
 function fGetCookie(c_name){
 	if(document.cookie.length > 0){
-		c_start = document.cookie.indexOf(c_name + "=");	//ÔÚcookieÖĞ²éÕÒÆ¥ÅäµÄcookieÃû
-		if (c_start != -1){									//Èô²éµ½
-			c_start = c_start + c_name.length + 1;			//¼ÇÂ¼Ä¿±êcookieÖµµÄÆğÊ¼Î»ÖÃ
-			c_end = document.cookie.indexOf(";",c_start);	//¼ÇÂ¼Ä¿±êcookieÖµµÄ½áÊøÎ»ÖÃ(¸ù¾İ·Ö¸ô·û;²éÕÒ)
-			if (c_end == -1){								//ÈôÕÒ²»µ½;·ûºÅ£¬ËµÃ÷ÕâÒ»ÌõcookieÊÇ×îºóÒ»Ìõ£¬Ôò¼ÇÂ¼½áÊøÎ»ÖÃÎªÄ©Î²Î»ÖÃ
+		c_start = document.cookie.indexOf(c_name + "=");	//åœ¨cookieä¸­æŸ¥æ‰¾åŒ¹é…çš„cookieå
+		if (c_start != -1){									//è‹¥æŸ¥åˆ°
+			c_start = c_start + c_name.length + 1;			//è®°å½•ç›®æ ‡cookieå€¼çš„èµ·å§‹ä½ç½®
+			c_end = document.cookie.indexOf(";",c_start);	//è®°å½•ç›®æ ‡cookieå€¼çš„ç»“æŸä½ç½®(æ ¹æ®åˆ†éš”ç¬¦;æŸ¥æ‰¾)
+			if (c_end == -1){								//è‹¥æ‰¾ä¸åˆ°;ç¬¦å·ï¼Œè¯´æ˜è¿™ä¸€æ¡cookieæ˜¯æœ€åä¸€æ¡ï¼Œåˆ™è®°å½•ç»“æŸä½ç½®ä¸ºæœ«å°¾ä½ç½®
 				c_end = document.cookie.length;
 			};
-			return unescape(document.cookie.substring(c_start,c_end));		//·µ»Øc_name¶ÔÓ¦µÄcookieÖµ
+			return unescape(document.cookie.substring(c_start,c_end));		//è¿”å›c_nameå¯¹åº”çš„cookieå€¼
 		};
 	};
-	return "";		//Èô²é²»µ½£¬·µ»Ø¿Õ
+	return "";		//è‹¥æŸ¥ä¸åˆ°ï¼Œè¿”å›ç©º
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfCheckBattleTagCookie()
-** Input argv£ºc_name		//cookieÃû³Æ
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£ºÅĞ¶ÏcookieÖĞBattleTagÊÇ·ñ´æÔÚ£¬Èô´æÔÚÔò¶ÁÈ¡¸ÃBattleTag¶ÔÓ¦Êı¾İ£¬Èô²»´æÔÚ£¬ÔòÌáÊ¾ÊäÈëBattleTag
+** å‡½æ•°åï¼šfCheckBattleTagCookie()
+** Input argvï¼šc_name		//cookieåç§°
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šåˆ¤æ–­cookieä¸­BattleTagæ˜¯å¦å­˜åœ¨ï¼Œè‹¥å­˜åœ¨åˆ™è¯»å–è¯¥BattleTagå¯¹åº”æ•°æ®ï¼Œè‹¥ä¸å­˜åœ¨ï¼Œåˆ™æç¤ºè¾“å…¥BattleTag
 ***********************************************************************************/
 function fCheckBattleTagCookie(c_name){
-	var battleTag = fGetCookie(c_name);			//´ÓcookieÖĞÈ¡battleTagÖµ
-	if(battleTag != null && battleTag != ""){	//ÈôbattleTag²»Îª¿Õ
-		fCheckItemsInfoCookie(battleTag);		//¶ÁÈ¡battleTag¶ÔÓ¦µÄ×°±¸ĞÅÏ¢
-		$(".battleTag span").html(battleTag);	//Ò³ÃæbattleTagÖĞÏÔÊ¾µ±Ç°µÄbattleTagĞÅÏ¢
-	} else {									//ÈôbattleTagÎª¿Õ£¬ÔòÌáÊ¾ÊäÈëBattleTagĞÅÏ¢
-		battleTag = prompt("ÇëÊäÈëÄúµÄBattleTag:","");
-		if (battleTag != null && battleTag != ""){		//ÑéÖ¤battleTagÊäÈëÊÇ·ñºÏ·¨£¨£¡£¡£¡£¡£¡£¡£¡£¡Ä¿Ç°Ö»ÅĞ¶ÏÁË²»Îª¿Õ£¬ĞèÒª°´ÕÕBattleTag¸ñÊ½ÅĞ¶Ï£¨3-12Ó¢ÎÄ + # + ËÄÎ»Êı×Ö£©e.g.Jeffery#1965£¡£¡£¡£¡£¡£©
-			fSetCookie("BattleTag", battleTag, 365);	//½«ÊäÈëµÄbattleTagÖµ´æÈëcookieÖĞ£¬cookieÃûÎªBATTLETAG
+	var battleTag = fGetCookie(c_name);			//ä»cookieä¸­å–battleTagå€¼
+	if(battleTag != null && battleTag != ""){	//è‹¥battleTagä¸ä¸ºç©º
+		fCheckItemsInfoCookie(battleTag);		//è¯»å–battleTagå¯¹åº”çš„è£…å¤‡ä¿¡æ¯
+		$(".battleTag span").html(battleTag);	//é¡µé¢battleTagä¸­æ˜¾ç¤ºå½“å‰çš„battleTagä¿¡æ¯
+	} else {									//è‹¥battleTagä¸ºç©ºï¼Œåˆ™æç¤ºè¾“å…¥BattleTagä¿¡æ¯
+		battleTag = prompt("è¯·è¾“å…¥æ‚¨çš„BattleTag:","");
+		if (battleTag != null && battleTag != ""){		//éªŒè¯battleTagè¾“å…¥æ˜¯å¦åˆæ³•ï¼ˆï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ç›®å‰åªåˆ¤æ–­äº†ä¸ä¸ºç©ºï¼Œéœ€è¦æŒ‰ç…§BattleTagæ ¼å¼åˆ¤æ–­ï¼ˆ3-12è‹±æ–‡ + # + å››ä½æ•°å­—ï¼‰e.g.Jeffery#1965ï¼ï¼ï¼ï¼ï¼ï¼‰
+			fSetCookie("BattleTag", battleTag, 365);	//å°†è¾“å…¥çš„battleTagå€¼å­˜å…¥cookieä¸­ï¼Œcookieåä¸ºBATTLETAG
 		};
-		fCheckItemsInfoCookie(battleTag);		//¶ÁÈ¡battleTag¶ÔÓ¦µÄ×°±¸ĞÅÏ¢
-		$(".battleTag span").html(battleTag);	//Ò³ÃæbattleTagÖĞÏÔÊ¾µ±Ç°µÄbattleTagĞÅÏ¢
+		fCheckItemsInfoCookie(battleTag);		//è¯»å–battleTagå¯¹åº”çš„è£…å¤‡ä¿¡æ¯
+		$(".battleTag span").html(battleTag);	//é¡µé¢battleTagä¸­æ˜¾ç¤ºå½“å‰çš„battleTagä¿¡æ¯
 	};
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºfCheckItemsInfoCookie()
-** Input argv£ºc_name		//cookieÃû³Æ
-** Output argv£º
-** Return£º
-** º¯ÊıËµÃ÷£ºÅĞ¶ÏĞèÒªµ÷ÓÃµÄcookieÊÇ·ñ´æÔÚ£¬Èô´æÔÚ£¬½«×°±¸¶ÔÏóÊı¾İ¸ù¾İcookieÖµ¸´Ô­
+** å‡½æ•°åï¼šfCheckItemsInfoCookie()
+** Input argvï¼šc_name		//cookieåç§°
+** Output argvï¼š
+** Returnï¼š
+** å‡½æ•°è¯´æ˜ï¼šåˆ¤æ–­éœ€è¦è°ƒç”¨çš„cookieæ˜¯å¦å­˜åœ¨ï¼Œè‹¥å­˜åœ¨ï¼Œå°†è£…å¤‡å¯¹è±¡æ•°æ®æ ¹æ®cookieå€¼å¤åŸ
 ***********************************************************************************/
 function fCheckItemsInfoCookie(c_name){
-	var itemsInfo = fGetCookie(c_name);			//¸ù¾İbattleTag²ÎÊı£¬»ñÈ¡¶ÔÓ¦µÄ×°±¸ĞÅÏ¢Êı¾İ
-	if(itemsInfo != null && itemsInfo != ""){	//Èô¶ÔÓ¦cookieÖµ´æÔÚ
-		fUnserializeItemsData(itemsInfo);		//µ÷ÓÃº¯Êı·´ĞòÁĞ»¯×°±¸ĞÅÏ¢
-		//alert("×°±¸ĞÅÏ¢ÒÑ»¹Ô­");
-	} else {									//Èô¶ÔÓ¦cookieÖµ²»´æÔÚ
-		//alert("Ã»ÓĞÊı¾İÇëÌî³ä");
+	var itemsInfo = fGetCookie(c_name);			//æ ¹æ®battleTagå‚æ•°ï¼Œè·å–å¯¹åº”çš„è£…å¤‡ä¿¡æ¯æ•°æ®
+	if(itemsInfo != null && itemsInfo != ""){	//è‹¥å¯¹åº”cookieå€¼å­˜åœ¨
+		fUnserializeItemsData(itemsInfo);		//è°ƒç”¨å‡½æ•°ååºåˆ—åŒ–è£…å¤‡ä¿¡æ¯
+		//alert("è£…å¤‡ä¿¡æ¯å·²è¿˜åŸ");
+	} else {									//è‹¥å¯¹åº”cookieå€¼ä¸å­˜åœ¨
+		//alert("æ²¡æœ‰æ•°æ®è¯·å¡«å……");
 	};
 }

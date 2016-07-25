@@ -1,4 +1,4 @@
-@charset "gb2312";
+ï»¿@charset "utf-8";
 
 #itemsSimulator{ background-color:#12110f;}
 .BGPic_Bar{ background:url(../images/itemsSimulator/mainBgPic_Bar.jpg) right top no-repeat;}
@@ -31,20 +31,20 @@
 .itemsAreaBG_Wizard{ background:url(../images/itemsSimulator/itemsArea_Wizard.jpg) no-repeat;}
 #items .itemsArea .itemsPlace{ border:#b1923e 1px solid; position:absolute;}
 #items .itemsArea .level{ position:absolute;}
-#items .itemsArea #level{ width:73px; height:25px; top:7px; left:167px;}			/*µÈ¼¶*/
-#items .itemsArea #head{ width:50px; height:50px; top:6px; left:97px;}				/*Í·²¿*/
-#items .itemsArea #shoulders{ width:50px; height:68px; top:24px; left:30px;}		/*»¤¼ç*/
-#items .itemsArea #torso{ width:64px; height:91px; top:61px; left:90px;}			/*ÉíÇû*/
-#items .itemsArea #wrists{ width:50px; height:69px; top:105px; left:186px;}			/*ÊÖÍó*/
-#items .itemsArea #hands{ width:50px; height:69px; top:105px; left:9px;}			/*ÊÖÕÆ*/
-#items .itemsArea #waist{ width:64px; height:24px; top:159px; left:90px;}			/*Ñü²¿*/
-#items .itemsArea #legs{ width:51px; height:69px; top:190px; left:96px;}			/*ÍÈ²¿*/
-#items .itemsArea #feet{ width:51px; height:68px; top:266px; left:96px;}			/*½Å²¿*/
-#items .itemsArea #leftRing{ width:31px; height:31px; top:187px; left:18px;}		/*×óÊÖ½äÖ¸*/
-#items .itemsArea #rightRing{ width:31px; height:31px; top:187px; left:196px;}		/*ÓÒÊÖ½äÖ¸*/
-#items .itemsArea #amulets{ width:40px; height:40px; top:41px; left:166px;}			/*»¤Éí·û*/
-#items .itemsArea #weapons{ width:51px; height:103px; top:232px; left:8px;}			/*ÎäÆ÷*/
-#items .itemsArea #offHand{ width:51px; height:103px; top:232px; left:186px;}		/*¸±ÊÖ*/
+#items .itemsArea #level{ width:73px; height:25px; top:7px; left:167px;}			/*ç­‰çº§*/
+#items .itemsArea #head{ width:50px; height:50px; top:6px; left:97px;}				/*å¤´éƒ¨*/
+#items .itemsArea #shoulders{ width:50px; height:68px; top:24px; left:30px;}		/*æŠ¤è‚©*/
+#items .itemsArea #torso{ width:64px; height:91px; top:61px; left:90px;}			/*èº«èº¯*/
+#items .itemsArea #wrists{ width:50px; height:69px; top:105px; left:186px;}			/*æ‰‹è…•*/
+#items .itemsArea #hands{ width:50px; height:69px; top:105px; left:9px;}			/*æ‰‹æŒ*/
+#items .itemsArea #waist{ width:64px; height:24px; top:159px; left:90px;}			/*è…°éƒ¨*/
+#items .itemsArea #legs{ width:51px; height:69px; top:190px; left:96px;}			/*è…¿éƒ¨*/
+#items .itemsArea #feet{ width:51px; height:68px; top:266px; left:96px;}			/*è„šéƒ¨*/
+#items .itemsArea #leftRing{ width:31px; height:31px; top:187px; left:18px;}		/*å·¦æ‰‹æˆ’æŒ‡*/
+#items .itemsArea #rightRing{ width:31px; height:31px; top:187px; left:196px;}		/*å³æ‰‹æˆ’æŒ‡*/
+#items .itemsArea #amulets{ width:40px; height:40px; top:41px; left:166px;}			/*æŠ¤èº«ç¬¦*/
+#items .itemsArea #weapons{ width:51px; height:103px; top:232px; left:8px;}			/*æ­¦å™¨*/
+#items .itemsArea #offHand{ width:51px; height:103px; top:232px; left:186px;}		/*å‰¯æ‰‹*/
 
 #items .function{ width:246px; height:175px; background:url(../images/itemsSimulator/functionBg.jpg) no-repeat;}
 #items .function ul{ margin:15px; color:#000; font-size:14px; font-weight:bold;}
@@ -53,7 +53,7 @@
 #items .function ul #chooseClasses{ width:120px; height:21px;}
 #items .function ul #level{ width:90px;}
 
-#items #right #intro{ width:380px; height:588px; border:#252525 1px solid; padding:10px;}		/*Ê¹ÓÃËµÃ÷²¿·Ö*/
+#items #right #intro{ width:380px; height:588px; border:#252525 1px solid; padding:10px;}		/*ä½¿ç”¨è¯´æ˜éƒ¨åˆ†*/
 #items #right #intro p{ line-height:22px;}
 
 #items .formTitle{ width:400px; height:30px; background:url(../images/itemsSimulator/formTitleBg.jpg) no-repeat; border:#312309 1px solid;}

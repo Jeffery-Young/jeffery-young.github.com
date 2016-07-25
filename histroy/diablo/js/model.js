@@ -1,210 +1,210 @@
-/***********************************************************************************
-** º¯ÊıÃû£ºD3Hero()
-** º¯ÊıËµÃ÷£º½¨Á¢×°±¸Ô­Ä£ĞÍ²¢¸³³õÖµ
+ï»¿/***********************************************************************************
+** å‡½æ•°åï¼šD3Hero()
+** å‡½æ•°è¯´æ˜ï¼šå»ºç«‹è£…å¤‡åŸæ¨¡å‹å¹¶èµ‹åˆå€¼
 ***********************************************************************************/
 function D3Items(){
-	//ÈËÎïÊôĞÔ
-	this.strength = 0;					//Á¦Á¿
-	this.dexterity = 0;					//Ãô½İ
-	this.intelligence = 0;				//ÖÇÁ¦
-	this.vitality = 0;					//ÌåÁ¦
-	//¹¥»÷ÊôĞÔ
-	this.minDamage = 0;					//×îĞ¡ÉËº¦
-	this.maxDamage = 0;					//×î´óÉËº¦
-	this.criticalHitChance = 0;			//±©»÷¸ÅÂÊ
-	this.criticalHitDamage = 0;			//±©»÷ÉËº¦
-	this.attackSpeed = 0;				//¹¥»÷ËÙ¶È
-	//·ÀÓùÊôĞÔ
-	this.armor = 0;						//×Ü»¤¼×
-	this.allResistance = 0;				//È«¿¹ĞÔ
-	this.physicalResistance = 0;		//ÎïÀí¿¹ĞÔ
-	this.coldResistance = 0;			//±ùº®¿¹ĞÔ
-	this.fireResistance = 0;			//»ğÑæ¿¹ĞÔ
-	this.lightningResistance = 0;		//µç»÷¿¹ĞÔ
-	this.poisonResistance = 0;			//¶¾ËØ¿¹ĞÔ
-	this.arcaneResistance = 0;			//ÃØ·¨/ÉñÊ¥¿¹ĞÔ
-	this.blockChance = 0;				//¸ñµ²¸ÅÂÊ
-	this.blockAmountMin = 0;			//¸ñµ²ÖµÏÂÏŞ
-	this.blockAmountMax = 0;			//¸ñµ²ÖµÉÏÏŞ
-	this.crowdControlReduction = 0;		//¿Ø³¡¼õÃâ
-	this.missileDamageReducion = 0;		//Ô¶³ÌÉËº¦¼õÃâ
-	this.meleeDamageReduction = 0;		//½üÕ½ÉËº¦¼õÃâ
-	this.thorns = 0;					//¾£¼¬ÉËº¦
-	//ÉúÃüÊôĞÔ
-	this.lifeBonus = 0;					//ÉúÃüÖµ¼Ó³É
-	this.lifePerSecond = 0;				//Ã¿ÃëÉúÃü»Ö¸´
-	this.lifeSteal = 0;					//ÉúÃüÇÔÈ¡
-	this.lifePerKill = 0;				//»÷É±ÉúÃü»Ö¸´
-	this.lifePerHit = 0;				//»÷ÖĞÉúÃü»Ö¸´
-	this.healthGlobeHealingBonus = 0;	//ÉúÃüÖ®ÇòĞ§¹û¼Ó³É
-	this.bonusToGlobeRadius = 0;		//Ê°È¡¾àÀë¼Ó³É
-	//Ã°ÏÕÊôĞÔ
-	this.movementSpeed = 0;				//ÒÆ¶¯ËÙ¶È
-	this.goldFind = 0;					//½ğ±ÒÑ°»ñÁ¿
-	this.magicFind = 0;					//Ä§±¦Ñ°»ñÁ¿
-	this.bonusExperience = 0;			//¾­Ñé¼Ó³É
-	this.bonusExperiencePerKill = 0;	//»÷É±¾­Ñé¼Ó³É
+	//äººç‰©å±æ€§
+	this.strength = 0;					//åŠ›é‡
+	this.dexterity = 0;					//æ•æ·
+	this.intelligence = 0;				//æ™ºåŠ›
+	this.vitality = 0;					//ä½“åŠ›
+	//æ”»å‡»å±æ€§
+	this.minDamage = 0;					//æœ€å°ä¼¤å®³
+	this.maxDamage = 0;					//æœ€å¤§ä¼¤å®³
+	this.criticalHitChance = 0;			//æš´å‡»æ¦‚ç‡
+	this.criticalHitDamage = 0;			//æš´å‡»ä¼¤å®³
+	this.attackSpeed = 0;				//æ”»å‡»é€Ÿåº¦
+	//é˜²å¾¡å±æ€§
+	this.armor = 0;						//æ€»æŠ¤ç”²
+	this.allResistance = 0;				//å…¨æŠ—æ€§
+	this.physicalResistance = 0;		//ç‰©ç†æŠ—æ€§
+	this.coldResistance = 0;			//å†°å¯’æŠ—æ€§
+	this.fireResistance = 0;			//ç«ç„°æŠ—æ€§
+	this.lightningResistance = 0;		//ç”µå‡»æŠ—æ€§
+	this.poisonResistance = 0;			//æ¯’ç´ æŠ—æ€§
+	this.arcaneResistance = 0;			//ç§˜æ³•/ç¥åœ£æŠ—æ€§
+	this.blockChance = 0;				//æ ¼æŒ¡æ¦‚ç‡
+	this.blockAmountMin = 0;			//æ ¼æŒ¡å€¼ä¸‹é™
+	this.blockAmountMax = 0;			//æ ¼æŒ¡å€¼ä¸Šé™
+	this.crowdControlReduction = 0;		//æ§åœºå‡å…
+	this.missileDamageReducion = 0;		//è¿œç¨‹ä¼¤å®³å‡å…
+	this.meleeDamageReduction = 0;		//è¿‘æˆ˜ä¼¤å®³å‡å…
+	this.thorns = 0;					//è†æ£˜ä¼¤å®³
+	//ç”Ÿå‘½å±æ€§
+	this.lifeBonus = 0;					//ç”Ÿå‘½å€¼åŠ æˆ
+	this.lifePerSecond = 0;				//æ¯ç§’ç”Ÿå‘½æ¢å¤
+	this.lifeSteal = 0;					//ç”Ÿå‘½çªƒå–
+	this.lifePerKill = 0;				//å‡»æ€ç”Ÿå‘½æ¢å¤
+	this.lifePerHit = 0;				//å‡»ä¸­ç”Ÿå‘½æ¢å¤
+	this.healthGlobeHealingBonus = 0;	//ç”Ÿå‘½ä¹‹çƒæ•ˆæœåŠ æˆ
+	this.bonusToGlobeRadius = 0;		//æ‹¾å–è·ç¦»åŠ æˆ
+	//å†’é™©å±æ€§
+	this.movementSpeed = 0;				//ç§»åŠ¨é€Ÿåº¦
+	this.goldFind = 0;					//é‡‘å¸å¯»è·é‡
+	this.magicFind = 0;					//é­”å®å¯»è·é‡
+	this.bonusExperience = 0;			//ç»éªŒåŠ æˆ
+	this.bonusExperiencePerKill = 0;	//å‡»æ€ç»éªŒåŠ æˆ
 }
 
 /***********************************************************************************
-** º¯ÊıÃû£ºD3Items_Weapons()
-** º¯ÊıËµÃ÷£º½¨Á¢ÎäÆ÷×°±¸Ô­Ä£ĞÍ£¬¼Ì³Ğ×°±¸Ô­Ä£ĞÍ²¢¸³³õÖµ
+** å‡½æ•°åï¼šD3Items_Weapons()
+** å‡½æ•°è¯´æ˜ï¼šå»ºç«‹æ­¦å™¨è£…å¤‡åŸæ¨¡å‹ï¼Œç»§æ‰¿è£…å¤‡åŸæ¨¡å‹å¹¶èµ‹åˆå€¼
 ***********************************************************************************/
 function D3Items_Weapons(){
-	D3Items.apply(this, arguments);		//¼Ì³ĞD3Items
-	this.weaponSpecie;					//ÎäÆ÷ÖÖÀà
-	this.dualWield;						//ÊÇ·ñË«³Ö
+	D3Items.apply(this, arguments);		//ç»§æ‰¿D3Items
+	this.weaponSpecie;					//æ­¦å™¨ç§ç±»
+	this.dualWield;						//æ˜¯å¦åŒæŒ
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºD3Hero()
-** º¯ÊıËµÃ÷£º½¨Á¢ÈËÎïÔ­Ä£ĞÍ²¢¸³³õÖµ
+** å‡½æ•°åï¼šD3Hero()
+** å‡½æ•°è¯´æ˜ï¼šå»ºç«‹äººç‰©åŸæ¨¡å‹å¹¶èµ‹åˆå€¼
 ***********************************************************************************/
 function D3Hero(){
-	//ÈËÎïÊôĞÔ
-	this.level = 60;					//µÈ¼¶£¬Ä¬ÈÏ60
-	this.strength = 0;					//Á¦Á¿
-	this.dexterity = 0;					//Ãô½İ
-	this.intelligence = 0;				//ÖÇÁ¦
-	this.vitality = 0;					//ÌåÁ¦
-	this.armor = 0;						//»¤¼×Öµ
-	this.DPS = 0;						//Ã¿ÃëÉËº¦
-	this.mainAttribute;					//Ö÷ÊôĞÔ
-	//¹¥»÷
-	this.mainAttributesDamage = 0;		//Ö÷ÊôĞÔÉËº¦¼Ó³É
-	this.skillsAttributesDamage = 0;	//¼¼ÄÜÉËº¦¼Ó³É
-	this.attacksPerSecond = 0;			//Ã¿Ãë¹¥»÷´ÎÊı
-	this.criticalHitChance = 5;			//±©»÷¸ÅÂÊ
-	this.criticalHitDamage = 50;		//±©»÷ÉËº¦
-	//·ÀÓùÊôĞÔ
-	this.blockAmount = [0,0];			//¸ñµ²Öµ
-	this.blockChance = 0;				//¸ñµ²¸ÅÂÊ
-	this.dodgeChance = 0;				//ÉÁ¶ã¸ÅÂÊ
-	this.damageReduction = 0;			//ÉËº¦¼õÃâ
-	this.physicalResistance = 0;		//ÎïÀí¿¹ĞÔ
-	this.coldResistance = 0;			//±ùº®¿¹ĞÔ
-	this.fireResistance = 0;			//»ğÑæ¿¹ĞÔ
-	this.lightningResistance = 0;		//µç»÷¿¹ĞÔ
-	this.poisonResistance = 0;			//¶¾ËØ¿¹ĞÔ
-	this.arcaneResistance = 0;			//ÃØ·¨/ÉñÊ¥¿¹ĞÔ
-	this.crowdControlReduction = 0;		//¿Ø³¡¼õÃâ
-	this.missileDamageReducion = 0;		//Ô¶³ÌÉËº¦¼õÃâ
-	this.meleeDamageReduction = 0;		//½üÕ½ÉËº¦¼õÃâ
-	this.thorns = 0;					//¾£¼¬ÉËº¦
-	//ÉúÃüÊôĞÔ
-	this.maximumLife = 0;				//ÉúÃüÖµÉÏÏŞ
-	this.totalLifeBonus = 0;			//×ÜÉúÃüÖµ¼Ó³É
-	this.lifePerSecond = 0;				//Ã¿ÃëÉúÃü»Ö¸´
-	this.lifeSteal = 0;					//ÉúÃüÇÔÈ¡
-	this.lifePerKill = 0;				//»÷É±ÉúÃü»Ö¸´
-	this.lifePerHit = 0;				//»÷ÖĞÉúÃü»Ö¸´
-	this.healthGlobeHealingBonus = 0;	//ÉúÃüÖ®ÇòĞ§¹û¼Ó³É
-	this.bonusToGlobeRadius = 0;		//Ê°È¡¾àÀë¼Ó³É
-	//Ã°ÏÕÊôĞÔ
-	this.movementSpeed = 0;				//ÒÆ¶¯ËÙ¶È
-	this.goldFind = 0;					//½ğ±ÒÑ°»ñÁ¿
-	this.magicFind = 0;					//Ä§±¦Ñ°»ñÁ¿
-	this.bonusExperience = 0;			//¾­Ñé¼Ó³É
-	this.bonusExperiencePerKill = 0;	//»÷É±¾­Ñé¼Ó³É
+	//äººç‰©å±æ€§
+	this.level = 60;					//ç­‰çº§ï¼Œé»˜è®¤60
+	this.strength = 0;					//åŠ›é‡
+	this.dexterity = 0;					//æ•æ·
+	this.intelligence = 0;				//æ™ºåŠ›
+	this.vitality = 0;					//ä½“åŠ›
+	this.armor = 0;						//æŠ¤ç”²å€¼
+	this.DPS = 0;						//æ¯ç§’ä¼¤å®³
+	this.mainAttribute;					//ä¸»å±æ€§
+	//æ”»å‡»
+	this.mainAttributesDamage = 0;		//ä¸»å±æ€§ä¼¤å®³åŠ æˆ
+	this.skillsAttributesDamage = 0;	//æŠ€èƒ½ä¼¤å®³åŠ æˆ
+	this.attacksPerSecond = 0;			//æ¯ç§’æ”»å‡»æ¬¡æ•°
+	this.criticalHitChance = 5;			//æš´å‡»æ¦‚ç‡
+	this.criticalHitDamage = 50;		//æš´å‡»ä¼¤å®³
+	//é˜²å¾¡å±æ€§
+	this.blockAmount = [0,0];			//æ ¼æŒ¡å€¼
+	this.blockChance = 0;				//æ ¼æŒ¡æ¦‚ç‡
+	this.dodgeChance = 0;				//é—ªèº²æ¦‚ç‡
+	this.damageReduction = 0;			//ä¼¤å®³å‡å…
+	this.physicalResistance = 0;		//ç‰©ç†æŠ—æ€§
+	this.coldResistance = 0;			//å†°å¯’æŠ—æ€§
+	this.fireResistance = 0;			//ç«ç„°æŠ—æ€§
+	this.lightningResistance = 0;		//ç”µå‡»æŠ—æ€§
+	this.poisonResistance = 0;			//æ¯’ç´ æŠ—æ€§
+	this.arcaneResistance = 0;			//ç§˜æ³•/ç¥åœ£æŠ—æ€§
+	this.crowdControlReduction = 0;		//æ§åœºå‡å…
+	this.missileDamageReducion = 0;		//è¿œç¨‹ä¼¤å®³å‡å…
+	this.meleeDamageReduction = 0;		//è¿‘æˆ˜ä¼¤å®³å‡å…
+	this.thorns = 0;					//è†æ£˜ä¼¤å®³
+	//ç”Ÿå‘½å±æ€§
+	this.maximumLife = 0;				//ç”Ÿå‘½å€¼ä¸Šé™
+	this.totalLifeBonus = 0;			//æ€»ç”Ÿå‘½å€¼åŠ æˆ
+	this.lifePerSecond = 0;				//æ¯ç§’ç”Ÿå‘½æ¢å¤
+	this.lifeSteal = 0;					//ç”Ÿå‘½çªƒå–
+	this.lifePerKill = 0;				//å‡»æ€ç”Ÿå‘½æ¢å¤
+	this.lifePerHit = 0;				//å‡»ä¸­ç”Ÿå‘½æ¢å¤
+	this.healthGlobeHealingBonus = 0;	//ç”Ÿå‘½ä¹‹çƒæ•ˆæœåŠ æˆ
+	this.bonusToGlobeRadius = 0;		//æ‹¾å–è·ç¦»åŠ æˆ
+	//å†’é™©å±æ€§
+	this.movementSpeed = 0;				//ç§»åŠ¨é€Ÿåº¦
+	this.goldFind = 0;					//é‡‘å¸å¯»è·é‡
+	this.magicFind = 0;					//é­”å®å¯»è·é‡
+	this.bonusExperience = 0;			//ç»éªŒåŠ æˆ
+	this.bonusExperiencePerKill = 0;	//å‡»æ€ç»éªŒåŠ æˆ
 	
-	this.countLevelAttributes = function(){		//¼ÆËãµÈ¼¶¶ÔÈËÎïÊôĞÔµÄÓ°Ïì
+	this.countLevelAttributes = function(){		//è®¡ç®—ç­‰çº§å¯¹äººç‰©å±æ€§çš„å½±å“
 		this.strength = 7 + this.addStrength * this.level;
 		this.dexterity = 7 + this.addDexterity * this.level;
 		this.intelligence = 7 + this.addIntelligence * this.level;
 		this.vitality = 7 + this.addVitality * this.level;
 	}
 	
-	this.countMainAttributesDamage = function(){	//¼ÆËãÖ÷ÊôĞÔÉËº¦¼Ó³É£¬°Ù·Ö±ÈÊı¾İ
+	this.countMainAttributesDamage = function(){	//è®¡ç®—ä¸»å±æ€§ä¼¤å®³åŠ æˆï¼Œç™¾åˆ†æ¯”æ•°æ®
 		this.mainAttributesDamage = this.mainAttribute;
 	}
 	
-	this.countMaximumLife = function(){			//¼ÆËãÉúÃüÖµÉÏÏŞ£¬ÌåÄÜ*60*ÉúÃüÖµ¼Ó³É ËÄÉáÎåÈë±£ÁôÕûÊı£¡£¡£¡£¡¹«Ê½´ıÉÌÈ¶£¡£¡£¡£¡£¡£¡£¡£¡£¡
+	this.countMaximumLife = function(){			//è®¡ç®—ç”Ÿå‘½å€¼ä¸Šé™ï¼Œä½“èƒ½*60*ç”Ÿå‘½å€¼åŠ æˆ å››èˆäº”å…¥ä¿ç•™æ•´æ•°ï¼ï¼ï¼ï¼å…¬å¼å¾…å•†æ¦·ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼ï¼
 		this.maximumLife = Math.round(this.vitality * 60 * (this.totalLifeBonus + 100) * 0.01);
 	}
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºD3Hero_Bar()
-** º¯ÊıËµÃ÷£º½¨Á¢Ò°ÂùÈËÔ­Ä£ĞÍ£¬¼Ì³ĞD3HeroÈËÎïÔ­Ä£ĞÍ²¢¸³³õÖµ
+** å‡½æ•°åï¼šD3Hero_Bar()
+** å‡½æ•°è¯´æ˜ï¼šå»ºç«‹é‡è›®äººåŸæ¨¡å‹ï¼Œç»§æ‰¿D3Heroäººç‰©åŸæ¨¡å‹å¹¶èµ‹åˆå€¼
 ***********************************************************************************/
 function D3Hero_bar(){
-	D3Hero.apply(this, arguments);			//¼Ì³ĞD3Hero
-	this.addStrength = 3;					//Ã¿¼¶Ôö¼ÓÁ¦Á¿
-	this.addDexterity = 1;					//Ã¿¼¶Ôö¼ÓÃô½İ
-	this.addIntelligence = 1;				//Ã¿¼¶Ôö¼ÓÖÇÁ¦
-	this.addVitality = 2;					//Ã¿¼¶Ôö¼ÓÌåÁ¦
+	D3Hero.apply(this, arguments);			//ç»§æ‰¿D3Hero
+	this.addStrength = 3;					//æ¯çº§å¢åŠ åŠ›é‡
+	this.addDexterity = 1;					//æ¯çº§å¢åŠ æ•æ·
+	this.addIntelligence = 1;				//æ¯çº§å¢åŠ æ™ºåŠ›
+	this.addVitality = 2;					//æ¯çº§å¢åŠ ä½“åŠ›
 	
 	this.setMainAttribute = function(){
-		this.mainAttribute = this.strength;	//ÉèÖÃBarÖ÷ÊôĞÔÎªÁ¦Á¿
+		this.mainAttribute = this.strength;	//è®¾ç½®Barä¸»å±æ€§ä¸ºåŠ›é‡
 	}
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºD3Hero_DH()
-** º¯ÊıËµÃ÷£º½¨Á¢á÷Ä§ÁÔÈËÔ­Ä£ĞÍ£¬¼Ì³ĞD3HeroÈËÎïÔ­Ä£ĞÍ²¢¸³³õÖµ
+** å‡½æ•°åï¼šD3Hero_DH()
+** å‡½æ•°è¯´æ˜ï¼šå»ºç«‹ç‹©é­”çŒäººåŸæ¨¡å‹ï¼Œç»§æ‰¿D3Heroäººç‰©åŸæ¨¡å‹å¹¶èµ‹åˆå€¼
 ***********************************************************************************/
 function D3Hero_dh(){
-	D3Hero.apply(this, arguments);			//¼Ì³ĞD3Hero
-	this.addStrength = 1;					//Ã¿¼¶Ôö¼ÓÁ¦Á¿
-	this.addDexterity = 3;					//Ã¿¼¶Ôö¼ÓÃô½İ
-	this.addIntelligence = 1;				//Ã¿¼¶Ôö¼ÓÖÇÁ¦
-	this.addVitality = 2;					//Ã¿¼¶Ôö¼ÓÌåÁ¦
+	D3Hero.apply(this, arguments);			//ç»§æ‰¿D3Hero
+	this.addStrength = 1;					//æ¯çº§å¢åŠ åŠ›é‡
+	this.addDexterity = 3;					//æ¯çº§å¢åŠ æ•æ·
+	this.addIntelligence = 1;				//æ¯çº§å¢åŠ æ™ºåŠ›
+	this.addVitality = 2;					//æ¯çº§å¢åŠ ä½“åŠ›
 	
 	this.setMainAttribute = function(){
-		this.mainAttribute = this.dexterity;	//ÉèÖÃdhÖ÷ÊôĞÔÎªÃô½İ
+		this.mainAttribute = this.dexterity;	//è®¾ç½®dhä¸»å±æ€§ä¸ºæ•æ·
 	}
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºD3Hero_Monk()
-** º¯ÊıËµÃ÷£º½¨Á¢ÎäÉ®Ô­Ä£ĞÍ£¬¼Ì³ĞD3HeroÈËÎïÔ­Ä£ĞÍ²¢¸³³õÖµ
+** å‡½æ•°åï¼šD3Hero_Monk()
+** å‡½æ•°è¯´æ˜ï¼šå»ºç«‹æ­¦åƒ§åŸæ¨¡å‹ï¼Œç»§æ‰¿D3Heroäººç‰©åŸæ¨¡å‹å¹¶èµ‹åˆå€¼
 ***********************************************************************************/
 function D3Hero_monk(){
-	D3Hero.apply(this, arguments);			//¼Ì³ĞD3Hero
-	this.addStrength = 1;					//Ã¿¼¶Ôö¼ÓÁ¦Á¿
-	this.addDexterity = 3;					//Ã¿¼¶Ôö¼ÓÃô½İ
-	this.addIntelligence = 1;				//Ã¿¼¶Ôö¼ÓÖÇÁ¦
-	this.addVitality = 2;					//Ã¿¼¶Ôö¼ÓÌåÁ¦
+	D3Hero.apply(this, arguments);			//ç»§æ‰¿D3Hero
+	this.addStrength = 1;					//æ¯çº§å¢åŠ åŠ›é‡
+	this.addDexterity = 3;					//æ¯çº§å¢åŠ æ•æ·
+	this.addIntelligence = 1;				//æ¯çº§å¢åŠ æ™ºåŠ›
+	this.addVitality = 2;					//æ¯çº§å¢åŠ ä½“åŠ›
 	
 	this.setMainAttribute = function(){
-		this.mainAttribute = this.dexterity;	//ÉèÖÃmonkÖ÷ÊôĞÔÎªÃô½İ
+		this.mainAttribute = this.dexterity;	//è®¾ç½®monkä¸»å±æ€§ä¸ºæ•æ·
 	}
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºD3Hero_WD()
-** º¯ÊıËµÃ÷£º½¨Á¢Î×Ò½Ô­Ä£ĞÍ£¬¼Ì³ĞD3HeroÈËÎïÔ­Ä£ĞÍ²¢¸³³õÖµ
+** å‡½æ•°åï¼šD3Hero_WD()
+** å‡½æ•°è¯´æ˜ï¼šå»ºç«‹å·«åŒ»åŸæ¨¡å‹ï¼Œç»§æ‰¿D3Heroäººç‰©åŸæ¨¡å‹å¹¶èµ‹åˆå€¼
 ***********************************************************************************/
 function D3Hero_wd(){
-	D3Hero.apply(this, arguments);				//¼Ì³ĞD3Hero
-	this.addStrength = 1;						//Ã¿¼¶Ôö¼ÓÁ¦Á¿
-	this.addDexterity = 1;						//Ã¿¼¶Ôö¼ÓÃô½İ
-	this.addIntelligence = 3;					//Ã¿¼¶Ôö¼ÓÖÇÁ¦
-	this.addVitality = 2;						//Ã¿¼¶Ôö¼ÓÌåÁ¦
+	D3Hero.apply(this, arguments);				//ç»§æ‰¿D3Hero
+	this.addStrength = 1;						//æ¯çº§å¢åŠ åŠ›é‡
+	this.addDexterity = 1;						//æ¯çº§å¢åŠ æ•æ·
+	this.addIntelligence = 3;					//æ¯çº§å¢åŠ æ™ºåŠ›
+	this.addVitality = 2;						//æ¯çº§å¢åŠ ä½“åŠ›
 	
 	this.setMainAttribute = function(){
-		this.mainAttribute = this.intelligence;	//ÉèÖÃwdÖ÷ÊôĞÔÎªÖÇÁ¦
+		this.mainAttribute = this.intelligence;	//è®¾ç½®wdä¸»å±æ€§ä¸ºæ™ºåŠ›
 	}
 }
 
 
 /***********************************************************************************
-** º¯ÊıÃû£ºD3Hero_Wzd()
-** º¯ÊıËµÃ÷£º½¨Á¢ÃØÊõÊ¦Ô­Ä£ĞÍ£¬¼Ì³ĞD3HeroÈËÎïÔ­Ä£ĞÍ²¢¸³³õÖµ
+** å‡½æ•°åï¼šD3Hero_Wzd()
+** å‡½æ•°è¯´æ˜ï¼šå»ºç«‹ç§˜æœ¯å¸ˆåŸæ¨¡å‹ï¼Œç»§æ‰¿D3Heroäººç‰©åŸæ¨¡å‹å¹¶èµ‹åˆå€¼
 ***********************************************************************************/
 function D3Hero_wzd(){
-	D3Hero.apply(this, arguments);				//¼Ì³ĞD3Hero
-	this.addStrength = 1;						//Ã¿¼¶Ôö¼ÓÁ¦Á¿
-	this.addDexterity = 1;						//Ã¿¼¶Ôö¼ÓÃô½İ
-	this.addIntelligence = 3;					//Ã¿¼¶Ôö¼ÓÖÇÁ¦
-	this.addVitality = 2;						//Ã¿¼¶Ôö¼ÓÌåÁ¦
+	D3Hero.apply(this, arguments);				//ç»§æ‰¿D3Hero
+	this.addStrength = 1;						//æ¯çº§å¢åŠ åŠ›é‡
+	this.addDexterity = 1;						//æ¯çº§å¢åŠ æ•æ·
+	this.addIntelligence = 3;					//æ¯çº§å¢åŠ æ™ºåŠ›
+	this.addVitality = 2;						//æ¯çº§å¢åŠ ä½“åŠ›
 	
 	this.setMainAttribute = function(){
-		this.mainAttribute = this.intelligence;	//ÉèÖÃwizardÖ÷ÊôĞÔÎªÖÇÁ¦
+		this.mainAttribute = this.intelligence;	//è®¾ç½®wizardä¸»å±æ€§ä¸ºæ™ºåŠ›
 	}
 }

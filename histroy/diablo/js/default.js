@@ -1,22 +1,22 @@
-function ChooseClasses(){
+ï»¿function ChooseClasses(){
 	$(".classes>input:radio").change(function(){
-		var chooseClass = $(this).val();						//Ñ¡ÖĞµÄ°´Å¥ bar/dh/monk/wd/wizard/all
-		var arrChoose = new Array($("#maxItemAttributes>thead>tr>."+chooseClass).size());	//´´½¨Ò»¸öÊı×éÓÃÒÔ´æ·ÅÑ¡ÖĞÖ°ÒµËùÔÚµÄÁĞºÅ£¬Êı×é³¤¶È¼´ÎªËùÑ¡Ö°ÒµÓµÓĞµÄ×ÜÁĞÊı
+		var chooseClass = $(this).val();						//é€‰ä¸­çš„æŒ‰é’® bar/dh/monk/wd/wizard/all
+		var arrChoose = new Array($("#maxItemAttributes>thead>tr>."+chooseClass).size());	//åˆ›å»ºä¸€ä¸ªæ•°ç»„ç”¨ä»¥å­˜æ”¾é€‰ä¸­èŒä¸šæ‰€åœ¨çš„åˆ—å·ï¼Œæ•°ç»„é•¿åº¦å³ä¸ºæ‰€é€‰èŒä¸šæ‹¥æœ‰çš„æ€»åˆ—æ•°
 		var chooseClassIndex = $("#maxItemAttributes>thead>tr>."+chooseClass).each(function(i){
-			arrChoose[i] = $(this).index();												//½«ÁĞĞòºÅÒÀ´Î´æÈëÊı×éÖĞ£¬ÁĞĞòºÅ´Ó0¿ªÊ¼
+			arrChoose[i] = $(this).index();												//å°†åˆ—åºå·ä¾æ¬¡å­˜å…¥æ•°ç»„ä¸­ï¼Œåˆ—åºå·ä»0å¼€å§‹
 		});
-		var arrLimited = new Array($("#maxItemAttributes>thead>tr>.limited").size());		//´´½¨Ò»¸öÊı×éÓÃÒÔ´æ·ÅËùÓĞÖ°ÒµÏŞÖÆ×°±¸ÁĞºÅ£¬Êı×é³¤¶È¼´Îª×ÜÁĞÊı
+		var arrLimited = new Array($("#maxItemAttributes>thead>tr>.limited").size());		//åˆ›å»ºä¸€ä¸ªæ•°ç»„ç”¨ä»¥å­˜æ”¾æ‰€æœ‰èŒä¸šé™åˆ¶è£…å¤‡åˆ—å·ï¼Œæ•°ç»„é•¿åº¦å³ä¸ºæ€»åˆ—æ•°
 		var limitedClassIndex = $("#maxItemAttributes>thead>tr>.limited").each(function(i){
-			arrLimited[i] = $(this).index();												//½«ÁĞĞòºÅÒÀ´Î´æÈëÊı×éÖĞ£¬ÁĞĞòºÅ´Ó0¿ªÊ¼
+			arrLimited[i] = $(this).index();												//å°†åˆ—åºå·ä¾æ¬¡å­˜å…¥æ•°ç»„ä¸­ï¼Œåˆ—åºå·ä»0å¼€å§‹
 		});
 		
 		if(chooseClass == "all"){
-			//´¦ÀíµÚÒ»±íÍ·
+			//å¤„ç†ç¬¬ä¸€è¡¨å¤´
 			$("#maxItemAttributes .head").attr("colspan","4");
 			$("#maxItemAttributes .torso").attr("colspan","2");	
 			$("#maxItemAttributes .waist").attr("colspan","2");	
 			$("#maxItemAttributes .off-hand").attr("colspan","4");
-			//´¦ÀíµÚ¶ş±íÍ·
+			//å¤„ç†ç¬¬äºŒè¡¨å¤´
 			$("#maxItemAttributes").find(".limited").show();
 			for(i=0; i<=arrLimited.length; i++){
 				$("#maxItemAttributes>tbody>tr").each(function(){
@@ -24,8 +24,8 @@ function ChooseClasses(){
 				});
 			};
 		} else {
-			//´¦ÀíµÚÒ»±íÍ·
-			$("#maxItemAttributes").find(".head, .torso, .waist, .off-hand").attr("colspan","1");	//¶à¸ö×Ó±íÍ·µÄÏîcolspanÖÃÎª1	
+			//å¤„ç†ç¬¬ä¸€è¡¨å¤´
+			$("#maxItemAttributes").find(".head, .torso, .waist, .off-hand").attr("colspan","1");	//å¤šä¸ªå­è¡¨å¤´çš„é¡¹colspanç½®ä¸º1	
 			switch(chooseClass){
 				case "bar":	
 					$("#maxItemAttributes .waist").attr("colspan","2");
@@ -45,8 +45,8 @@ function ChooseClasses(){
 					$("#maxItemAttributes .head").attr("colspan","2");
 					$("#maxItemAttributes .off-hand").attr("colspan","2");
 					break;
-			};																//¸ù¾İÑ¡ÖĞÖ°ÒµÉèÖÃ±íÍ·colspanÖµ
-			//´¦ÀíµÚ¶ş±íÍ·
+			};																//æ ¹æ®é€‰ä¸­èŒä¸šè®¾ç½®è¡¨å¤´colspanå€¼
+			//å¤„ç†ç¬¬äºŒè¡¨å¤´
 			$("#maxItemAttributes").find(".limited").hide();
 			for(i=0; i<=arrLimited.length; i++){
 				$("#maxItemAttributes>tbody>tr").each(function(){
@@ -70,19 +70,19 @@ function DiabloTableStyle(){
 	
 	$(".diabloTable>tbody>tr>td").hover(
 		function(){
-			var tdIndex = $(this).index() - 1;		//»ñÈ¡µ±Ç°tdËùÔÚµÄÁĞÊı£¬´Ó0¿ªÊ¼
+			var tdIndex = $(this).index() - 1;		//è·å–å½“å‰tdæ‰€åœ¨çš„åˆ—æ•°ï¼Œä»0å¼€å§‹
 			$(".diabloTable>tbody>tr").each(function(){
 				$(this).find("td").eq(tdIndex).addClass("diabloTable_tdYHover");
 			});
-			$(this).parent("tr").addClass("diabloTable_trHover");	//ºáĞĞÑùÊ½±ä»¯
-		},	//ÒÆÈëÊ±¶¯×÷
+			$(this).parent("tr").addClass("diabloTable_trHover");	//æ¨ªè¡Œæ ·å¼å˜åŒ–
+		},	//ç§»å…¥æ—¶åŠ¨ä½œ
 		function(){
-			var tdIndex = $(this).index() - 1;		//»ñÈ¡µ±Ç°tdËùÔÚµÄÁĞÊı£¬´Ó0¿ªÊ¼
+			var tdIndex = $(this).index() - 1;		//è·å–å½“å‰tdæ‰€åœ¨çš„åˆ—æ•°ï¼Œä»0å¼€å§‹
 			$(".diabloTable>tbody>tr").each(function(){
 				$(this).find("td").eq(tdIndex).removeClass("diabloTable_tdYHover");
 			});
 			$(this).parent("tr").removeClass("diabloTable_trHover");
-		}	//ÒÆ³öÊ±¶¯×÷
+		}	//ç§»å‡ºæ—¶åŠ¨ä½œ
 	);
 	
 	$(".diabloTable>tbody>tr>td").toggle(
@@ -92,7 +92,7 @@ function DiabloTableStyle(){
 		function(){
 			$(this).removeClass("diabloTable_tdSelected");
 		}
-	);		//µã»÷ ÔÙ´Îµã»÷±³¾°É«±ä»¯
+	);		//ç‚¹å‡» å†æ¬¡ç‚¹å‡»èƒŒæ™¯è‰²å˜åŒ–
 	
 	$(".indexMain").dblclick(
 		function(){
