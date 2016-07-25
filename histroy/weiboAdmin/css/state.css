@@ -1,0 +1,37 @@
+﻿/*态势图样式*/
+
+/*排序筛选控制区*/
+#indexMain #stateCtrl{ width:100%; height:31px; margin-bottom:20px; border:#dfdfdf 1px solid; border-top:#2f7abe 2px solid;}
+#indexMain #stateCtrl li{ line-height:31px; padding:0px 15px; height:31px; border-right:#dfdfdf 1px solid; float:left;}
+#indexMain #stateCtrl .selected{ border:#f4b39d 1px solid; border-top:0px none; background:#fff5e8; position:relative; left:-1px; z-index:0;}
+#indexMain #stateCtrl .statistics{ float:right; border-right:0px none;}
+#indexMain #stateCtrl .statistics span{ font-weight:bold;}
+#indexMain #stateCtrl li a{ display:block;}
+#indexMain #stateCtrl li a:hover{}
+#indexMain #stateCtrl li img{ margin-left:5px;}
+#indexMain #stateCtrl li .textInput{ width:100px; height:18px; margin-top:6px; padding:0px 3px; border:#7aaebd 1px solid; box-shadow:#f2f2f2 1px 1px 0px inset;}
+#indexMain #stateCtrl li .button{ height:20px; text-align:center; vertical-align:top; margin:6px 0px 0px 3px; border:#7aaebd 1px solid; background:#edf8fe; cursor:pointer;}
+
+
+
+/*图表区*/
+#indexMain #stateChart{ margin-right:120px; clear:both;}
+#indexMain #stateChart .chartRow{}
+#indexMain #stateChart .chartRow .time{ width:80px; font-size:11px; line-height:12px; text-align:right; padding:5px 5px 0px 0px; border-right:#dfdfdf 2px solid; float:left;}
+#indexMain #stateChart .chartRow .bar{ width:auto; margin:7px 0px 0px 0px;}
+#indexMain #stateChart .chartRow .bar .lv1{ background:url(../images/main_StateBarBg.png) 0px 0px repeat-x; border:#d8cb66 1px solid; border-left:0px none;}
+#indexMain #stateChart .chartRow .bar .lv2{ background:url(../images/main_StateBarBg.png) 0px -18px repeat-x; border:#e85504 1px solid; border-left:0px none;}
+#indexMain #stateChart .chartRow .bar .lv3{ background:url(../images/main_StateBarBg.png) 0px -36px repeat-x; border:#e11702 1px solid; border-left:0px none;}
+#indexMain #stateChart .chartRow .bar p{ height:18px; line-height:18px; text-shadow:#FFF 0px 0px 1px; text-align:right; padding-right:3px; box-shadow:#CCC 1px 1px 1px; float:left;}
+#indexMain #stateChart .chartRow .bar p a{ display:block;}
+#indexMain #stateChart .chartRow .count{ font-weight:bold; line-height:20px; margin-left:3px;}
+
+/*图例区*/
+#indexMain #stateLegend{ padding:6px 10px; border:#dfdfdf 3px solid; position:fixed; top:91px; right:10px;}
+#indexMain #stateLegend h3{ text-align:center; padding-bottom:6px; margin-bottom:5px; border-bottom:#dfdfdf 1px dotted;}
+#indexMain #stateLegend p{ line-height:24px; text-align:center;}
+#indexMain #stateLegend p span{ width:30px; height:12px; display:inline-block; margin:0px 10px 0px 0px; position:relative; top:3px;}
+#indexMain #stateLegend p #lv1{ border:#d8cb66 1px solid; background:url(../images/main_StateBarBg.png) 0px 0px repeat-x; box-shadow:#FFF 0px 0px 2px inset;}
+#indexMain #stateLegend p #lv2{ border:#e85504 1px solid; background:url(../images/main_StateBarBg.png) 0px -18px repeat-x; box-shadow:#FFF 0px 0px 2px inset;}
+#indexMain #stateLegend p #lv3{ border:#e11702 1px solid; background:url(../images/main_StateBarBg.png) 0px -36px repeat-x; box-shadow:#FFF 0px 0px 2px inset;}
+

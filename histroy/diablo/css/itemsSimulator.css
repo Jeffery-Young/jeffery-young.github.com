@@ -1,0 +1,90 @@
+@charset "gb2312";
+
+#itemsSimulator{ background-color:#12110f;}
+.BGPic_Bar{ background:url(../images/itemsSimulator/mainBgPic_Bar.jpg) right top no-repeat;}
+.BGPic_DH{ background:url(../images/itemsSimulator/mainBgPic_DH.jpg) right top no-repeat;}
+.BGPic_Monk{ background:url(../images/itemsSimulator/mainBgPic_Monk.jpg) right top no-repeat;}
+.BGPic_WD{ background:url(../images/itemsSimulator/mainBgPic_WD.jpg) right top no-repeat;}
+.BGPic_Wizard{ background:url(../images/itemsSimulator/mainBgPic_Wizard.jpg) right top no-repeat;}
+
+
+#items{ width:700px; height:650px; padding:0px; border:#382f1f 1px solid; background:#100c08; margin:70px 0px 0px 50px; float:left; position:relative; overflow:visible; box-shadow:inset 0 0 10px #18150E;}
+#items .itemsCorner{ width:38px; height:41px; background:url("../images/itemsSimulator/itemsCorner.png") no-repeat; position:absolute;}
+#items .tl{ top:-4px; left:-8px;}
+#items .tr{ top:-4px; right:-8px; background-position:-37px 0;}
+#items .bl{ bottom:-4px; left:-8px; background-position:0 -41px;}
+#items .br{ bottom:-4px; right:-8px; background-position:-37px -41px;}
+#items #left{ margin:10px 0px 10px 10px; float:left;}
+#items #left .box{ margin:10px; border:#382f1f 1px solid;}
+#items #right{ margin:10px 10px 10px 0px; float:left;}
+#items #right .box{ margin:10px 10px 10px 0px;}
+
+#items .battleTag{ width:246px; height:61px; background:url(../images/itemsSimulator/battleTagBg.jpg) no-repeat;}
+#items .battleTag span{ color:#9d1700; font-family:Diablo; font-size:17px; font-weight:bold; margin:32px 0px 0px 67px; display:block; text-shadow:1px 1px 1px #dfd0b4;}
+
+#items .itemsArea{ width:246px; height:348px; position:relative;}
+.itemsAreaBG_Default{ background:url(../images/itemsSimulator/itemsArea_Bar.jpg) no-repeat;}
+.itemsAreaBG_Bar{ background:url(../images/itemsSimulator/itemsArea_Bar.jpg) no-repeat;}
+.itemsAreaBG_DH{ background:url(../images/itemsSimulator/itemsArea_DH.jpg) no-repeat;}
+.itemsAreaBG_Monk{ background:url(../images/itemsSimulator/itemsArea_Monk.jpg) no-repeat;}
+.itemsAreaBG_WD{ background:url(../images/itemsSimulator/itemsArea_WD.jpg) no-repeat;}
+.itemsAreaBG_Wizard{ background:url(../images/itemsSimulator/itemsArea_Wizard.jpg) no-repeat;}
+#items .itemsArea .itemsPlace{ border:#b1923e 1px solid; position:absolute;}
+#items .itemsArea .level{ position:absolute;}
+#items .itemsArea #level{ width:73px; height:25px; top:7px; left:167px;}			/*等级*/
+#items .itemsArea #head{ width:50px; height:50px; top:6px; left:97px;}				/*头部*/
+#items .itemsArea #shoulders{ width:50px; height:68px; top:24px; left:30px;}		/*护肩*/
+#items .itemsArea #torso{ width:64px; height:91px; top:61px; left:90px;}			/*身躯*/
+#items .itemsArea #wrists{ width:50px; height:69px; top:105px; left:186px;}			/*手腕*/
+#items .itemsArea #hands{ width:50px; height:69px; top:105px; left:9px;}			/*手掌*/
+#items .itemsArea #waist{ width:64px; height:24px; top:159px; left:90px;}			/*腰部*/
+#items .itemsArea #legs{ width:51px; height:69px; top:190px; left:96px;}			/*腿部*/
+#items .itemsArea #feet{ width:51px; height:68px; top:266px; left:96px;}			/*脚部*/
+#items .itemsArea #leftRing{ width:31px; height:31px; top:187px; left:18px;}		/*左手戒指*/
+#items .itemsArea #rightRing{ width:31px; height:31px; top:187px; left:196px;}		/*右手戒指*/
+#items .itemsArea #amulets{ width:40px; height:40px; top:41px; left:166px;}			/*护身符*/
+#items .itemsArea #weapons{ width:51px; height:103px; top:232px; left:8px;}			/*武器*/
+#items .itemsArea #offHand{ width:51px; height:103px; top:232px; left:186px;}		/*副手*/
+
+#items .function{ width:246px; height:175px; background:url(../images/itemsSimulator/functionBg.jpg) no-repeat;}
+#items .function ul{ margin:15px; color:#000; font-size:14px; font-weight:bold;}
+#items .function ul li{ line-height:30px;}
+#items .function ul li span{ margin-right:7px;}
+#items .function ul #chooseClasses{ width:120px; height:21px;}
+#items .function ul #level{ width:90px;}
+
+#items #right #intro{ width:380px; height:588px; border:#252525 1px solid; padding:10px;}		/*使用说明部分*/
+#items #right #intro p{ line-height:22px;}
+
+#items .formTitle{ width:400px; height:30px; background:url(../images/itemsSimulator/formTitleBg.jpg) no-repeat; border:#312309 1px solid;}
+#items .formTitle .introTitle{ height:30px; color:#fcff53; font-size:14px; font-weight:bold; line-height:31px; text-align:center;}
+#items .formTitle #title{ color:#fcff53; font-size:14px; margin:6px 10px; float:left;}
+#items .formTitle #showhide{ color:#aa2f2f; font-size:12px; margin:7px 10px; float:right;}
+
+#items .formMain{ width:400px; height:527px; border:#252525 1px solid; overflow:auto;}
+#items .formMain .intro{ margin:15px 20px; line-height:20px;}
+#items .formMain ul{ width:380px; clear:both; margin:0px auto;}
+#items .formMain ul input{ width:44px; height:14px; color:#FFF; text-align:center; background:none; border:0px none; border-bottom:#cd9d51 1px solid; margin:0px;}
+#items .formMain ul .blockAmount input{ width:31px;}
+#items .formMain ul .className{ color:#FFF; font-weight:bold; text-align:center; padding:11px 0px 4px 0px; background:url(../images/itemsSimulator/formMainClassNameBg.png) center 16px no-repeat;}
+#items .formMain ul li{ color:#cd9d51; margin:4px 0px; display:block;}
+#items .formMain ul .head{ width:85px; text-align:right; float:left;}
+#items .formMain ul .bar{ width:90px; text-align:left; float:left; margin-left:15px;}
+
+#items .formBtn{ width:402px; height:29px; background:url(../images/itemsSimulator/formBtnBg.png) no-repeat; text-align:center;}
+#items .formBtn span{ line-height:30px;}
+
+
+#data{ width:232px; margin:53px 0px 0px 20px; float:left;}
+#data .top{ width:232px; height:70px; background:url(../images/itemsSimulator/dataBg.png) 0px -6px no-repeat;}
+#data .center{ width:202px; height:585px; background:url(../images/itemsSimulator/dataBg.png) -232px 0px repeat-y; padding:0px 15px; overflow:auto;}
+#data .bottom{ width:232px; height:16px; background:url(../images/itemsSimulator/dataBg.png) 0px -77px no-repeat;}
+#data .center ul{ clear:both;}
+#data .center .className{ color:#e7a56b; font-size:14px; font-weight:bold; padding:10px 0px 14px 10px; background:url(../images/itemsSimulator/dataBg.png) 0px 33px no-repeat;}
+#data .center .head{ width:95px; color:#cd9d51; line-height:18px; text-align:left; padding-left:10px; float:left;}
+#data .center .value{ width:70px; color:#FFF; line-height:18px; text-align:right; padding-right:10px; float:right;}
+
+
+.popupItemAttributesBox{ width:200px; padding-bottom:8px; background:#120a0d; border:#342720 2px solid; position:absolute; z-index:100;}
+.popupItemAttributesBox h3{ color:#fdb12e; font-size:14px; font-weight:bold; line-height:26px; padding:0px 10px; margin-bottom:5px; border-bottom:#302018 1px solid;}
+.popupItemAttributesBox p{ color:#6969ff; font-size:12px; padding:0px 12px; line-height:18px;}

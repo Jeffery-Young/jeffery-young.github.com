@@ -1,0 +1,25 @@
+﻿/*欢迎页样式*/
+
+/*SP导航区*/
+#indexMain #welcomeSPNav{ height:29px; border-bottom:#2f7abe 2px solid; font-size:14px; line-height:20px; padding-left:10px;}
+#indexMain #welcomeSPNav li{ margin-right:-1px; border:#dfdfdf 1px solid; border-bottom:0px none; background:#f9f9f9; float:left;}
+#indexMain #welcomeSPNav li:hover{ background:#fff5e8;}
+#indexMain #welcomeSPNav li a{ height:29px; padding:0px 9px; margin-top:-1px; display:block;}
+#indexMain #welcomeSPNav li a:hover{ text-decoration:none;}
+#indexMain #welcomeSPNav li img{ position:relative; top:5px; margin-right:4px;}
+#indexMain #welcomeSPNav .active{ height:32px; border:#2f7abe 1px solid; border-bottom:0px none; border-radius:3px 3px 0px 0px; background:#FFF; position:relative; top:-2px; margin-bottom:-2px;}
+#indexMain #welcomeSPNav .active a{ margin-top:1px;}
+#indexMain #welcomeSPNav .active:hover{ background:#FFF;}
+#indexMain #welcomeSPNav .active a:hover{ cursor:default;}
+
+/*左侧表格*/
+#indexMain #leftTable{ width:70%; padding:0px 20px 0px 10px; border-right:#dfdfdf 1px solid; float:left; clear:left;}
+
+/*右侧排行榜*/
+#indexMain #rightRanking{ padding:0px 10px 0px 20px;}
+#indexMain #rightRanking .ranking{ margin-top:15px;}
+#indexMain #rightRanking .ranking ul{ height:26px; color:#134ba0; line-height:27px; padding:0px 5px 0px 9px; border:#d3deeb 1px solid; border-bottom:#2f7abe 2px solid; background:#f2f9ff;}
+#indexMain #rightRanking .ranking ul span{ font-size:14px; font-weight:bold;}
+#indexMain #rightRanking .ranking ul li{ padding:0px 7px; cursor:pointer; float:right;}
+#indexMain #rightRanking .ranking ul .active{ height:27px; border:#2f7abe 1px solid; border-top-width:2px; border-bottom:0px none; background:#FFF; position:relative; top:-1px; margin-bottom:-1px;}
+#indexMain #rightRanking .ranking table{ width:100%; table-layout:fixed; border:#d3deeb 1px solid; border-top:0px none;}

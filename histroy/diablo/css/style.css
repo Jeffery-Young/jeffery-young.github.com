@@ -1,0 +1,55 @@
+/* 全局样式 */
+body,div{ margin:0px; padding:0px; font-family:Tahoma,"微软雅黑","宋体"; color:#FFF; font-size:12px;}
+h1,h2,h3,h4,h5,p,span{ margin:0px; padding:0px;}
+div{ overflow:hidden;}
+table{ border:none 0px; margin:0px; padding:0px; border-collapse:collapse; border-spacing:0px 0px;}
+ul{ list-style:none; margin:0px; padding:0px;}
+img{ border:none 0px;}
+input{ outline:0;}
+a{ text-decoration:none; outline:0;}
+
+
+/* indexMain区域样式*/
+.indexMain{ background:#282828; margin:20px;}												/*主要内容区body样式*/
+
+
+/* indexLeft区域样式*/
+.indexLeft{ background:#313131 url(../images/indexLeftLine.png) top right repeat-y;}		/*左侧导航区body样式*/
+.toolNav{ width:162px; margin:0px auto;}
+.toolNav li{ width:162px; height:37px; background:url(../images/indexLeftNav.png) 0px 0px no-repeat; text-align:center; margin-bottom:10px;}
+.toolNav li:hover{ background:url(../images/indexLeftNav.png) 0px -80px no-repeat;}
+.toolNav li:active{ background:url(../images/indexLeftNav.png) 0px -40px no-repeat;}
+.toolNav li a{ color:#eee; font-size:14px; font-weight:bold; line-height:35px; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); display:block;}
+.toolNav li a:hover{ color:#FFF;}
+.toolNav li a:active{ color:#999;}
+
+
+/* DiabloTable风格样式*/
+.diabloTable{ margin:0px auto; text-align:right; border-collapse:collapse; border-spacing:0px 0px; border:0px none; cursor:default;}
+.diabloTable th{ color:#FFF; text-align:right;}
+.diabloTable thead tr:first-child th{ height:30px; font-size:14px; text-align:center; border-top:#d76767 1px solid;}
+.diabloTable thead tr:first-child th:first-child{ background:url(../images/diabloTableThead.png) 0px -31px repeat-x;}
+.diabloTable thead tr th{ height:28px; font-size:13px; text-align:center; background:url(../images/diabloTableThead.png) repeat-x; border-left:#882525 1px solid; padding:0px 6px;}
+.diabloTable thead tr th:first-child{ border-left:0px none;}	/*处理第一个th左侧无边框*/
+.diabloTable tbody{ border-left:#282828 1px solid;}
+.diabloTable tbody tr{ border-bottom:#474747 1px solid;}
+.diabloTable tbody tr:first-child{ background:#313131 url(../images/diabloTableThead.png) 0px -89px repeat-x; border-top:#191919 1px solid;}	/*处理第一行tr阴影色*/
+.diabloTable tbody tr th{ width:111px; padding:0px 8px 0px 0px;}
+.diabloTable tbody tr td{ height:26px; color:#d5d5d5; border-left:#474747 1px solid; padding:0px 8px;}
+.diabloTable .important1{ color:#60ff00; font-weight:bold;}
+.diabloTable .important2{ color:#ff9c00; font-weight:bold;}
+
+.diabloTable_evenTrStyle{ background:#313131;}	/*奇数行背景色*/
+.diabloTable_oddTrStyle{ background:#3c3c3c;}	/*偶数行背景色*/
+.diabloTable_emptyTdStyle{ background:#242424;}	/*空表格背景色*/
+.diabloTable_trHover{ border:#d64141 1px solid;}
+.diabloTable_trHover td, .diabloTable_trHover th{ border-top:#d64141 1px solid; border-bottom:#d64141 1px solid;}
+.diabloTable_tdYHover{ background:#000;}		/*选中纵列背景色*/
+.diabloTable_tdSelected{ background:#851c09; font-weight:bold;}	/*选中td样式*/
+
+
+/* 职业选择样式 */
+.classes{ width:1000px; color:#FFF; font-size:14px; text-align:center; margin:20px auto;}
+.classes span{ font-weight:bold;}
+
+

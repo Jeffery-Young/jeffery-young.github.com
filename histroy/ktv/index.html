@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>启航KTV</title>
+<style type="text/css">
+<!--
+body,div{
+margin:0px;
+}
+body{
+background:url(images/bg_top.jpg) no-repeat;
+background-position:top center;
+background-color:#000000;
+text-align:center;
+}
+.text1{
+color:#FFFFFF;
+font-size:14px;
+font-family:"微软雅黑", "宋体";
+font-weight:bold;
+text-align:right;
+padding-right:10px;
+}
+.text2{
+color:#FFFFFF;
+font-size:14px;
+font-family:"微软雅黑", "宋体";
+text-align:left;
+line-height:27px;
+}
+.text3{
+color:#FFFFFF;
+font-size:12px;
+font-family:"宋体";
+text-align:center;
+}
+.text4{
+color:#FFFFBB;
+font-size:12px;
+font-family:"宋体";
+text-align:left;
+}
+span{
+color:#ffea00;
+font-size:14px;
+font-family:"微软雅黑", "宋体";
+font-weight:bold;
+line-height:27px;
+}
+-->
+</style>
+</head>
+
+<body>
+<div align="center">
+<table width="920px" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="440px"></td>
+  </tr>
+  <tr>
+    <td height="1px" style="background-color:#454545"></td>
+  </tr>
+  <tr>
+    <td style="background:url(images/title1.jpg) no-repeat">
+        <form id="form1" name="form1" method="post" action="">
+        <table width="920px" border="0" cellspacing="0" cellpadding="0" style="margin-top:20px; margin-bottom:20px;">
+          <tr>
+            <td width="160px" height="35px" class="text1">预约者姓名：</td>
+            <td width="330px" align="left" class="text4"><input name="cname" type="text" id="cname" style="width:120px;"/>&nbsp;&nbsp;*请填写真实姓名</td>
+            <td width="80px" class="text1">预约时间：</td>
+            <td width="170px" align="left"><input name="time" type="text" id="time" style="width:150px;"/></td>
+            <td width="180px" class="text4">*请写清预约时间，格式如<br />&nbsp;2009年5月20日9:00～12:00</td>
+          </tr>
+          <tr>
+            <td class="text1" height="35px">联系电话：</td>
+            <td align="left" class="text4"><input name="tel" type="text" id="tel" style="width:120px;"/>&nbsp;&nbsp;*请填写真实有效的联系方式</td>
+            <td class="text1">预约类型：</td>
+            <td align="left" style="color:#FFFFFF; font-family:'宋体'; font-size:13px; font-weight:bold">
+                <input name="type" type="radio" id="type" value="radio" />包场&nbsp;
+                <input type="radio" name="type" id="type" value="radio" />计时
+            </td>
+            <td class="text4">*请参考下文“价格”内容</td>
+          </tr>
+          <tr>
+            <td class="text1" height="35px">学号/工号：</td>
+            <td align="left" class="text4"><input name="number" type="text" id="number" style="width:120px;"/>&nbsp;&nbsp;*请填写真实有效的证件号码</td>
+            <td class="text1">人数：</td>
+            <td align="left">
+              <select name="count" id="count" style="width:118px;">
+                <option value="1～5人" selected="selected">1～5人</option>
+                <option value="6～10人">6～10人</option>
+                <option value="11～15人">11～15人</option>
+                <option value="16～20人">16～20人</option>
+                <option value="21～25人">21～25人</option>
+                <option value="26～30人">26～30人</option>
+                <option value="31～35人">31～35人</option>
+                <option value="36人以上">36人以上</option>
+              </select>
+            </td>
+            <td class="text4">*请选择活动人数</td>
+          </tr>
+          <tr>
+            <td class="text1" valign="top" style="padding-top:8px;">备注：</td>
+            <td colspan="3" align="left" style="padding-top:8px;"><textarea name="note" cols="69" rows="7" id="note"></textarea></td>
+            <td align="left" class="text4">*可填写其它需求<br />&nbsp;如酒水饮料零食等</td>
+          </tr>
+          <tr>
+            <td height="35px"></td>
+            <td colspan="4" align="left" style="padding-top:10px;">
+                <input name="ok" type="submit" id="ok" value="确定" style="width:60px;"/>&nbsp;
+                <input name="clear" type="reset" id="clear" value="清空" style="width:60px;"/>
+            </td>
+          </tr>
+        </table>
+        </form>
+    </td>
+  </tr>
+  <tr>
+    <td height="1px" style="background-color:#454545"></td>
+  </tr>
+  <tr>
+    <td style="background:url(images/title2.jpg) no-repeat">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left:75px; margin-top:20px; margin-bottom:20px;">
+          <tr>
+            <td class="text2" width="260px" valign="top">
+            <span>◆ 普通场：</span><br />
+            &nbsp;&nbsp;周一至周四 18：00～21：20<br />
+            &nbsp;&nbsp;周六、周日  9：00～12：00<br />
+            &nbsp;&nbsp;98元/场（赠啤酒4瓶或干果2盘）<br />
+            &nbsp;&nbsp;另可38元/小时
+            </td>
+            <td class="text2" width="260px" valign="top">
+            <span>◆ 黄金场：</span><br />
+            &nbsp;&nbsp;周五至周日 18：00～21：20<br />
+            &nbsp;&nbsp;周六、周日 14：00～17：00<br />
+            &nbsp;&nbsp;138元/场（赠啤酒4瓶或干果2盘）<br />
+            &nbsp;&nbsp;另可48元/小时
+            </td>
+            <td class="text2" valign="top">
+            <span>地点：</span>启航活动中心209（二楼正门右侧）<br />
+            <span>预定热线：</span>0451-82568464（工作日白天除外）<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15124521618<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13199470806            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="1px" style="background-color:#454545"></td>
+  </tr>
+  <tr>
+  	<td style="background:url(images/title3.jpg) no-repeat">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left:75px; margin-top:20px; margin-bottom:20px">
+          <tr>
+            <td class="text2">1、预约时间请务必填写清楚。如 2009 年 5 月 20 日 9：00~12：00；<br />
+            2、预约者姓名、联系方式，学号请填写清楚，以方便工作人员联系；<br />
+            3、备注栏填写一些特殊的需求，如酒水数量、零食等；<br />
+            4、室内禁止吸烟，赌博，禁止挪动沙发等设施，损坏物品须按原价赔偿，禁止携带易燃易爆等不安全物品；<br />
+            5、禁止自带酒水饮料；<br />
+            6、启航KTV主要以教研室、实验室、班级和社团等团体活动为主，以个人活动为辅。定期举办主题Party等活动，敬请关注。</td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="1px" style="background-color:#454545"></td>
+  </tr>
+  <tr>
+    <td class="text3" style="padding:20px">哈尔滨工程大学启航KTV版权所有 Copyright &copy; 2009.5 http://shop.hrbeu.edu.cn/ktv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;哈尔滨工程大学E商工作室 All rights reserved</td>
+  </tr>
+</table>
+</div>
+
+</body>
+</html>

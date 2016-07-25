@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>微博突发话题监测系统</title>
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<script src="lib/jquery.js" type="text/javascript"></script>
+<script src="js/mainTable.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$().ready(function(){
+		fMainTableStyle();		//表格样式JS
+		fMainTableCheckAll();	//全选功能JS
+		fMainTableCheckInput();	//表单验证JS
+	});
+</script>
+</head>
+
+<body id="indexMain">
+<div id="breadNav"><p><img src="images/main_BreadNavIcon.png" /><a href="indexWelcome.html" target="main">主页</a> &gt; <a href="#">话题监测</a> &gt; <a href="#">突发话题内容</a> &gt; 新浪</p></div>
+<div id="mainArea">
+<table class="mainTable">
+	<thead>
+    	<tr>
+        	<td style="width:20px;"><input type="checkbox" name="checkAll" /></td>
+        	<td style="width:60px;">序号</td>
+            <td>突发词</td>
+            <td>推荐词</td>
+            <td style="width:120px;">发现时间</td>
+            <td style="width:60px;">预警级别</td>
+            <td style="width:60px;">详细内容</td>
+            <td style="width:60px;">综合分析</td>
+            <td style="width:60px;">话题跟踪</td>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+        	<td><input type="checkbox" name="check" value="id" /></td>
+        	<td>52006901</td>
+            <td class="leftAligned">交通法规</td>
+            <td class="leftAligned">不是,自行车,汽车,弱势群体,不得,全家,投资</td>
+            <td>2012-11-25 15:30:40</td>
+            <td><img src="images/main_TableLevelIcon1.gif"/></td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">未跟踪</a></td>
+        </tr>
+        <tr>
+        	<td><input type="checkbox" name="check" value="id" /></td>
+        	<td>52006902</td>
+            <td class="leftAligned">更多,还行</td>
+            <td class="leftAligned">中国,收入,为官,政府,官方,郭嘉中国,收入,为官,政府,阿奎,会计,核算,空间,第三方,讹球</td>
+            <td>2012-11-25 15:30:40</td>
+            <td><img src="images/main_TableLevelIcon2.gif"/></td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">未跟踪</a></td>
+        </tr>
+        <tr>
+        	<td><input type="checkbox" name="check" value="id" /></td>
+        	<td>52006903</td>
+            <td class="leftAligned">蛮子,北京,厨子,民间,组织,人民,会议</td>
+            <td class="leftAligned">两数,提高,鹗裁,基金,午餐,事情,官方,保证</td>
+            <td>2012-11-25 15:30:40</td>
+            <td><img src="images/main_TableLevelIcon3.gif"/></td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">未跟踪</a></td>
+        </tr>
+        <tr>
+        	<td><input type="checkbox" name="check" value="id" /></td>
+        	<td>52006904</td>
+            <td class="leftAligned">交通法规</td>
+            <td class="leftAligned">不是,自行车,汽车,弱势群体,不得,全家,投资</td>
+            <td>2012-11-25 15:30:40</td>
+            <td><img src="images/main_TableLevelIcon1.gif"/></td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">查看</a></td>
+            <td><a href="#">未跟踪</a></td>
+        </tr>
+    </tbody>
+    <tfoot>
+    	<tr>
+        	<td colspan="9">
+            	<p class="tableInfo">共 <span>243</span> 条记录，当前第 <span>1</span> 页，共 <span>10</span> 页</p>
+                <p class="tableNav"><a href="#">首页</a><a href="#">上一页</a><a href="#">下一页</a><a href="#">尾页</a><span>转到<input type="text" id="pageInput" maxlength="3"/>页</span><a href="#">转</a></p>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+</div>
+</body>
+</html>

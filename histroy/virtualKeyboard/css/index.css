@@ -1,0 +1,91 @@
+/* 全局样式 */
+body,div{ margin:0px; padding:0px; color:#FFF; font-family:"微软雅黑","宋体"; font-size:12px; font-weight:normal;}
+div{ overflow:hidden;}
+ul{ list-style:none; margin:0px; padding:0px;}
+img{ border:none 0px;}
+a{ text-decoration:none; color:#FFF; outline:0;}
+input{ outline:0;}
+a:hover{ text-decoration:none;}
+body{ background:#000 url(../images/mainBg.jpg) no-repeat; cursor:default; /*overflow:hidden;*/}
+#index{ background:#000 url(../images/indexBg.jpg) no-repeat;}
+
+/* 头部样式 */
+#top{ width:1280px; height:188px;}
+#top #date{ width:1230px; text-align:right; font-size:17px; margin-top:77px;}
+#top #time{ width:1230px; text-align:right; font-weight:bold; font-size:16px; vertical-align:top; line-height:35px;}
+#top #time span{ font-family:DigifaceWide; font-size:35px; margin:0px 2px 0px 8px; vertical-align:top; line-height:42px;}
+
+/* 左侧样式 */
+#left{ width:260px; height:282px; margin-left:45px; float:left;}
+#left #nav li{ width:260px; height:94px;}
+#left #nav li a{ height:94px; display:block;}
+#left #nav #nav1{ background:url(../images/leftNav1.png) no-repeat;}
+#left #nav #nav2{ background:url(../images/leftNav2.png) no-repeat;}
+#left #nav #nav3{ background:url(../images/leftNav3.png) no-repeat;}
+#left #nav #nav1:hover{ background:url(../images/leftNav1_hover.png) no-repeat;}
+#left #nav #nav2:hover{ background:url(../images/leftNav2_hover.png) no-repeat;}
+#left #nav #nav3:hover{ background:url(../images/leftNav3_hover.png) no-repeat;}
+#left #nav #nav1_now{ background:url(../images/leftNav1_now.png) no-repeat;}
+#left #nav #nav2_now{ background:url(../images/leftNav2_now.png) no-repeat;}
+#left #nav #nav3_now{ background:url(../images/leftNav3_now.png) no-repeat;}
+
+/* 右侧样式 */
+#right{ width:905px; height:727px; margin:5px 0px 0px 20px; float:left;}
+/* 右侧样式 *//* 右侧头部标题 */
+#right #title{ width:905px; height:61px; background:url(../images/rightTitle.png) no-repeat;}
+#right #title_left{ width:673px; float:left;}
+#right #title_left h1{ color:#000; font-size:25px; font-weight:normal; margin:3px 0px 0px 15px; line-height:35px;}
+#right #title_left h2{ color:#FFF; font-size:15px; font-weight:normal; margin-left:26px; margin-top:10px; margin-top:-2px;}
+#right #title_right{ width:232px; float:left; text-align:right;}
+#right #title_right span{ color:#FFF; font-size:30px; line-height:60px; margin-right:20px;}
+#right #title_right span a{ color:#FFF;}
+#right #title_right span a:hover{ background:#2b90a1;}
+/* 右侧样式 *//* 右侧主内容 */
+#right #main{ width:896px; height:666px; margin-left:9px;}
+/* 右侧样式 *//* 首页主内容 */
+#right #indexMain{ width:896px; height:707px; margin-left:9px;}
+#right #indexPPT{ width:600px; height:360px; margin:73px auto 0px auto;}
+#right #indexWelcome{ width:530px; margin:55px auto 0px auto;}
+#right #indexWelcome span{ font-size:18px; line-height:30px; text-align:left;}
+/* 右侧样式 *//* 分类页主内容 */
+#right .classify{ margin-top:50px; max-height:530px; background:url(../images/classifyLine.png) center top repeat-y;}
+#right .classify ul{ width:810px; margin:-15px auto;}
+#right .classify li{ color:#FFF; width:270px; height:83px; line-height:80px; font-size:35px; font-weight:bold; text-align:center; float:left;}
+#right .classify li a{ color:#FFF;}
+#right .classify li a:hover{ background:#35434f;}
+/* 右侧样式 *//* 电影列表页主内容 */
+#right .list{ height:580px; margin:20px 0px 6px 16px;}
+#right .list .movie{ width:278px; height:283px; margin:0px 5px 7px 5px; float:left;}
+#right .list .movie:hover{ background:#35434f;}
+#right .list .movie .pic{ width:258px; height:181px; background:#FFF; margin:10px auto 7px auto;}
+#right .list .movie .pic img{ border:#485a69 1px solid; margin:3px;}
+#right .list .movie .pic .name{ width:207px; height:24px; color:#000; font-size:16px; font-weight:bold; line-height:21px; white-space:nowrap; overflow:hidden; margin-left:3px; display:block; float:left;}
+#right .list .movie .pic .length{ width:48px; height:24px; color:#c10000; line-height:23px; font-family:Tahoma,"宋体"; font-size:13px; text-align:right; overflow:hidden; display:block; float:right;}
+#right .list .movie .note{ width:252px; height:80px; font-family:Tahoma,"宋体"; font-size:12px; line-height:20px; margin:auto;}
+#right .show_page{ color:#FFF; font-family:"微软雅黑"; font-size:29px; text-align:center; line-height:60px; background:url(../images/listLine.png) repeat-x left top; margin:0px 25px;}
+#right .show_page a{ text-decoration:underline;}
+#right .show_page a:hover{ text-decoration:underline; background:#35434f;}
+/* 右侧样式 *//* 电影详细信息页主内容 */
+#right .info{ width:252px; margin:30px 30px 0px 35px; float:left;}
+#right .info img{ border:#707f8b 1px solid;}
+#right .info table{ margin:10px 2px; text-align:left;}
+#right .info table td{ padding:5px 0px;}
+#right .info table .tab_left{ width:65px; font-size:15px; font-weight:bold; vertical-align:top; line-height:24px;}
+#right .info table .tab_right{ font-size:14px; line-height:22px;}
+#right .info .button{ width:244px; height:70px; display:block; background:url(../images/selectButton.png) no-repeat; margin:7px auto;}
+#right .info .button:hover{ background:url(../images/selectButton_hover.png) no-repeat;}
+#right .content{ height:590px; margin:30px 0px; padding:0px 30px; background:url(../images/classifyLine.png) -270px top repeat-y;}
+#right .content .title{ height:28px; font-size:16px; font-weight:bold; margin-top:-3px;}
+#right .content .text{ font-size:14px; text-align:justify; line-height:24px;}
+/* 右侧样式 *//* 电影打印信息页主内容 */
+#right .printTitle{ display:none;}
+#right .printMessage{ font-size:30px; font-weight:normal; line-height:60px; margin:70px 0px 40px 250px;}
+#right .printButton{ width:244px; height:70px; display:block; background:url(../images/printButton.png) no-repeat; margin:auto;}
+#right .printButton:hover{ background:url(../images/printButton_hover.png) no-repeat;}
+/* 右侧样式 *//* 查询页键盘 */
+#right #floatLayer{ width:896px; height:666px; margin-left:10px; position:absolute; z-index:10; background:url(../images/searchFloatLayoutBg.png) no-repeat;}
+
+
+/* 底部样式 */
+#bottom{ width:1280px; text-align:center; padding-top:90px;}
+#bottom span{ font-size:12px;}

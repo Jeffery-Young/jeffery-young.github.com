@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>D3装备模拟器</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/itemsSimulator.css" rel="stylesheet" type="text/css" />
+<script src="lib/jquery.js" type="text/javascript"></script>
+<script src="js/model.js" type="text/javascript"></script>
+<script src="js/items.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$().ready(function(){
+		fInit();
+		//setItems();
+		//showHeroAttributes();
+	});
+</script>
+</head>
+
+<body id="itemsSimulator">
+<div id="items">
+	<div id="left">
+		<div class="box battleTag">
+    		<span>BattleTag</span>
+    	</div>
+    	<div class="box itemsArea itemsAreaBG_Default" id="itemsArea">
+    		<div class="level" id="level"></div>			<!--等级-->
+        	<div class="itemsPlace" id="head"></div>		<!--头部-->
+        	<div class="itemsPlace" id="shoulders"></div>	<!--护肩-->
+        	<div class="itemsPlace" id="torso"></div>		<!--身躯-->
+        	<div class="itemsPlace" id="wrists"></div>		<!--手腕-->
+        	<div class="itemsPlace" id="hands"></div>		<!--手掌-->
+        	<div class="itemsPlace" id="waist"></div>		<!--腰部-->
+        	<div class="itemsPlace" id="legs"></div>		<!--腿部-->
+        	<div class="itemsPlace" id="feet"></div>		<!--脚部-->
+        	<div class="itemsPlace" id="leftRing"></div>	<!--左手戒指-->
+        	<div class="itemsPlace" id="rightRing"></div>	<!--右手戒指-->
+        	<div class="itemsPlace" id="amulets"></div>		<!--护身符-->
+        	<div class="itemsPlace" id="weapons"></div>		<!--武器-->
+        	<div class="itemsPlace" id="offHand"></div>		<!--副手-->
+    	</div>
+    	<div class="box function">
+        	<ul>
+            	<li><span>人物职业：</span><select name="chooseClasses" id="chooseClasses"><option value="">选择职业</option><option value="bar">野蛮人</option><option value="dh">恶魔猎手</option><option value="monk">武僧</option><option value="wd">巫医</option><option value="wzd">秘术师</option></select></li>
+                <li><span>人物等级：</span>- <input name="level" type="text" id="level" class="level" value="60" maxlength="2" disabled="disabled" /> +</li>
+                <li id="saveData">保存数据</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="right">
+    	<div id="intro" class="box">
+        	<p>使用说明</p>
+            <p>使用说明使用说明使用说明使用说明使用说明使用说明使用说明使用说明使用说明使用说明使用说明</p>
+        </div>
+        <div id="form">        
+    		<div class="box formTitle">
+        		<!--<div class="introTitle">装备模拟器使用说明</div>	说明-->
+        		<div class="itemsTitle">
+        			<span id="title">填写『 <b>部位名称</b> 』装备属性</span>
+            		<!--<span id="showhide">显示完整属性</span>-->
+            	</div>
+        	</div>
+        	<div class="box formMain">
+        		<!--<div class="intro">
+            		<p>使用说明<br/>使<br/>用<br/>说<br/>明<br/>使<br/>用<br/>说<br/>明<br/>使<br/>用<br/>说<br/>明<br/>使<br/>用<br/>说<br/>明<br/>使<br/>用<br/>说<br/>明<br/></p>	说明
+            	</div>-->
+        		<div class="itemsForm">
+                	<ul id="weaponsForm" style="display:none;">
+                    	<p class="className">武器选项</p>
+                        <li class="head">武器种类</li><li class="bar"><select name="weaponSpecie" id="weaponSpecie"><option value="1.6">单手弩</option><option value="1.1">双手弩</option></select></li>
+                        <li class="head">是否双持</li><li class="bar"><input name="dualWield" type="checkbox" value="" /></li>
+                    </ul>
+        			<ul>
+            			<p class="className">人物属性</p>
+            			<li class="head">力量</li><li class="bar"><input name="strength" type="text" id="strength" maxlength="4" /></li>
+                		<li class="head">敏捷</li><li class="bar"><input name="dexterity" type="text" id="dexterity" maxlength="4" /></li>
+                		<li class="head">智力</li><li class="bar"><input name="intelligence" type="text" id="intelligence" maxlength="4" /></li>
+                		<li class="head">体力</li><li class="bar"><input name="vitality" type="text" id="vitality" maxlength="4" /></li>
+            		</ul>
+            		<ul>
+            			<p class="className">攻击属性</p>
+            			<li class="head">最小伤害</li><li class="bar"><input name="minDamage" type="text" id="minDamage" maxlength="4" /></li>
+                		<li class="head">最大伤害</li><li class="bar"><input name="maxDamage" type="text" id="maxDamage" maxlength="4" /></li>
+                		<li class="head">暴击概率</li><li class="bar"><input name="criticalHitChance" type="text" id="criticalHitChance" maxlength="6" />%</li>
+                		<li class="head">暴击伤害</li><li class="bar"><input name="criticalHitDamage" type="text" id="criticalHitDamage" maxlength="6" />%</li>
+                		<li class="head">攻击速度</li><li class="bar"><input name="attackSpeed" type="text" id="attackSpeed" maxlength="4" />%</li>
+            		</ul>
+            		<ul>
+            			<p class="className">防御属性</p>
+            			<li class="head">总护甲</li><li class="bar"><input name="armor" type="text" id="armor" maxlength="4" /></li>
+                		<li class="head">全抗性</li><li class="bar"><input name="allResistance" type="text" id="allResistance" maxlength="4" /></li>
+                		<li class="head">物理抗性</li><li class="bar"><input name="physicalResistance" type="text" id="physicalResistance" maxlength="4" /></li>
+                		<li class="head">冰寒抗性</li><li class="bar"><input name="coldResistance" type="text" id="coldResistance" maxlength="4" /></li>
+                		<li class="head">火焰抗性</li><li class="bar"><input name="fireResistance" type="text" id="fireResistance" maxlength="4" /></li>
+                		<li class="head">电击抗性</li><li class="bar"><input name="lightningResistance" type="text" id="lightningResistance" maxlength="4" /></li>
+                		<li class="head">毒素抗性</li><li class="bar"><input name="poisonResistance" type="text" id="poisonResistance" maxlength="4" /></li>
+                		<li class="head">秘法/神圣抗性</li><li class="bar"><input name="arcaneResistance" type="text" id="arcaneResistance" maxlength="4" /></li>
+                		<li class="head">格挡概率</li><li class="bar"><input name="blockChance" type="text" id="blockChance" maxlength="4" />%</li>
+                		<li class="head">格挡值</li><li class="bar blockAmount"><input name="blockAmount_min" type="text" id="blockAmount_min" maxlength="4" /> - <input name="blockAmount_max" type="text" id="blockAmount_max" maxlength="4" /></li>
+                		<li class="head">控场减免</li><li class="bar"><input name="crowdControlReduction" type="text" id="crowdControlReduction" maxlength="6" />%</li>
+                		<li class="head">远程伤害减免</li><li class="bar"><input name="missileDamageReducion" type="text" id="missileDamageReducion" maxlength="6" />%</li>
+                		<li class="head">近战伤害减免</li><li class="bar"><input name="meleeDamageReduction" type="text" id="meleeDamageReduction" maxlength="6" />%</li>
+                		<li class="head">荆棘伤害</li><li class="bar"><input name="thorns" type="text" id="thorns" maxlength="6" /></li>
+            		</ul>
+            		<ul>
+            			<p class="className">生命属性</p>
+            			<li class="head">生命值加成</li><li class="bar"><input name="liftBonus" type="text" id="liftBonus" maxlength="4" />%</li>
+                		<li class="head">每秒生命恢复</li><li class="bar"><input name="lifePerSecond" type="text" id="lifePerSecond" maxlength="6" /></li>
+                		<li class="head">生命窃取</li><li class="bar"><input name="lifeSteal" type="text" id="lifeSteal" maxlength="6" />%</li>
+                		<li class="head">击杀生命恢复</li><li class="bar"><input name="lifePerKill" type="text" id="lifePerKill" maxlength="6" /></li>
+                		<li class="head">击中生命恢复</li><li class="bar"><input name="lifePerHit" type="text" id="lifePerHit" maxlength="6" /></li>
+                		<li class="head">生命之球效果</li><li class="bar"><input name="healthGlobeHealingBonus" type="text" id="healthGlobeHealingBonus" maxlength="6" /></li>
+                		<li class="head">拾取距离加成</li><li class="bar"><input name="bonusToGlobeRadius" type="text" id="bonusToGlobeRadius" maxlength="6" /></li>
+            		</ul>
+            		<ul>
+            			<p class="className">冒险属性</p>
+            			<li class="head">移动速度</li><li class="bar"><input name="movementSpeed" type="text" id="movementSpeed" maxlength="4" />%</li><li style="clear:both;"></li>
+                		<li class="head">金币寻获量</li><li class="bar"><input name="goldFind" type="text" id="goldFind" maxlength="4" />%</li>
+                		<li class="head">魔宝寻获量</li><li class="bar"><input name="magicFind" type="text" id="magicFind" maxlength="4" />%</li>
+                		<li class="head">经验加成</li><li class="bar"><input name="bonusExperience" type="text" id="bonusExperience" maxlength="4" />%</li>
+                		<li class="head">击杀经验加成</li><li class="bar"><input name="bonusExperiencePerKill" type="text" id="bonusExperiencePerKill" maxlength="6" />%</li>
+            		</ul>
+            	</div>
+        	</div>
+        	<div class="box formBtn">
+        		<span id="submit">确定</span>
+            	<span id="reset">重置</span>
+       		</div>
+        </div>
+    </div>
+    <span class="itemsCorner tl"></span>
+	<span class="itemsCorner tr"></span>
+	<span class="itemsCorner bl"></span>
+	<span class="itemsCorner br"></span>
+</div>
+
+<div id="data">
+	<div class="top"><!--人物详细数据--></div>
+    <div class="center" id="heroAttributes">
+    	<ul>
+    		<p class="className">人物属性</p>
+        	<li class="head">力量</li><li class="value"><span id="strength">0</span></li>
+        	<li class="head">敏捷</li><li class="value"><span id="dexterity">0</span></li>
+        	<li class="head">智力</li><li class="value"><span id="intelligence">0</span></li>
+        	<li class="head">体能</li><li class="value"><span id="vitality">0</span></li>
+            <li class="head">护甲值</li><li class="value"><span id="armor">0</span></li>
+        	<li class="head">伤害（DPS）</li><li class="value"><span id="DPS">0</span></li>
+        </ul>
+        <ul>
+    		<p class="className">攻击</p>
+        	<li class="head">主属性伤害加成</li><li class="value"><span id="mainAttributesDamage">0</span>%</li>
+        	<li class="head">技能伤害加成</li><li class="value"><span id="skillsAttributesDamage">0</span>%</li>
+        	<li class="head">每秒攻击次数</li><li class="value"><span id="attacksPerSecond">0</span></li>
+        	<li class="head">暴击概率</li><li class="value"><span id="criticalHitChance">0</span>%</li>
+            <li class="head">暴击伤害</li><li class="value">+<span id="criticalHitDamage">0</span>%</li>
+        </ul>
+        <ul>
+    		<p class="className">防御</p>
+        	<li class="head">格挡值</li><li class="value"><span id="blockAmount">0-0</span></li>
+        	<li class="head">格挡概率</li><li class="value"><span id="blockChance">0</span>%</li>
+        	<li class="head">闪躲概率</li><li class="value"><span id="dodgeChance">0</span>%</li>
+        	<li class="head">伤害减免</li><li class="value"><span id="damageReduction">0</span>%</li>
+            <li class="head">物理抗性</li><li class="value"><span id="physicalResistance">0</span></li>
+            <li class="head">冰寒抗性</li><li class="value"><span id="coldResistance">0</span></li>
+            <li class="head">火焰抗性</li><li class="value"><span id="fireResistance">0</span></li>
+            <li class="head">电击抗性</li><li class="value"><span id="lightningResistance">0</span></li>
+            <li class="head">毒素抗性</li><li class="value"><span id="poisonResistance">0</span></li>
+            <li class="head">秘法/神圣抗性</li><li class="value"><span id="arcaneResistance">0</span></li>
+            <li class="head">控场减免</li><li class="value"><span id="crowdControlReduction">0</span>%</li>
+            <li class="head">远程伤害减免</li><li class="value"><span id="missileDamageReducion">0</span>%</li>
+            <li class="head">近战伤害减免</li><li class="value"><span id="meleeDamageReduction">0</span>%</li>
+            <li class="head">荆棘伤害</li><li class="value"><span id="thorns">0</span></li>
+        </ul>
+        <ul>
+    		<p class="className">生命</p>
+        	<li class="head">生命值上限</li><li class="value"><span id="maximumLife">0</span></li>
+        	<li class="head">总生命值加成</li><li class="value">+<span id="totalLifeBonus">0</span>%</li>
+        	<li class="head">每秒生命恢复</li><li class="value"><span id="lifePerSecond">0</span></li>
+        	<li class="head">生命窃取</li><li class="value"><span id="lifeSteal">0</span>%</li>
+            <li class="head">击杀生命恢复</li><li class="value"><span id="lifePerKill">0</span></li>
+            <li class="head">击中生命恢复</li><li class="value"><span id="lifePerHit">0</span></li>
+            <li class="head">生命之球效果加成</li><li class="value"><span id="healthGlobeHealingBonus">0</span></li>
+            <li class="head">拾取距离加成</li><li class="value"><span id="bonusToGlobeRadius">0</span></li>
+        </ul>
+        <ul>
+    		<p class="className">冒险</p>
+        	<li class="head">移动速度</li><li class="value"><span id="movementSpeed">0</span>%</li>
+        	<li class="head">金币寻获量</li><li class="value"><span id="goldFind">0</span>%</li>
+        	<li class="head">魔宝寻获量</li><li class="value"><span id="magicFind">0</span>%</li>
+        	<li class="head">经验加成</li><li class="value"><span id="bonusExperience">0</span>%</li>
+            <li class="head">击杀经验加成</li><li class="value"><span id="bonusExperiencePerKill">0</span></li>
+        </ul>
+	</div>
+    <div class="bottom"></div>
+</div>
+
+<!--弹出装备属性html样例-->
+<!--
+<div class="popupItemAttributesBox">
+	<h3>左手戒指</h3>
+    <p>力量：10</p>
+    <p>敏捷：20</p>
+    <p>暴击伤害：51</p>
+    <p>生命之球效果加成：3856</p>
+</div>
+-->
+</body>
+</html>

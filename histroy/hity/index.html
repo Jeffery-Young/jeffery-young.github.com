@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Merry Christmas! Hity & Jeffery</title>
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<script src="lib/jquery.js" type="text/javascript"></script>
+<script src="js/Time.js" type="text/javascript"></script>
+<script src="js/Snowstorm.js" type="text/javascript"></script>
+<script type="text/javascript">
+window.onload = function(){
+	document.onselectstart = function(){
+		return false;				//禁止选中元素
+	}
+	showPassedTime();
+	snowStorm.snowColor = '#fff'; // blue-ish snow!?
+	snowStorm.flakesMaxActive = 300;  // show more snow on screen at once
+}
+</script>
+</head>
+<body>
+<div>
+</div>
+<div id="mouseOverImg"></div>
+<div class="center">
+	<div class="text">
+		<span>As a web designer,<br/>this is my first works for ourselves.<br/>Now,<br/>I have only one wish,<br/>that I hope the <b>Seconds</b> will never stop.<br/><b>Forever</b>.</span>
+	</div>
+	<div class="heart">
+    	<div class="title">My dear Hity<br/>&nbsp I have fallen in love with you for</div>
+        <div class="time">
+            <span class="unit">Seconds</span><span class="number" id="seconds">21</span>
+            <span class="unit">Minutes</span><span class="number" id="minutes">18</span>
+            <span class="unit">Hours</span><span class="number" id="hours">22</span>
+            <span class="unit">Days</span><span class="number" id="days">1888</span>
+        </div>
+        <div class="name">Yours Jeffery</div>
+    </div>
+</div>
+
+</body>
+</html>

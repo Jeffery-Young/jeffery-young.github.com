@@ -1,0 +1,6 @@
+body,div{ margin:0pt; padding:0pt; color:#000; font-family:"ËÎÌו"; font-size:12pt; font-weight:normal;}
+#top,#left,#bottom{ display:none;}
+#right #title,#right .printButton{ display:none;}
+#right{ width:100%; height:auto; float:none;}
+#right .printTitle{ width:150pt; font-weight:bold; text-align:center; margin:0pt auto 5pt auto;}
+#right .printMessage{ width:150pt; line-height:18pt; padding:7pt 7pt 3pt 7pt; margin:auto; border-top:#000 1pt solid; border-bottom:#000 1pt solid;}

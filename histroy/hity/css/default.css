@@ -1,0 +1,25 @@
+/* 全局样式 */
+@font-face{ font-family:digital; src:url(../fonts/DS-DIGI.eot);}
+@font-face{ font-family:digital; src:url(../fonts/DS-DIGI.ttf);}
+body,div{ margin:0px; padding:0px; color:#000; font-family:Tahoma,Arial,"宋体"; font-size:12px; font-weight:normal;}
+div{ overflow:hidden;}
+ul{ list-style:none; margin:0px; padding:0px;}
+img{ border:none 0px;}
+a{ text-decoration:none; color:#000; outline:0;}
+a:hover{ text-decoration:none;}
+input{ outline:0;}
+
+body{ background:#f4e9d7 url(../images/mainBg.jpg) no-repeat center top; cursor:url(../images/mouse.ico); overflow-x:hidden; height:700px;}
+.center{ width:1000px; margin:0px auto;}
+
+.text{ width:400px; margin:250px 80px 0px 35px; float:left;}
+.text span{ font-size:16px; line-height:30px;}
+
+.heart{ width:480px; margin:210px 0px 0px 0px;}
+.heart .title{ color:#9e482a; font-size:20px; line-height:36px;}
+.heart .time{ margin:27px 0px; text-align:right;}
+.heart .time span{ color:#aa0609; float:right;}
+.heart .time .number{ font-family:digital; font-size:45px; margin:0px 2px 0px 10px; display:block; width:45px;}
+.heart .time #days{ width:90px;}
+.heart .time .unit{ font-size:17px; margin-top:3px;}
+.heart .name{ color:#9e482a; font-size:22px; text-align:right; margin-right:70px;}
